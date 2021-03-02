@@ -5,7 +5,8 @@
 
     <h1>Hello, world! This is a test update.</h1>
     <h1>Another one.</h1>
-    <div class="bg-red-500">Another one.</div>
+    <div class="bg-red-500">Red</div>
+    <div class="bg-green-500">Green</div>
 
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
