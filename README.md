@@ -1,2 +1,0 @@
-# suboptimaleng.github.io
-🔖 Blog
