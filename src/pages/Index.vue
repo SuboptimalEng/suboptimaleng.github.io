@@ -4,6 +4,7 @@
     <g-image alt="Example image" src="~/favicon.png" width="135" />
 
     <h1>Hello, world! This is a test update.</h1>
+    <h1>Another one.</h1>
 
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
