@@ -15,9 +15,11 @@
     <slot />
 
     <!-- footer -->
-    <div class="flex flex-row">
-      <div v-for="link in links" class="mx-1">
-        <a :href="link.href" :class="link.hover">{{ link.name }}</a>
+    <div class="flex flex-row justify-center">
+      <div v-for="social in socials" class="mx-1">
+        <a :href="social.href">
+          <font-awesome-icon :icon="social.icon" size="lg" />
+        </a>
       </div>
     </div>
   </div>
@@ -32,28 +34,31 @@ query {
 </static-query>
 
 <script>
+import {
+  faGithub,
+  faTwitter,
+  faHackerNews,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
+
 export default {
   data() {
     return {
-      links: [
+      socials: [
         {
-          name: 'tw',
-          hover: 'hover:bg-blue-500',
+          icon: faTwitter,
           href: 'https://twitter.com/SuboptimalEng',
         },
         {
-          name: 'yt',
-          hover: 'hover:bg-red-500',
+          icon: faYoutube,
           href: 'https://www.youtube.com/SuboptimalEng',
         },
         {
-          name: 'gh',
-          hover: 'hover:bg-blue-500',
+          icon: faGithub,
           href: 'https://github.com/SuboptimalEng',
         },
         {
-          name: 'yc',
-          hover: 'hover:bg-yellow-500',
+          icon: faHackerNews,
           href: 'https://news.ycombinator.com/user?id=SuboptimalEng',
         },
       ],
@@ -61,3 +66,18 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.fa-twitter:hover {
+  color: #1da1f2 !important;
+}
+.fa-youtube:hover {
+  color: #ff0000 !important;
+}
+.fa-github:hover {
+  color: #ad5c51 !important;
+}
+.fa-hacker-news:hover {
+  color: #ff6600 !important;
+}
+</style>
