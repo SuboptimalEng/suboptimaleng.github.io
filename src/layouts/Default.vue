@@ -21,7 +21,7 @@
           <font-awesome-icon
             :icon="social.icon"
             size="lg"
-            style="color: #474747"
+            style="color: #718096"
           />
         </a>
       </div>
