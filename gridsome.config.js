@@ -5,8 +5,11 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'suboptimal engineer',
   siteUrl: 'https://suboptimaleng.github.io',
+  icon: {
+    favicon: './src/img/favicon.png'
+  },
   plugins: [
     {
       use: "gridsome-plugin-tailwindcss",
