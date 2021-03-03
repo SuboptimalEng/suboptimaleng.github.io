@@ -15,10 +15,14 @@
     <slot />
 
     <!-- footer -->
-    <div class="flex flex-row justify-center">
+    <div class="flex flex-row justify-center mt-4">
       <div v-for="social in socials" class="mx-1">
         <a :href="social.href">
-          <font-awesome-icon :icon="social.icon" size="lg" />
+          <font-awesome-icon
+            :icon="social.icon"
+            size="lg"
+            style="color: #474747"
+          />
         </a>
       </div>
     </div>
@@ -54,12 +58,12 @@ export default {
           href: 'https://www.youtube.com/SuboptimalEng',
         },
         {
-          icon: faHackerNews,
-          href: 'https://news.ycombinator.com/user?id=SuboptimalEng',
-        },
-        {
           icon: faGithub,
           href: 'https://github.com/SuboptimalEng',
+        },
+        {
+          icon: faHackerNews,
+          href: 'https://news.ycombinator.com/user?id=SuboptimalEng',
         },
       ],
     };
@@ -74,10 +78,10 @@ export default {
 .fa-youtube:hover {
   color: #ff0000 !important;
 }
+.fa-github:hover {
+  color: #211f1f !important;
+}
 .fa-hacker-news:hover {
   color: #ff6600 !important;
-}
-.fa-github:hover {
-  color: #9cdaf1 !important;
 }
 </style>
