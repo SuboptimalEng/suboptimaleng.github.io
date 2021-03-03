@@ -1,13 +1,13 @@
 <template>
   <Layout>
-    <div>hi</div>
+    <div>{{ $static.post.title }}</div>
   </Layout>
 </template>
 
-<script>
-export default {
-  metaInfo: {
-    title: 'about',
-  },
-};
-</script>
+<static-query>
+query {
+  post: post(path: "/blog/about") {
+    title
+  }
+}
+</static-query>

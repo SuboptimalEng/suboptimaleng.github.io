@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'suboptimal engineer',
+  siteName: 'suboptimal',
   siteUrl: 'https://suboptimaleng.github.io',
   icon: {
     favicon: './src/img/favicon.png'
@@ -20,5 +20,30 @@ module.exports = {
         shouldTimeTravel: false
       }
     },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'blog/**/*.md',
+        typeName: 'Post',
+        refs: {
+          tags: {
+            typeName: 'Tag',
+            create: true
+          },
+        }
+      }
+    },
   ],
+  templates: {
+    Tag: '/tag/:id',
+    Post: '/blog/:path',
+  },
+  transformers: {
+    remark: {
+      autolinkClassName: 'icon icon-link heading-anchor',
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['noopener',],
+      anchorClassName: 'icon icon-link',
+    }
+  },
 }

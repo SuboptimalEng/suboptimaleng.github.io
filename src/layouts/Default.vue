@@ -1,12 +1,14 @@
 <template>
-  <div class="justify-center">
+  <div
+    class="justify-center m-10 grid grid-cols-1 divide-y divide-gray-500 font-sans"
+  >
     <!-- topbar -->
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-row justify-between pb-2 font-bold text-2xl">
       <div>
         <g-link to="/">{{ $static.metadata.siteName }}</g-link>
       </div>
       <div>
-        <g-link to="/">home</g-link>
+        <g-link to="/" class="mx-4">home</g-link>
         <g-link to="/about/">about</g-link>
       </div>
     </div>
@@ -15,14 +17,10 @@
     <slot />
 
     <!-- footer -->
-    <div class="flex flex-row justify-center mt-4">
-      <div v-for="social in socials" class="mx-1">
+    <div class="flex flex-row pt-2 justify-center">
+      <div v-for="social in socials" class="mx-1 text-2xl">
         <a :href="social.href">
-          <font-awesome-icon
-            :icon="social.icon"
-            size="lg"
-            style="color: #718096"
-          />
+          <font-awesome-icon :icon="social.icon" style="color: #718096" />
         </a>
       </div>
     </div>
