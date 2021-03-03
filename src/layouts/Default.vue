@@ -54,12 +54,12 @@ export default {
           href: 'https://www.youtube.com/SuboptimalEng',
         },
         {
-          icon: faGithub,
-          href: 'https://github.com/SuboptimalEng',
-        },
-        {
           icon: faHackerNews,
           href: 'https://news.ycombinator.com/user?id=SuboptimalEng',
+        },
+        {
+          icon: faGithub,
+          href: 'https://github.com/SuboptimalEng',
         },
       ],
     };
@@ -74,10 +74,10 @@ export default {
 .fa-youtube:hover {
   color: #ff0000 !important;
 }
-.fa-github:hover {
-  color: #ad5c51 !important;
-}
 .fa-hacker-news:hover {
   color: #ff6600 !important;
+}
+.fa-github:hover {
+  color: #9cdaf1 !important;
 }
 </style>
