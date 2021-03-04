@@ -1,2 +1,2 @@
 # suboptimaleng.github.io
-🔖 Blog
+🔖 Gridsome Blog 1.0
