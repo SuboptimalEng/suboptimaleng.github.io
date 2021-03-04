@@ -3,24 +3,28 @@
     class="justify-center m-10 grid grid-cols-1 divide-y divide-gray-500 font-sans"
   >
     <!-- topbar -->
-    <div class="flex flex-row justify-between pb-2 font-bold text-2xl">
+    <div class="flex flex-row justify-between pb-2 font-black text-2xl">
       <div>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
+        <g-link to="/" class="hover:text-indigo-700">{{
+          $static.metadata.siteName
+        }}</g-link>
       </div>
-      <div>
-        <g-link to="/" class="mx-4">home</g-link>
-        <g-link to="/about/">about</g-link>
+      <div class="space-x-2">
+        <g-link to="/" class="hover:text-pink-700">home</g-link>
+        <g-link to="/about/" class="hover:text-green-700"> about </g-link>
       </div>
     </div>
 
     <!-- content -->
-    <slot />
+    <div class="py-2">
+      <slot />
+    </div>
 
     <!-- footer -->
     <div class="flex flex-row pt-2 justify-center">
       <div v-for="social in socials" class="mx-1 text-2xl">
         <a :href="social.href">
-          <font-awesome-icon :icon="social.icon" style="color: #718096" />
+          <font-awesome-icon :icon="social.icon" />
         </a>
       </div>
     </div>

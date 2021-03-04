@@ -1,16 +1,12 @@
 <template>
   <Layout>
-    <div class="flex flex-col">
-      <div
-        v-for="post in $page.posts.edges"
-        :key="post.id"
-        class="flex flex-row justify-between"
-      >
-        <g-link :to="post.node.path" rel="bookmark">{{
-          post.node.title
-        }}</g-link>
-        <time :datetime="post.node.date">{{ post.node.date }}</time>
-      </div>
+    <div
+      v-for="post in $page.posts.edges"
+      :key="post.id"
+      class="flex flex-row justify-between"
+    >
+      <g-link :to="post.node.path" rel="bookmark">{{ post.node.title }}</g-link>
+      <time :datetime="post.node.date">{{ post.node.date }}</time>
     </div>
   </Layout>
 </template>
