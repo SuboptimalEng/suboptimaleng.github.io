@@ -1,9 +1,9 @@
 ---
-title: "A hello world example in Gridsome"
+title: "about"
 path: /about
-date: 2020-10-24
+date: 2020-10-23
 summary: "Read my guide to setting up Gridsome"
-tags: [ 'Blog', 'wtf' ]
+tags: [ 'meta' ]
 ---
 
 # suboptimal blog

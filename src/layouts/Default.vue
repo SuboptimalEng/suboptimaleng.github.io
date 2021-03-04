@@ -5,13 +5,13 @@
     <!-- topbar -->
     <div class="flex flex-row justify-between pb-2 font-black text-2xl">
       <div>
-        <g-link to="/" class="hover:text-indigo-700">{{
+        <g-link to="/" class="hover:underline">{{
           $static.metadata.siteName
         }}</g-link>
       </div>
       <div class="space-x-2">
-        <g-link to="/" class="hover:text-pink-700">home</g-link>
-        <g-link to="/about/" class="hover:text-green-700"> about </g-link>
+        <g-link to="/" class="hover:underline">home</g-link>
+        <g-link to="/about/" class="hover:underline"> about </g-link>
       </div>
     </div>
 
@@ -81,7 +81,7 @@ export default {
   color: #ff0000 !important;
 }
 .fa-github:hover {
-  color: #211f1f !important;
+  color: #9cdaf1 !important;
 }
 .fa-hacker-news:hover {
   color: #ff6600 !important;
