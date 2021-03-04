@@ -1,6 +1,6 @@
 <template>
   <div
-    class="justify-center m-10 grid grid-cols-1 divide-y divide-gray-500 font-sans"
+    class="grid grid-cols-1 divide-y divide-gray-500 font-sans max-w-screen-sm mx-auto p-8"
   >
     <!-- topbar -->
     <div class="flex flex-row justify-between pb-2 font-black text-2xl">

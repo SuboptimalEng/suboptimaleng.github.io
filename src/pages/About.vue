@@ -6,7 +6,7 @@
 
 <static-query>
 query {
-  post: post(path: "/blog/about") {
+  post(path: "/blog/about") {
     title
   }
 }
