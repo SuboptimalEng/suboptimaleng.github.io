@@ -1,17 +1,16 @@
 <template>
   <div
-    class="grid grid-cols-1 divide-y divide-gray-200 font-sans max-w-screen-sm mx-auto p-8"
+    class="grid grid-cols-1 divide-y divide-gray-300 font-sans antialiased max-w-screen-sm mx-auto p-4 scale-150"
   >
     <!-- topbar -->
-    <div class="flex flex-row justify-between pb-2 font-black text-2xl">
+    <div class="flex flex-row justify-between pb-2 font-bold text-4xl">
       <div>
-        <g-link to="/" class="hover:underline">{{
-          $static.metadata.siteName
-        }}</g-link>
+        <g-link to="/" class="hover:underline">
+          {{ $static.metadata.siteName }}
+        </g-link>
       </div>
       <div class="space-x-2">
-        <g-link to="/" class="hover:underline">home</g-link>
-        <g-link to="/about/" class="hover:underline"> about </g-link>
+        <g-link to="/about/" class="hover:underline">about</g-link>
       </div>
     </div>
 
@@ -22,7 +21,7 @@
 
     <!-- footer -->
     <div class="flex flex-row pt-2 justify-center">
-      <div v-for="social in socials" class="mx-1 text-2xl">
+      <div v-for="social in socials" class="mx-1 text-3xl">
         <a :href="social.href">
           <font-awesome-icon :icon="social.icon" />
         </a>

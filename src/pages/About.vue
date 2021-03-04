@@ -11,3 +11,11 @@ query {
   }
 }
 </static-query>
+
+<script>
+export default {
+  metaInfo: {
+    title: 'about',
+  },
+};
+</script>
