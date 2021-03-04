@@ -35,7 +35,7 @@ query Posts ($page: Int) {
     filter: { path: { ne: "/blog/about/" } },
     sortBy: "date",
     order: DESC,
-    perPage: 20,
+    perPage: 10,
     page: $page
   ) @paginate {
     totalCount
