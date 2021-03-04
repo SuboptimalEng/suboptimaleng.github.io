@@ -10,7 +10,7 @@
         </g-link>
       </div>
       <div class="space-x-2">
-        <g-link to="/about/" class="hover:underline">about</g-link>
+        <g-link to="/blog/about/" class="hover:underline">about</g-link>
       </div>
     </div>
 
