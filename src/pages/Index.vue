@@ -1,13 +1,15 @@
 <template>
   <Layout>
-    <div v-for="post in $page.posts.edges" :key="post.id" class="flex flex-col">
+    <div v-for="post in $page.posts.edges" :key="post.id" class="py-1">
       <g-link :to="post.node.path" class="font-medium text-2xl hover:underline">
         {{ post.node.title }}
       </g-link>
-      <div class="flex flex-row justify-between">
-        <time :datetime="post.node.date" class="text-sm font-light">
+      <div class="flex flex-row text-sm font-light">
+        <time :datetime="post.node.date">
           {{ post.node.date }}
         </time>
+        <div class="mx-1 font-black">·</div>
+        <div class="italic">{{ post.node.ttr }} min read</div>
       </div>
     </div>
 
@@ -36,6 +38,7 @@ query Posts ($page: Int) {
       node {
         id
         title
+        ttr
         date (format: "MMM D, Y")
         summary
         path

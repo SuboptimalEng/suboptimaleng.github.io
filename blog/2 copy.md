@@ -1,5 +1,6 @@
 ---
 title: "second blog post"
+ttr: 1
 path: /g
 date: 2020-10-24
 summary: "read my guide to setting up gridsome"
