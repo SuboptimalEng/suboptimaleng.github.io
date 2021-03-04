@@ -8,18 +8,13 @@
         <time :datetime="post.node.date" class="text-sm font-light">
           {{ post.node.date }}
         </time>
-        <!-- <div class="flex flex-row space-x-1">
-          <div
-            v-for="tag in post.node.tags"
-            class="bg-gray-600 px-1 text-white rounded-sm"
-          >
-            {{ tag.title }}
-          </div>
-        </div> -->
       </div>
     </div>
 
-    <Pager :info="$page.posts.pageInfo" class="text-center text-xl" />
+    <Pager
+      :info="$page.posts.pageInfo"
+      class="text-center text-xl font-medium space-x-1"
+    />
   </Layout>
 </template>
 
@@ -65,3 +60,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.active {
+  background-color: lightgray;
+  border-radius: 2px;
+  padding: 2px;
+}
+</style>
