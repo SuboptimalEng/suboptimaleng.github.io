@@ -1,11 +1,11 @@
 ---
-title: "first blog post"
-path: /d
+title: "second blog post"
+path: /g
 date: 2020-10-24
 summary: "read my guide to setting up gridsome"
-tags: [ 'blog' ]
+tags: [ 'Blog' ]
 ---
 
-# first blog
+# second blog
 
 hi
