@@ -3,7 +3,7 @@
     class="grid grid-cols-1 divide-y divide-gray-200 font-sans antialiased max-w-screen-sm mx-auto p-4"
   >
     <!-- topbar -->
-    <div class="flex flex-row justify-between pb-2 font-extrabold text-4xl">
+    <div class="flex flex-row justify-between pb-4 font-black text-4xl">
       <div>
         <g-link to="/" class="hover:underline">
           {{ $static.metadata.siteName }}
@@ -15,12 +15,12 @@
     </div>
 
     <!-- content -->
-    <div class="pt-1 pb-2">
+    <div class="py-4">
       <slot />
     </div>
 
     <!-- footer -->
-    <div class="flex flex-row pt-2 justify-center">
+    <div class="flex flex-row pt-4 justify-center">
       <div v-for="social in socials" class="mx-1 text-4xl">
         <a :href="social.href">
           <font-awesome-icon :icon="social.icon" />
