@@ -65,6 +65,11 @@ export default {
     title: 'blog',
     meta: [
       {
+        // key: 'title',
+        name: 'title',
+        content: 'suboptimal-blog',
+      },
+      {
         // key: 'og:title',
         name: 'og:title',
         content: 'suboptimal - blog',
