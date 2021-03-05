@@ -42,23 +42,23 @@ export default {
     return {
       title: this.$page.post.title,
       // TODO V2
-      // meta: [
-      //   {
-      //     key: 'description',
-      //     name: 'description',
-      //     content: this.$page.post.description,
-      //   },
-      //   {
-      //     key: 'og:description',
-      //     name: 'og:description',
-      //     content: this.$page.post.description,
-      //   },
-      //   {
-      //     key: 'twitter:description',
-      //     name: 'twitter:description',
-      //     content: this.$page.post.description,
-      //   },
-      // ],
+      meta: [
+        {
+          key: 'description',
+          name: 'description',
+          content: this.$page.post.description,
+        },
+        {
+          key: 'og:description',
+          name: 'og:description',
+          content: this.$page.post.description,
+        },
+        {
+          key: 'twitter:description',
+          name: 'twitter:description',
+          content: this.$page.post.description,
+        },
+      ],
     };
   },
 };
