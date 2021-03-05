@@ -1,24 +1,17 @@
 <template>
   <Layout>
-    <div class="my-1">
-      <h1>{{ $page.post.title }}</h1>
-
-      <div>
-        Tags:
-        <g-link v-for="tag in $page.post.tags" :to="tag.path" :key="tag.id">
-          #{{ tag.title }}
-        </g-link>
+    <div class="py-1">
+      <div class="font-semibold text-2xl">
+        {{ $page.post.title }}
       </div>
-
-      <p>Posted on {{ $page.post.date }}</p>
-
-      <div>{{ $page.post.ttr }} min read</div>
-
-      <div
-        class="markdown-body mb-8"
-        id="article-area"
-        v-html="$page.post.content"
-      />
+      <div class="flex flex-row text-sm font-light">
+        <time :datetime="$page.post.date">
+          {{ $page.post.date }}
+        </time>
+        <div class="mx-1 font-black">·</div>
+        <div class="italic">{{ $page.post.ttr }} min read</div>
+      </div>
+      <div v-html="$page.post.content" class="markdown-body py-2" />
     </div>
   </Layout>
 </template>
@@ -41,6 +34,8 @@ query Post ($path: String!) {
 </page-query>
 
 <script>
+import '~/styles/github-markdown.css';
+
 export default {
   metaInfo() {
     return {

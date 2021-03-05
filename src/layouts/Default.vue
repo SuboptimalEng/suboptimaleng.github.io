@@ -1,9 +1,9 @@
 <template>
   <div
-    class="grid grid-cols-1 divide-y divide-gray-300 font-sans antialiased max-w-screen-sm mx-auto p-4 scale-150"
+    class="grid grid-cols-1 divide-y divide-gray-200 font-sans antialiased max-w-screen-sm mx-auto p-4"
   >
     <!-- topbar -->
-    <div class="flex flex-row justify-between pb-2 font-bold text-4xl">
+    <div class="flex flex-row justify-between pb-2 font-extrabold text-4xl">
       <div>
         <g-link to="/" class="hover:underline">
           {{ $static.metadata.siteName }}
@@ -21,7 +21,7 @@
 
     <!-- footer -->
     <div class="flex flex-row pt-2 justify-center">
-      <div v-for="social in socials" class="mx-1 text-3xl">
+      <div v-for="social in socials" class="mx-1 text-4xl">
         <a :href="social.href">
           <font-awesome-icon :icon="social.icon" />
         </a>

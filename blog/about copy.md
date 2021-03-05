@@ -7,6 +7,10 @@ summary: "Read my guide to setting up Gridsome"
 tags: [ 'Blog' ]
 ---
 
-# suboptimal blog
+## intro
 
-hi
+- [ ] hi asd asd asd
+asd asd asd
+
+hi hihi hello world
+

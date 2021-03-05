@@ -7,6 +7,8 @@ summary: "Read my guide to setting up Gridsome"
 tags: [ 'meta' ]
 ---
 
-# suboptimal blog
+## so what's this blog about?
 
 hi
+
+world

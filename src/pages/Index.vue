@@ -1,7 +1,10 @@
 <template>
   <Layout>
-    <div v-for="post in $page.posts.edges" :key="post.id" class="py-1">
-      <g-link :to="post.node.path" class="font-medium text-2xl hover:underline">
+    <div v-for="(post, idx) in $page.posts.edges" :key="post.id" class="my-1">
+      <g-link
+        :to="post.node.path"
+        class="font-semibold text-2xl hover:underline"
+      >
         {{ post.node.title }}
       </g-link>
       <div class="flex flex-row text-sm font-light">
