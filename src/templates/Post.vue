@@ -40,6 +40,16 @@ export default {
   metaInfo() {
     return {
       title: this.$page.post.title,
+      meta: [
+        {
+          property: 'og:title',
+          content: this.$page.post.title,
+        },
+        {
+          name: 'twitter:creator',
+          content: '@SuboptimalEng',
+        },
+      ],
     };
   },
 };

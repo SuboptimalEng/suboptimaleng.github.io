@@ -63,6 +63,16 @@ export default {
   },
   metaInfo: {
     title: 'blog',
+    meta: [
+      {
+        property: 'og:title',
+        content: 'blog',
+      },
+      {
+        name: 'twitter:creator',
+        content: '@SuboptimalEng',
+      },
+    ],
   },
 };
 </script>
