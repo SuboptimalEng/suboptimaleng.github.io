@@ -17,13 +17,13 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('font-awesome-icon', FontAwesomeIcon)
 
   head.meta.push({
-    key: 'og:description',
+    // key: 'og:description',
     name: 'og:description',
     content: 'thoughts and musings of a typical indian guy',
   })
 
   head.meta.push({
-    key: 'twitter:description',
+    // key: 'twitter:description',
     name: 'twitter:description',
     content: 'thoughts and musings of a typical indian guy',
   })

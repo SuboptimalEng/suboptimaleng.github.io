@@ -65,12 +65,12 @@ export default {
     title: 'blog',
     meta: [
       {
-        key: 'og:title',
+        // key: 'og:title',
         name: 'og:title',
         content: 'suboptimal - blog',
       },
       {
-        key: 'twitter:title',
+        // key: 'twitter:title',
         name: 'twitter:title',
         content: 'suboptimal - blog',
       },

@@ -43,12 +43,12 @@ export default {
       title: this.$page.post.title,
       meta: [
         {
-          key: 'og:description',
+          // key: 'og:description',
           name: 'og:description',
           content: this.$page.post.description,
         },
         {
-          key: 'twitter:description',
+          // key: 'twitter:description',
           name: 'twitter:description',
           content: this.$page.post.description,
         },
