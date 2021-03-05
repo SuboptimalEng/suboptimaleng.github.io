@@ -22,17 +22,6 @@ export default function (Vue, { router, head, isClient }) {
     content: 'Suboptimal thoughts and musings of an Indian engineer.',
   })
 
-  // TODO V2
-  // head.meta.push({
-  //   key: 'og:description',
-  //   name: 'og:description',
-  //   content: 'TODO',
-  // })
-  // head.meta.push({
-  //   key: 'twitter:description',
-  //   name: 'twitter:description',
-  //   content: 'TODO',
-  // })
   router.beforeEach((to, _from, next) => {
     head.meta.push({
       key: 'url',
@@ -41,12 +30,4 @@ export default function (Vue, { router, head, isClient }) {
     })
     next()
   })
-  // router.beforeEach((to, _from, next) => {
-  //   head.meta.push({
-  //     key: 'og:url',
-  //     name: 'og:url',
-  //     content: 'https://suboptimaleng.github.io' + to.path,
-  //   })
-  //   next()
-  // })
 }

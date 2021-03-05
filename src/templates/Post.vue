@@ -47,17 +47,6 @@ export default {
           name: 'description',
           content: this.$page.post.description,
         },
-        // TODO V2
-        // {
-        //   key: 'og:description',
-        //   name: 'og:description',
-        //   content: this.$page.post.description,
-        // },
-        // {
-        //   key: 'twitter:description',
-        //   name: 'twitter:description',
-        //   content: this.$page.post.description,
-        // },
       ],
     };
   },

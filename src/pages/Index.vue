@@ -63,24 +63,6 @@ export default {
   },
   metaInfo: {
     title: 'Blog',
-    // TODO V2
-    // meta: [
-    //   {
-    //     key: 'title',
-    //     name: 'title',
-    //     content: 'Suboptimal Engineer - Blog',
-    //   },
-    //   {
-    //     key: 'og:title',
-    //     name: 'og:title',
-    //     content: 'Suboptimal Engineer - Blog',
-    //   },
-    //   {
-    //     key: 'twitter:title',
-    //     name: 'twitter:title',
-    //     content: 'Suboptimal Engineer - Blog',
-    //   },
-    // ],
   },
 };
 </script>
