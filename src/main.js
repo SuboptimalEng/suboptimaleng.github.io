@@ -23,8 +23,14 @@ export default function (Vue, { router, head, isClient }) {
   })
 
   head.meta.push({
-    key: 'image',
-    name: 'image',
+    key: 'twitter:image',
+    name: 'twitter:image',
+    content: 'https://suboptimaleng.github.io/suboptimal.png',
+  })
+
+  head.meta.push({
+    key: 'og:image',
+    name: 'og:image',
     content: 'https://suboptimaleng.github.io/suboptimal.png',
   })
 
