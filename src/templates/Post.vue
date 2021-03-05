@@ -11,7 +11,7 @@
         <div class="mx-1 font-black">·</div>
         <div class="italic">{{ $page.post.ttr }} min read</div>
       </div>
-      <div v-html="$page.post.content" class="markdown-body py-5" />
+      <div v-html="$page.post.content" class="markdown-body py-4" />
     </div>
   </Layout>
 </template>
