@@ -22,12 +22,19 @@ export default function (Vue, { router, head, isClient }) {
     content: 'Suboptimal thoughts and musings of an Indian engineer.',
   })
 
-  router.beforeEach((to, _from, next) => {
-    head.meta.push({
-      key: 'url',
-      name: 'url',
-      content: 'https://suboptimaleng.github.io' + to.path,
-    })
-    next()
+  head.meta.push({
+    key: 'image',
+    name: 'image',
+    content: 'https://suboptimaleng.github.io/suboptimal.png',
   })
+
+  // TODO V2
+  // router.beforeEach((to, _from, next) => {
+  //   head.meta.push({
+  //     key: 'url',
+  //     name: 'url',
+  //     content: 'https://suboptimaleng.github.io' + to.path,
+  //   })
+  //   next()
+  // })
 }
