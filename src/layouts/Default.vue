@@ -15,7 +15,7 @@
     </div>
 
     <!-- content -->
-    <div class="py-4">
+    <div class="pt-4 pb-5">
       <slot />
     </div>
 
