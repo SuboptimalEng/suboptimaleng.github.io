@@ -3,7 +3,7 @@
     class="grid grid-cols-1 divide-y divide-gray-200 font-sans antialiased max-w-screen-md mx-auto p-4"
   >
     <!-- topbar -->
-    <div class="flex flex-row justify-between pb-4 font-extrabold text-4xl">
+    <div class="flex flex-row justify-between pb-4 font-bold text-4xl">
       <div>
         <g-link to="/" class="hover:underline">
           <!-- {{ $static.metadata.siteName }} -->
