@@ -43,7 +43,6 @@ query Posts ($page: Int) {
         title
         ttr
         date (format: "MMM D, Y")
-        summary
         path
         tags {
           title
