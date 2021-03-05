@@ -22,7 +22,7 @@
 
     <!-- footer -->
     <div class="flex flex-row pt-4 justify-center">
-      <div v-for="social in socials" class="mx-1 text-4xl">
+      <div v-for="social in socials" :key="social.href" class="mx-1 text-4xl">
         <a :href="social.href">
           <font-awesome-icon :icon="social.icon" />
         </a>

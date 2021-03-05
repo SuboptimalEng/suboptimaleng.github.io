@@ -1,5 +1,5 @@
 ---
-title: "about"
+title: "About"
 ttr: 1
 path: /about
 date: 2020-10-23

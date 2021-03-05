@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="py-1">
-      <div class="font-semibold text-3xl">
+      <div class="font-semibold text-2xl underline">
         {{ $page.post.title }}
       </div>
       <div class="flex flex-row text-sm font-light">

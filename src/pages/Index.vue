@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div v-for="(post, idx) in $page.posts.edges" :key="post.id" class="py-1">
+    <div v-for="post in $page.posts.edges" :key="post.id" class="py-1">
       <g-link
         :to="post.node.path"
         class="font-semibold text-2xl hover:underline"
