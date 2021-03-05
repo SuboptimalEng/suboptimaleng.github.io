@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-cols-1 divide-y divide-gray-200 font-sans antialiased max-w-screen-sm mx-auto p-4"
+    class="grid grid-cols-1 divide-y divide-gray-200 font-sans antialiased max-w-screen-md mx-auto p-4"
   >
     <!-- topbar -->
     <div class="flex flex-row justify-between pb-4 font-bold text-4xl">
