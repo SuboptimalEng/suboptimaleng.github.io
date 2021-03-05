@@ -7,7 +7,7 @@ summary: "Read my guide to setting up Gridsome"
 tags: [ 'Blog' ]
 ---
 
-## intro
+## A hello world example intro
 
 - [ ] hi asd asd asd
 asd asd asd
