@@ -19,21 +19,21 @@ export default function (Vue, { router, head, isClient }) {
   head.meta.push({
     key: 'og:description',
     name: 'og:description',
-    content: `Suboptimal thoughts and musings of a typical Indian guy.`,
+    content: 'thoughts and musings of a typical indian guy',
   })
 
   head.meta.push({
     key: 'twitter:description',
     name: 'twitter:description',
-    content: `Suboptimal thoughts and musings of a typical Indian guy.`,
+    content: 'thoughts and musings of a typical indian guy',
   })
 
-  router.beforeEach((to, _from, next) => {
-    head.meta.push({
-      key: 'og:url',
-      name: 'og:url',
-      content: 'https://suboptimaleng.github.io' + to.path,
-    })
-    next()
-  })
+  // router.beforeEach((to, _from, next) => {
+  //   head.meta.push({
+  //     key: 'og:url',
+  //     name: 'og:url',
+  //     content: 'https://suboptimaleng.github.io' + to.path,
+  //   })
+  //   next()
+  // })
 }
