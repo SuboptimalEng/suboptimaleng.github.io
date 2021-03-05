@@ -63,23 +63,24 @@ export default {
   },
   metaInfo: {
     title: 'blog',
-    meta: [
-      {
-        // key: 'title',
-        name: 'title',
-        content: 'suboptimal-blog',
-      },
-      {
-        // key: 'og:title',
-        name: 'og:title',
-        content: 'suboptimal - blog',
-      },
-      {
-        // key: 'twitter:title',
-        name: 'twitter:title',
-        content: 'suboptimal - blog',
-      },
-    ],
+    // TODO V2
+    // meta: [
+    //   {
+    //     key: 'title',
+    //     name: 'title',
+    //     content: 'suboptimal - blog',
+    //   },
+    //   {
+    //     key: 'og:title',
+    //     name: 'og:title',
+    //     content: 'suboptimal - blog',
+    //   },
+    //   {
+    //     key: 'twitter:title',
+    //     name: 'twitter:title',
+    //     content: 'suboptimal - blog',
+    //   },
+    // ],
   },
 };
 </script>

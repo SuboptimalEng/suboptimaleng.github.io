@@ -17,23 +17,22 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('font-awesome-icon', FontAwesomeIcon)
 
   head.meta.push({
-    // key: 'description',
+    key: 'description',
     name: 'description',
-    content: 'thoughts and musings of a typical indian guy',
+    content: 'suboptimal thoughts and musings of a typical indian guy',
   })
 
-  head.meta.push({
-    // key: 'og:description',
-    name: 'og:description',
-    content: 'thoughts and musings of a typical indian guy',
-  })
-
-  head.meta.push({
-    // key: 'twitter:description',
-    name: 'twitter:description',
-    content: 'thoughts and musings of a typical indian guy',
-  })
-
+  // TODO V2
+  // head.meta.push({
+  //   key: 'og:description',
+  //   name: 'og:description',
+  //   content: 'suboptimal thoughts and musings of a typical indian guy',
+  // })
+  // head.meta.push({
+  //   key: 'twitter:description',
+  //   name: 'twitter:description',
+  //   content: 'suboptimal thoughts and musings of a typical indian guy',
+  // })
   // router.beforeEach((to, _from, next) => {
   //   head.meta.push({
   //     key: 'og:url',

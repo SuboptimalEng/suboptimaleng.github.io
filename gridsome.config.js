@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'suboptimal',
+  siteName: 'suboptimal engineer',
   siteUrl: 'https://suboptimaleng.github.io',
   icon: {
     favicon: './src/img/favicon.png'
