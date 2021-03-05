@@ -65,12 +65,14 @@ export default {
     title: 'blog',
     meta: [
       {
-        property: 'og:title',
-        content: 'blog',
+        key: 'og:title',
+        name: 'og:title',
+        content: 'suboptimal - blog',
       },
       {
-        name: 'twitter:creator',
-        content: '@SuboptimalEng',
+        key: 'twitter:title',
+        name: 'twitter:title',
+        content: 'suboptimal - blog',
       },
     ],
   },

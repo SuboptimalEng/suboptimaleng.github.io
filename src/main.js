@@ -15,4 +15,25 @@ export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+  head.meta.push({
+    key: 'og:description',
+    name: 'og:description',
+    content: `Suboptimal thoughts and musings of a typical Indian guy.`,
+  })
+
+  head.meta.push({
+    key: 'twitter:description',
+    name: 'twitter:description',
+    content: `Suboptimal thoughts and musings of a typical Indian guy.`,
+  })
+
+  router.beforeEach((to, _from, next) => {
+    head.meta.push({
+      key: 'og:url',
+      name: 'og:url',
+      content: 'https://suboptimaleng.github.io' + to.path,
+    })
+    next()
+  })
 }

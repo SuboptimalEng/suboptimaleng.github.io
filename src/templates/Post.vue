@@ -42,12 +42,14 @@ export default {
       title: this.$page.post.title,
       meta: [
         {
-          property: 'og:title',
-          content: this.$page.post.title,
+          key: 'og:description',
+          name: 'og:description',
+          content: this.$page.post.summary,
         },
         {
-          name: 'twitter:creator',
-          content: '@SuboptimalEng',
+          key: 'twitter:description',
+          name: 'twitter:description',
+          content: this.$page.post.summary,
         },
       ],
     };
