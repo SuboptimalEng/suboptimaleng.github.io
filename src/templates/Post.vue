@@ -24,6 +24,7 @@ query Post ($path: String!) {
     path
     date (format: "MMM D, Y")
     summary
+    description
     content
     tags {
       title
@@ -44,12 +45,12 @@ export default {
         {
           key: 'og:description',
           name: 'og:description',
-          content: this.$page.post.summary,
+          content: this.$page.post.description,
         },
         {
           key: 'twitter:description',
           name: 'twitter:description',
-          content: this.$page.post.summary,
+          content: this.$page.post.description,
         },
       ],
     };
