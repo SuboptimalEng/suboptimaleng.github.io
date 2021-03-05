@@ -22,7 +22,7 @@ query Post ($path: String!) {
     title
     ttr
     path
-    date (format: "MMMM D, Y")
+    date (format: "MMM D, Y")
     summary
     content
     tags {
