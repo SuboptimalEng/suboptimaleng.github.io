@@ -3,7 +3,7 @@
     <div v-for="post in $page.posts.edges" :key="post.id" class="py-1">
       <g-link
         :to="post.node.path"
-        class="font-semibold text-2xl hover:underline"
+        class="font-semibold text-2xl sm:text-4xl hover:underline"
       >
         {{ post.node.title }}
       </g-link>
