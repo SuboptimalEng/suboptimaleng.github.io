@@ -7,7 +7,7 @@
       >
         {{ post.node.title }}
       </g-link>
-      <div class="flex flex-row text-sm font-light">
+      <div class="flex flex-row text-sm sm:text-lg font-light">
         <time :datetime="post.node.date">
           {{ post.node.date }}
         </time>

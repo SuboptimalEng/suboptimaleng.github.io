@@ -4,7 +4,7 @@
       <div class="font-semibold text-2xl sm:text-4xl">
         {{ $page.post.title }}
       </div>
-      <div class="flex flex-row text-sm font-light">
+      <div class="flex flex-row text-sm sm:text-lg font-light">
         <time :datetime="$page.post.date">
           {{ $page.post.date }}
         </time>
