@@ -29,7 +29,7 @@ query Posts ($page: Int) {
     filter: { path: { ne: "/blog/about/" } },
     sortBy: "date",
     order: DESC,
-    perPage: 10,
+    perPage: 8,
     page: $page
   ) @paginate {
     totalCount
@@ -44,9 +44,6 @@ query Posts ($page: Int) {
         ttr
         date (format: "MMM D, Y")
         path
-        tags {
-          title
-        }
       }
     }
   }

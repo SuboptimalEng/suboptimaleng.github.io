@@ -25,10 +25,6 @@ query Post ($path: String!) {
     date (format: "MMM D, Y")
     description
     content
-    tags {
-      title
-      path
-    }
   }
 }
 </page-query>
