@@ -7,10 +7,7 @@
       class="flex flex-row justify-between pb-4 font-bold text-3xl sm:text-5xl"
     >
       <div>
-        <g-link to="/" class="hover:underline">
-          <!-- {{ $static.metadata.siteName }} -->
-          Suboptimal
-        </g-link>
+        <g-link to="/" class="hover:underline">Suboptimal</g-link>
       </div>
       <div class="space-x-2">
         <g-link to="/blog/about/" class="hover:underline">About</g-link>
@@ -37,21 +34,13 @@
   </div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <script>
 import {
   faGithub,
   faTwitter,
   faHackerNews,
   faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
+} from "@fortawesome/free-brands-svg-icons";
 
 export default {
   data() {
@@ -59,19 +48,19 @@ export default {
       socials: [
         {
           icon: faTwitter,
-          href: 'https://twitter.com/SuboptimalEng',
+          href: "https://twitter.com/SuboptimalEng",
         },
         {
           icon: faYoutube,
-          href: 'https://www.youtube.com/SuboptimalEng',
+          href: "https://www.youtube.com/SuboptimalEng",
         },
         {
           icon: faGithub,
-          href: 'https://github.com/SuboptimalEng',
+          href: "https://github.com/SuboptimalEng",
         },
         {
           icon: faHackerNews,
-          href: 'https://news.ycombinator.com/user?id=SuboptimalEng',
+          href: "https://news.ycombinator.com/user?id=SuboptimalEng",
         },
       ],
     };
