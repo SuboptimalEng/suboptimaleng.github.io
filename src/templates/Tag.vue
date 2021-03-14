@@ -63,9 +63,8 @@ export default {
     Pager,
   },
   metaInfo() {
-    const title = this.$page.tag.id;
     return {
-      title: title.charAt(0).toUpperCase() + title.slice(1),
+      title: this.$page.tag.id,
     };
   },
 };
