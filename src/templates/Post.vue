@@ -4,13 +4,27 @@
       <div class="font-semibold text-2xl sm:text-4xl">
         {{ $page.post.title }}
       </div>
-      <div class="flex flex-row text-sm sm:text-lg font-light">
-        <time :datetime="$page.post.date">
-          {{ $page.post.date }}
-        </time>
-        <div class="mx-1 font-black">·</div>
-        <div class="italic">{{ $page.post.ttr }} min read</div>
+
+      <div class="text-sm space-y-1 sm:text-lg font-light">
+        <div class="flex space-x-1">
+          <time :datetime="$page.post.date">
+            {{ $page.post.date }}
+          </time>
+          <div class="font-black">·</div>
+          <div class="italic">{{ $page.post.ttr }} min read</div>
+        </div>
+        <div class="flex space-x-2 font-medium">
+          <div v-for="tag in $page.post.tags" :key="tag.id">
+            <g-link
+              :to="tag.path"
+              class="bg-gray-200 rounded px-2 py-1 hover:underline"
+            >
+              {{ tag.id }}
+            </g-link>
+          </div>
+        </div>
       </div>
+
       <div v-html="$page.post.content" class="markdown-body pt-4" />
     </div>
   </Layout>
@@ -25,6 +39,11 @@ query Post ($path: String!) {
     date (format: "MMM D, Y")
     description
     content
+    tags {
+      id
+      title
+      path
+    }
   }
 }
 </page-query>

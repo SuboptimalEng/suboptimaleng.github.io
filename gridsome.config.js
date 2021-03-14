@@ -25,6 +25,12 @@ module.exports = {
       options: {
         path: 'blog/**/*.md',
         typeName: 'Post',
+        refs: {
+          tags: {
+            typeName: 'Tag',
+            create: true,
+          },
+        }
       }
     },
     {
@@ -35,6 +41,7 @@ module.exports = {
     },
   ],
   templates: {
+    Tag: '/tag/:id',
     Post: '/blog/:path',
   },
   transformers: {

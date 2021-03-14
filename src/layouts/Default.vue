@@ -6,7 +6,10 @@
     <div
       class="flex flex-row justify-between pb-4 font-bold text-3xl sm:text-5xl"
     >
-      <div>
+      <div v-if="tag">
+        <g-link to="/" class="hover:underline">Sub</g-link> / {{ tag }}
+      </div>
+      <div v-else>
         <g-link to="/" class="hover:underline">Suboptimal</g-link>
       </div>
       <div class="space-x-2">
@@ -40,27 +43,28 @@ import {
   faTwitter,
   faHackerNews,
   faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-brands-svg-icons';
 
 export default {
+  props: ['tag'],
   data() {
     return {
       socials: [
         {
           icon: faTwitter,
-          href: "https://twitter.com/SuboptimalEng",
+          href: 'https://twitter.com/SuboptimalEng',
         },
         {
           icon: faYoutube,
-          href: "https://www.youtube.com/SuboptimalEng",
+          href: 'https://www.youtube.com/SuboptimalEng',
         },
         {
           icon: faGithub,
-          href: "https://github.com/SuboptimalEng",
+          href: 'https://github.com/SuboptimalEng',
         },
         {
           icon: faHackerNews,
-          href: "https://news.ycombinator.com/user?id=SuboptimalEng",
+          href: 'https://news.ycombinator.com/user?id=SuboptimalEng',
         },
       ],
     };

@@ -1,6 +1,6 @@
 <template>
-  <Layout>
-    <div v-for="post in $page.posts.edges" :key="post.id" class="py-1">
+  <Layout :tag="$page.tag.title">
+    <div v-for="post in $page.tag.belongsTo.edges" :key="post.id" class="py-1">
       <g-link
         :to="post.node.path"
         class="font-semibold text-2xl sm:text-4xl hover:underline"
@@ -17,33 +17,38 @@
     </div>
 
     <Pager
-      :info="$page.posts.pageInfo"
+      :info="$page.tag.belongsTo.pageInfo"
       class="text-center text-xl sm:text-3xl font-medium space-x-1"
     />
   </Layout>
 </template>
 
 <page-query>
-query Posts ($page: Int) {
-  posts: allPost (
-    filter: { path: { ne: "/blog/about/" } },
-    sortBy: "date",
-    order: DESC,
-    perPage: 8,
-    page: $page
-  ) @paginate {
-    totalCount
-    pageInfo {
-      totalPages
-      currentPage
-    }
-    edges {
-      node {
-        id
-        title
-        ttr
-        date (format: "MMM D, Y")
-        path
+query ($id: ID!, $page: Int) {
+  tag: tag(id: $id) {
+    id
+    title
+    belongsTo(
+      sortBy: "date",
+      order: DESC,
+      perPage: 8,
+      page: $page
+    ) @paginate {
+      totalCount
+      pageInfo {
+        totalPages
+        currentPage
+      }
+      edges {
+        node {
+          ... on Post {
+            id
+            title
+            ttr
+            date (format: "MMM D, Y")
+            path
+          }
+        }
       }
     }
   }
@@ -57,8 +62,11 @@ export default {
   components: {
     Pager,
   },
-  metaInfo: {
-    title: 'Blog',
+  metaInfo() {
+    const title = this.$page.tag.id;
+    return {
+      title: title.charAt(0).toUpperCase() + title.slice(1),
+    };
   },
 };
 </script>
