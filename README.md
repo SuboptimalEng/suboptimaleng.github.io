@@ -1,6 +1,6 @@
-# [suboptimaleng.github.io](https://suboptimaleng.github.io)
-
 ## Minimal Blog Built with Gridsome && Tailwind CSS
+
+Link:[suboptimaleng.github.io](https://suboptimaleng.github.io)
 
 How to get started:
 ```
