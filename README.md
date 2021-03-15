@@ -1,6 +1,6 @@
 ## Minimalist Tech Blog Built with Gridsome && Tailwind CSS
 
-[The actual website <-](https://suboptimaleng.github.io)
+[The actual website.](https://suboptimaleng.github.io)
 
 How to get started:
 ```
