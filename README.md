@@ -1,4 +1,4 @@
-## [Minimalist Tech Blog](https://suboptimaleng.github.io) Built with Gridsome && Tailwind CSS
+## [Minimal Blog](https://suboptimaleng.github.io) Built with Gridsome && Tailwind CSS
 
 How to get started:
 ```
