@@ -1,6 +1,6 @@
 # [suboptimaleng.github.io](https://suboptimaleng.github.io)
 
-## Gridsome Blog
+## Minimal Blog Built with Gridsome && Tailwind CSS
 
 How to get started:
 ```
@@ -12,4 +12,4 @@ gridsome develop
 
 ## Video Tutorials
 
-[What is Gridsome SSG Tutorial](https://www.youtube.com/watch?v=WPRLSdGaBfI)
+[What is Gridsome Static Site Generation?](https://www.youtube.com/watch?v=WPRLSdGaBfI)
