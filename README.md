@@ -8,6 +8,6 @@ npm install
 gridsome develop
 ```
 
-## Video Tutorials
+## Video Tutorial(s)
 
 [What is Gridsome Static Site Generation?](https://www.youtube.com/watch?v=WPRLSdGaBfI)
