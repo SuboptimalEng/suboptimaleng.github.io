@@ -1,4 +1,4 @@
-# [suboptimaleng.github.io](https://www.suboptimaleng.github.io)
+# [suboptimaleng.github.io](https://suboptimaleng.github.io)
 
 ## Gridsome Blog
 
