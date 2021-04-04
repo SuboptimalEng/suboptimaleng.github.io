@@ -1,0 +1,74 @@
+<template>
+  <div
+    class="max-w-screen-md mx-auto divide-y space-y-4 font-sans antialiased p-4"
+  >
+    <!-- header -->
+    <div class="flex justify-between font-bold text-3xl sm:text-5xl">
+      <div class="hover:underline">Suboptimal</div>
+      <div class="hover:underline">About</div>
+    </div>
+
+    <!-- content -->
+    <div class="pt-4">
+      <Nuxt />
+    </div>
+
+    <!-- footer -->
+    <div class="flex space-x-1 pt-4 justify-center text-3xl sm:text-5xl">
+      <div v-for="social in socials" :key="social.href">
+        <a :href="social.href">
+          <font-awesome-icon :icon="social.icon" />
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import {
+  faGithub,
+  faTwitter,
+  faHackerNews,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
+
+export default {
+  data() {
+    return {
+      socials: [
+        {
+          icon: faTwitter,
+          href: 'https://twitter.com/SuboptimalEng',
+        },
+        {
+          icon: faYoutube,
+          href: 'https://www.youtube.com/SuboptimalEng',
+        },
+        {
+          icon: faGithub,
+          href: 'https://github.com/SuboptimalEng',
+        },
+        {
+          icon: faHackerNews,
+          href: 'https://news.ycombinator.com/user?id=SuboptimalEng',
+        },
+      ],
+    };
+  },
+};
+</script>
+
+<style scoped>
+.fa-twitter:hover {
+  color: #1da1f2 !important;
+}
+.fa-youtube:hover {
+  color: #ff0000 !important;
+}
+.fa-github:hover {
+  color: #9cdaf1 !important;
+}
+.fa-hacker-news:hover {
+  color: #ff6600 !important;
+}
+</style>
