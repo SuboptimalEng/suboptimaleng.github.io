@@ -1,1 +1,1 @@
-## [Minimal Blog](https://suboptimaleng.github.io) Built with Nuxt.js && Tailwind CSS
+### [Minimal Blog](https://suboptimaleng.github.io) Built with Nuxt.js && Tailwind CSS
