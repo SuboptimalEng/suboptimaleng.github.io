@@ -1,13 +1,1 @@
-## [Minimal Blog](https://suboptimaleng.github.io) Built with Gridsome && Tailwind CSS
-
-How to get started:
-```
-git clone https://github.com/SuboptimalEng/suboptimaleng.github.io.git
-cd suboptimaleng.github.io
-npm install
-gridsome develop
-```
-
-## Related Video Tutorial(s)
-
-[What is Gridsome Static Site Generation?](https://www.youtube.com/watch?v=WPRLSdGaBfI)
+## [Minimal Blog](https://suboptimaleng.github.io) Built with Nuxt.js && Tailwind CSS
