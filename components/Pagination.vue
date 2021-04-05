@@ -1,7 +1,8 @@
 <template>
-  <div class="flex justify-center space-x-2 uppercase">
-    <div v-if="currentPage === 1" :class="disabledStyle">
-      <font-awesome-icon :icon="faAngleDoubleLeft" class="sm:mr-2" />
+  <div class="flex justify-center space-x-2">
+    <!-- <div v-if="currentPage === 1" :class="disabledStyle">
+      <font-awesome-icon :icon="faAngleDoubleLeft" />
+      <font-awesome-icon :icon="faAngleDoubleLeft" class="sm:mr-1" />
       <span class="hidden sm:inline">First</span>
     </div>
 
@@ -10,13 +11,15 @@
       :to="{ name: 'blog-page-page', params: { page: 1 } }"
       :class="buttonStyles"
     >
-      <font-awesome-icon :icon="faAngleDoubleLeft" class="sm:mr-2" />
+      <font-awesome-icon :icon="faAngleDoubleLeft" />
+      <font-awesome-icon :icon="faAngleDoubleLeft" class="sm:mr-1" />
       <span class="hidden sm:inline">First</span>
-    </nuxt-link>
+    </nuxt-link> -->
 
     <div v-if="currentPage === 1" :class="disabledStyle">
-      <font-awesome-icon :icon="faAngleLeft" class="sm:mr-2" />
-      <span class="hidden sm:inline">Prev</span>
+      <font-awesome-icon :icon="faAngleLeft" />
+      <!-- <font-awesome-icon :icon="faAngleLeft" class="sm:mr-1" />
+      <span class="hidden sm:inline">Prev</span> -->
     </div>
 
     <nuxt-link
@@ -24,13 +27,26 @@
       :to="{ name: 'blog-page-page', params: { page: prevPage } }"
       :class="buttonStyles"
     >
-      <font-awesome-icon :icon="faAngleLeft" class="sm:mr-2" />
-      <span class="hidden sm:inline">Prev</span>
+      <font-awesome-icon :icon="faAngleLeft" />
+      <!-- <font-awesome-icon :icon="faAngleLeft" class="sm:mr-1" />
+      <span class="hidden sm:inline">Prev</span> -->
     </nuxt-link>
 
+    <div v-for="i in totalPages" :key="i" class="py-1 hidden sm:flex">
+      <div v-if="i === currentPage" class="rounded-sm bg-black text-white px-1">
+        {{ i }}
+      </div>
+      <div v-else>
+        <nuxt-link :to="{ name: 'blog-page-page', params: { page: i } }">
+          {{ i }}
+        </nuxt-link>
+      </div>
+    </div>
+
     <div v-if="currentPage === totalPages" :class="disabledStyle">
-      <span class="hidden sm:inline">Next</span>
-      <font-awesome-icon :icon="faAngleRight" class="sm:ml-2" />
+      <!-- <span class="hidden sm:inline">Next</span>
+      <font-awesome-icon :icon="faAngleRight" class="sm:ml-1" /> -->
+      <font-awesome-icon :icon="faAngleRight" />
     </div>
 
     <nuxt-link
@@ -38,13 +54,15 @@
       :to="{ name: 'blog-page-page', params: { page: nextPage } }"
       :class="buttonStyles"
     >
-      <span class="hidden sm:inline">Next</span>
-      <font-awesome-icon :icon="faAngleRight" class="sm:ml-2" />
+      <!-- <span class="hidden sm:inline">Next</span>
+      <font-awesome-icon :icon="faAngleRight" class="sm:ml-1" /> -->
+      <font-awesome-icon :icon="faAngleRight" />
     </nuxt-link>
 
-    <div v-if="currentPage === totalPages" :class="disabledStyle">
+    <!-- <div v-if="currentPage === totalPages" :class="disabledStyle">
       <span class="hidden sm:inline">Last</span>
       <font-awesome-icon :icon="faAngleDoubleRight" class="sm:ml-2" />
+      <font-awesome-icon :icon="faAngleDoubleRight" />
     </div>
 
     <nuxt-link
@@ -54,7 +72,8 @@
     >
       <span class="hidden sm:inline">Last</span>
       <font-awesome-icon :icon="faAngleDoubleRight" class="sm:ml-2" />
-    </nuxt-link>
+      <font-awesome-icon :icon="faAngleDoubleRight" />
+    </nuxt-link> -->
   </div>
 </template>
 
@@ -68,6 +87,16 @@ import {
 
 export default {
   name: 'Pagination',
+  props: {
+    total: {
+      type: Number,
+      default: 0,
+    },
+    perPage: {
+      type: Number,
+      default: 5,
+    },
+  },
   data() {
     return {
       faAngleLeft,
@@ -76,22 +105,12 @@ export default {
       faAngleDoubleRight,
     };
   },
-  props: {
-    total: {
-      type: Number,
-      default: 0,
-    },
-    perPage: {
-      type: Number,
-      default: 1,
-    },
-  },
   computed: {
     buttonStyles() {
-      return 'border rounded flex justify-center place-items-center px-4 py-1 text-sm bg-white hover:bg-black hover:text-white transform duration-400 ease-in-out';
+      return 'border rounded flex justify-center place-items-center px-2 py-1 text-sm bg-white hover:bg-black hover:text-white transform duration-400 ease-in-out';
     },
     disabledStyle() {
-      return 'border rounded flex justify-center place-items-center px-4 py-1 text-sm bg-white text-gray-300';
+      return 'border rounded flex justify-center place-items-center px-2 py-1 text-sm bg-white text-gray-300';
     },
     totalPages() {
       return Math.ceil(this.total / this.perPage);

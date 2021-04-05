@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <Pagination v-if="total > 1" :total="total" />
+    <Pagination v-if="total > 1" :total="total" :per-page="1" />
   </div>
 </template>
 
@@ -23,7 +23,6 @@
 import moment from 'moment';
 
 export default {
-  // props: ['allArticles', 'paginatedArticles'],
   props: {
     articles: {
       type: Array,

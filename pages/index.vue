@@ -1,5 +1,4 @@
 <template>
-  <!-- <Articles :articles="articles" /> -->
   <Articles :articles="paginatedArticles" :total="allArticles.length" />
 </template>
 
@@ -11,12 +10,6 @@ export default {
   components: {
     Articles,
   },
-  // async asyncData({ $content }) {
-  //   const articles = await $content('articles')
-  //     .sortBy('createdAt', 'desc')
-  //     .fetch();
-  //   return { articles };
-  // },
   async asyncData({ $content, params, error }) {
     const content = await getContent($content, params, error);
     return {
