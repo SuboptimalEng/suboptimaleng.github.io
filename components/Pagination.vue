@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center space-x-2 text-base sm:text-2xl pt-4">
+  <div class="flex justify-center space-x-2 text-base sm:text-2xl pt-2 pb-4">
     <!-- <div v-if="currentPage === 1" :class="disabledStyle">
       <font-awesome-icon :icon="faAngleDoubleLeft" />
       <font-awesome-icon :icon="faAngleDoubleLeft" class="sm:mr-1" />

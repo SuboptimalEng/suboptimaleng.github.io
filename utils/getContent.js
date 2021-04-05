@@ -1,7 +1,9 @@
+import { POSTS_PER_PAGE } from '@/utils/constants';
+
 export default async ($content, params, error) => {
   const currentPage = parseInt(params.page);
 
-  const perPage = 2;
+  const perPage = POSTS_PER_PAGE;
 
   // use desc to display the article that was created last, first
   const allArticles = await $content('articles')

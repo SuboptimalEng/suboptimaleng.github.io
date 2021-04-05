@@ -15,12 +15,16 @@
       </div>
     </div>
 
-    <Pagination v-if="total > 2" :total="total" :per-page="2" />
+    <div v-if="total > postsPerPage">
+      <Pagination :total="total" :per-page="postsPerPage" />
+    </div>
+    <div v-else class="pb-6"></div>
   </div>
 </template>
 
 <script>
 import moment from 'moment';
+import { POSTS_PER_PAGE } from '@/utils/constants';
 
 export default {
   props: {
@@ -32,6 +36,12 @@ export default {
       type: Number,
       default: 0,
     },
+  },
+
+  data() {
+    return {
+      postsPerPage: POSTS_PER_PAGE,
+    };
   },
 
   methods: {
