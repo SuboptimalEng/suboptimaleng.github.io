@@ -4,12 +4,19 @@
   >
     <!-- header -->
     <div class="flex justify-between font-bold text-3xl sm:text-5xl">
-      <div class="hover:underline">Suboptimal</div>
-      <div class="hover:underline">About</div>
+      <div v-if="isTagSearch">
+        <NuxtLink to="/" class="hover:underline">Sub</NuxtLink>
+        / {{ slug }}
+      </div>
+      <div v-else>
+        <NuxtLink to="/" class="hover:underline">Suboptimal</NuxtLink>
+      </div>
+
+      <NuxtLink to="/blog/about" class="hover:underline">About</NuxtLink>
     </div>
 
     <!-- content -->
-    <div class="pt-4">
+    <div class="py-4">
       <Nuxt />
     </div>
 
@@ -35,6 +42,8 @@ import {
 export default {
   data() {
     return {
+      slug: '',
+      isTagSearch: false,
       socials: [
         {
           icon: faTwitter,
@@ -54,6 +63,13 @@ export default {
         },
       ],
     };
+  },
+  watch: {
+    $route(to) {
+      const { isTagSearch, slug } = to.params;
+      this.slug = slug;
+      this.isTagSearch = isTagSearch;
+    },
   },
 };
 </script>

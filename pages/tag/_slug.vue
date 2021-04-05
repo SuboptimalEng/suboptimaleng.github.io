@@ -21,8 +21,10 @@
 import moment from 'moment';
 
 export default {
-  async asyncData({ $content }) {
-    const articles = await $content('articles').fetch();
+  async asyncData({ $content, params }) {
+    const articles = (await $content('articles').fetch()).filter((article) => {
+      return article.tags.includes(params.slug);
+    });
     return { articles };
   },
 

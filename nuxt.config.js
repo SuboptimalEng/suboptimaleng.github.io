@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'blog',
+    title: 'Suboptimal Engineer',
     htmlAttrs: {
       lang: 'en',
     },
@@ -34,14 +34,10 @@ export default {
     '@nuxtjs/tailwindcss',
   ],
 
-  fontawesome: {
-    icons: [
-      'fab',
-    ],
-  },
-
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    '@nuxt/content',
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
