@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="article in allArticles" :key="article.id">
+    <div v-for="article in articles" :key="article.id">
       <NuxtLink
         :to="{ name: 'blog-slug', params: { slug: article.slug } }"
         class="font-semibold text-2xl sm:text-4xl hover:underline"
@@ -14,6 +14,8 @@
         <div class="italic">{{ article.ttr }} min read</div>
       </div>
     </div>
+
+    <Pagination v-if="total > 1" :total="total" />
   </div>
 </template>
 
@@ -21,7 +23,17 @@
 import moment from 'moment';
 
 export default {
-  props: ['allArticles', 'paginatedArticles'],
+  // props: ['allArticles', 'paginatedArticles'],
+  props: {
+    articles: {
+      type: Array,
+      default: Array,
+    },
+    total: {
+      type: Number,
+      default: 0,
+    },
+  },
 
   methods: {
     formatDate(value) {
