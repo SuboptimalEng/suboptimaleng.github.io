@@ -1,5 +1,5 @@
 ---
-title: "About hello"
+title: "a"
 ttr: 1
 description: "does this work?"
 tags: ['meta', 'blog']
