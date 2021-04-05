@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center space-x-2">
+  <div class="flex justify-center space-x-2 text-base sm:text-2xl pt-4">
     <!-- <div v-if="currentPage === 1" :class="disabledStyle">
       <font-awesome-icon :icon="faAngleDoubleLeft" />
       <font-awesome-icon :icon="faAngleDoubleLeft" class="sm:mr-1" />
@@ -17,7 +17,7 @@
     </nuxt-link> -->
 
     <div v-if="currentPage === 1" :class="disabledStyle">
-      <font-awesome-icon :icon="faAngleLeft" />
+      <font-awesome-icon :icon="faAngleLeft" class="text-2xl" />
       <!-- <font-awesome-icon :icon="faAngleLeft" class="sm:mr-1" />
       <span class="hidden sm:inline">Prev</span> -->
     </div>
@@ -32,7 +32,7 @@
       <span class="hidden sm:inline">Prev</span> -->
     </nuxt-link>
 
-    <div v-for="i in totalPages" :key="i" class="py-1 hidden sm:flex">
+    <div v-for="i in totalPages" :key="i" class="py-1">
       <div v-if="i === currentPage" class="rounded-sm bg-black text-white px-1">
         {{ i }}
       </div>
@@ -107,10 +107,10 @@ export default {
   },
   computed: {
     buttonStyles() {
-      return 'border rounded flex justify-center place-items-center px-2 py-1 text-sm bg-white hover:bg-black hover:text-white transform duration-400 ease-in-out';
+      return 'border border-black rounded flex justify-center place-items-center text-base sm:text-2xl px-2 py-1 bg-white hover:bg-black hover:text-white transform duration-400 ease-in-out ';
     },
     disabledStyle() {
-      return 'border rounded flex justify-center place-items-center px-2 py-1 text-sm bg-white text-gray-300';
+      return 'border rounded flex justify-center place-items-center px-2 py-1 text-base sm:text-2xl bg-white text-gray-300';
     },
     totalPages() {
       return Math.ceil(this.total / this.perPage);

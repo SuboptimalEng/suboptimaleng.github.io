@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <Pagination v-if="total > 1" :total="total" :per-page="1" />
+    <Pagination v-if="total > 2" :total="total" :per-page="2" />
   </div>
 </template>
 

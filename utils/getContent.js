@@ -1,11 +1,11 @@
 export default async ($content, params, error) => {
   const currentPage = parseInt(params.page);
 
-  const perPage = 1;
+  const perPage = 2;
 
   // use desc to display the article that was created last, first
   const allArticles = await $content('articles')
-    .sortBy('updatedAt', 'desc')
+    .sortBy('createdAt', 'desc')
     .fetch();
 
   const totalArticles = allArticles.length;
@@ -28,7 +28,7 @@ export default async ($content, params, error) => {
 
   // use desc to display the article that was created last, first
   const paginatedArticles = await $content('articles')
-    .sortBy('updatedAt', 'desc')
+    .sortBy('createdAt', 'desc')
     .limit(perPage)
     .skip(skipNumber())
     .fetch();

@@ -1,5 +1,5 @@
 <template>
-  <div class="py-1">
+  <div>
     <div class="font-semibold text-2xl sm:text-4xl">
       {{ article.title }}
     </div>
@@ -15,9 +15,9 @@
         <div v-for="tag in article.tags" :key="tag">
           <NuxtLink
             :to="{ name: 'tag-slug', params: { isTagSearch: true, slug: tag } }"
-            class="bg-gray-200 rounded px-2 py-1 hover:underline"
+            class="border border-black rounded px-2 py-1 hover:bg-black hover:text-white transform duration-400 ease-in-out"
           >
-            {{ tag }}
+            #{{ tag }}
           </NuxtLink>
         </div>
       </div>
