@@ -24,7 +24,10 @@
     </div>
 
     <!-- article -->
-    <nuxt-content :document="article" class="pt-4 prose prose-sm lg:prose-lg" />
+    <nuxt-content
+      :document="article"
+      class="pt-6 lg:pt-8 prose prose-sm lg:prose-lg"
+    />
   </div>
 </template>
 

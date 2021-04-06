@@ -2,10 +2,6 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-  router: {
-    base: '/'
-  },
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Suboptimal Engineer',
@@ -36,14 +32,15 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-191446508-2',
-    }],
+    '@nuxtjs/google-analytics',
+    // ['@nuxtjs/google-analytics', {
+    //   id: 'UA-191446508-2',
+    // }],
   ],
 
-  // googleAnalytics: {
-  //   id: 'UA-191446508-2',
-  // },
+  googleAnalytics: {
+    id: 'UA-191446508-2',
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

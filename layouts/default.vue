@@ -12,7 +12,7 @@
         <NuxtLink to="/" class="hover:underline">Suboptimal</NuxtLink>
       </div>
 
-      <NuxtLink to="/blog/about" class="hover:underline">About </NuxtLink>
+      <NuxtLink to="/blog/about" class="hover:underline">About</NuxtLink>
     </div>
 
     <!-- content -->
