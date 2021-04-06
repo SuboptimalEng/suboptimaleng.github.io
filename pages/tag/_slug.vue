@@ -22,6 +22,7 @@ export default {
 
   head() {
     return {
+      // FYI: This is for title on the chrome tab
       title: 'Tag Search: ' + this.tag + ' - Suboptimal Engineer',
       meta: [
         ...getMetaTags({
