@@ -24,7 +24,7 @@ module.exports = {
     {
       hid: 'twitter:card',
       name: 'twitter:card',
-      content: data.cardType || 'summary_large_image',
+      content: 'summary_large_image',
     },
   ],
 };

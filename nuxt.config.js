@@ -11,7 +11,21 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'The atypical blog of a typical Indian guy who posts educational content on YouTube and dank memes on Twitter.' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'The atypical blog of a typical Indian guy who posts educational content on YouTube and dank memes on Twitter.',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://suboptimaleng.github.io/suboptimal.png',
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },

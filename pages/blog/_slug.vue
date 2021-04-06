@@ -45,7 +45,7 @@ export default {
         ...getMetaTags({
           title: this.article.title + ' - Suboptimal Engineer',
           description: this.article.description,
-          image: '/suboptimal.png',
+          image: 'https://suboptimaleng.github.io/suboptimal.png',
           url: 'suboptimaleng.github.io',
         }),
       ],
