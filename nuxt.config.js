@@ -33,9 +33,6 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-analytics',
-    // ['@nuxtjs/google-analytics', {
-    //   id: 'UA-191446508-2',
-    // }],
   ],
 
   googleAnalytics: {
