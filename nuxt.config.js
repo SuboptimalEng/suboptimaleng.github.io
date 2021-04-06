@@ -19,6 +19,16 @@ export default {
         content: DEFAULT_DESCRIPTION,
       },
       {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Suboptimal Engineer',
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: DEFAULT_DESCRIPTION,
+      },
+      {
         hid: 'og:image',
         property: 'og:image',
         content: 'https://suboptimaleng.github.io/suboptimal.png',
