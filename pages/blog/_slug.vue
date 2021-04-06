@@ -40,6 +40,7 @@ export default {
 
   head() {
     return {
+      // FYI: This is for title on the chrome tab
       title: this.article.title + ' - Suboptimal Engineer',
       meta: [
         ...getMetaTags({

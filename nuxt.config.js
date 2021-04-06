@@ -1,3 +1,5 @@
+import { DEFAULT_DESCRIPTION } from './utils/constants'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -14,7 +16,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'The atypical blog of a typical Indian guy who posts educational content on YouTube and dank memes on Twitter.',
+        content: DEFAULT_DESCRIPTION,
       },
       {
         hid: 'og:image',
