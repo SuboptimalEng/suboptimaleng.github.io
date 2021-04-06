@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-screen-md mx-auto divide-y font-sans antialiased p-4">
     <!-- header -->
-    <div class="flex justify-between font-bold text-3xl sm:text-5xl pb-4">
+    <div class="flex justify-between font-bold text-3xl lg:text-5xl pb-4">
       <div v-if="isTagSearch">
         <NuxtLink to="/" class="hover:underline">Sub</NuxtLink>
         / {{ slug }}
@@ -19,7 +19,7 @@
     </div>
 
     <!-- footer -->
-    <div class="flex space-x-1 justify-center text-3xl sm:text-5xl pt-4">
+    <div class="flex space-x-1 justify-center text-3xl lg:text-5xl pt-4">
       <div v-for="social in socials" :key="social.href">
         <a :href="social.href">
           <font-awesome-icon :icon="social.icon" />

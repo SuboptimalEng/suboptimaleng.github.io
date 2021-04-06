@@ -1,10 +1,10 @@
 <template>
   <div class="pb-6">
-    <div class="font-semibold text-2xl sm:text-4xl">
+    <div class="font-semibold text-2xl lg:text-4xl">
       {{ article.title }}
     </div>
 
-    <div class="space-y-1 text-sm sm:text-lg font-light">
+    <div class="space-y-1 text-sm lg:text-lg font-light">
       <div class="flex space-x-1">
         <div>{{ formatDate(article.createdAt) }}</div>
         <div class="font-black">·</div>
@@ -24,7 +24,7 @@
     </div>
 
     <!-- article -->
-    <nuxt-content :document="article" class="pt-4" />
+    <nuxt-content :document="article" class="pt-4 prose prose-sm lg:prose-lg" />
   </div>
 </template>
 

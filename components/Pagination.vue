@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center space-x-2 text-base sm:text-2xl pt-2 pb-4">
+  <div class="flex justify-center space-x-2 text-base lg:text-2xl pt-2 pb-4">
     <!-- <div v-if="currentPage === 1" :class="disabledStyle">
       <font-awesome-icon :icon="faAngleDoubleLeft" />
       <font-awesome-icon :icon="faAngleDoubleLeft" class="sm:mr-1" />
@@ -107,10 +107,10 @@ export default {
   },
   computed: {
     buttonStyles() {
-      return 'border border-black rounded flex justify-center place-items-center text-base sm:text-2xl px-2 py-1 bg-white hover:bg-black hover:text-white transform duration-400 ease-in-out ';
+      return 'border border-black rounded flex justify-center place-items-center text-base lg:text-2xl px-2 py-1 bg-white hover:bg-black hover:text-white transform duration-400 ease-in-out ';
     },
     disabledStyle() {
-      return 'border rounded flex justify-center place-items-center px-2 py-1 text-base sm:text-2xl bg-white text-gray-300';
+      return 'border rounded flex justify-center place-items-center px-2 py-1 text-base lg:text-2xl bg-white text-gray-300';
     },
     totalPages() {
       return Math.ceil(this.total / this.perPage);
