@@ -1,7 +1,7 @@
 <script>
 export default {
   middleware({ redirect }) {
-    return redirect('301', '/blog/page/1');
+    return redirect('301', '/blog/about');
   },
 };
 </script>
