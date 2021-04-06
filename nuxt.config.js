@@ -11,7 +11,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'A blog of a typical Indian guy who makes videos about web development and productivity.' },
+      { hid: 'description', name: 'description', content: 'The atypical blog of a typical Indian guy who posts educational content on YouTube and dank memes on Twitter.' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
