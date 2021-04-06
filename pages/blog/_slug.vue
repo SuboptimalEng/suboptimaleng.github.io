@@ -30,11 +30,26 @@
 
 <script>
 import moment from 'moment';
+import { getMetaTags } from '@/utils/constants';
 
 export default {
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch();
     return { article };
+  },
+
+  head() {
+    return {
+      title: this.article.title + ' - Suboptimal Engineer',
+      meta: [
+        ...getMetaTags({
+          title: this.article.title + ' - Suboptimal Engineer',
+          description: this.article.description,
+          image: '/suboptimal.png',
+          url: 'suboptimaleng.github.io',
+        }),
+      ],
+    };
   },
 
   methods: {

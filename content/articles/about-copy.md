@@ -1,7 +1,7 @@
 ---
 title: "a copy"
 ttr: 1
-description: "does this work?"
+description: "Description: a copy"
 tags: ['meta', 'blog']
 ---
 
