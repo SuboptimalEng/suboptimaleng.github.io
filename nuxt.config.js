@@ -16,10 +16,6 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
 
-  googleAnalytics: {
-    id: 'UA-191446508-2',
-  },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -32,12 +28,18 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/fontawesome',
-    '@nuxtjs/google-analytics',
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-191446508-2',
+    }],
   ],
+
+  // googleAnalytics: {
+  //   id: 'UA-191446508-2',
+  // },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
