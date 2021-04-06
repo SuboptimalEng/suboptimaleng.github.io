@@ -11,13 +11,10 @@ module.exports = {
     extend: {
       typography: (theme) => ({
         DEFAULT: {
-          css: {
-            color: theme('colors.black'),
-            h2: {
-              color: theme('colors.black'),
-            }
-
-            // ...
+          'prose-lg': {
+            css: {
+              lineHeight: '1rem',
+            },
           },
         },
       }),

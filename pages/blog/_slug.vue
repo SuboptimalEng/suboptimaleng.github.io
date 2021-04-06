@@ -15,7 +15,7 @@
         <div v-for="tag in article.tags" :key="tag">
           <NuxtLink
             :to="{ name: 'tag-slug', params: { isTagSearch: true, slug: tag } }"
-            class="border border-black rounded px-2 py-1 hover:bg-black hover:text-white transform duration-400 ease-in-out"
+            class="border border-gray-900 rounded px-2 py-1 hover:bg-gray-900 hover:text-white transform duration-400 ease-in-out"
           >
             #{{ tag }}
           </NuxtLink>

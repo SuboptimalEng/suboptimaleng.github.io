@@ -33,7 +33,10 @@
     </nuxt-link>
 
     <div v-for="i in totalPages" :key="i" class="py-1">
-      <div v-if="i === currentPage" class="rounded-sm bg-black text-white px-1">
+      <div
+        v-if="i === currentPage"
+        class="rounded-sm bg-gray-900 text-white px-1"
+      >
         {{ i }}
       </div>
       <div v-else>
@@ -107,10 +110,10 @@ export default {
   },
   computed: {
     buttonStyles() {
-      return 'border border-black rounded flex justify-center place-items-center text-base lg:text-2xl px-2 py-1 bg-white hover:bg-black hover:text-white transform duration-400 ease-in-out ';
+      return 'border border-gray-900 rounded flex justify-center place-items-center text-base lg:text-2xl px-2 py-1 bg-white hover:bg-gray-900 hover:text-white transform duration-400 ease-in-out ';
     },
     disabledStyle() {
-      return 'border rounded flex justify-center place-items-center px-2 py-1 text-base lg:text-2xl bg-white text-gray-300';
+      return 'border rounded flex justify-center place-items-center px-2 py-1 text-base lg:text-2xl bg-white text-gray-200';
     },
     totalPages() {
       return Math.ceil(this.total / this.perPage);

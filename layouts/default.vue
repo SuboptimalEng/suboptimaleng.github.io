@@ -1,5 +1,7 @@
 <template>
-  <div class="max-w-screen-md mx-auto divide-y font-sans antialiased p-4">
+  <div
+    class="max-w-screen-md mx-auto divide-y font-sans antialiased p-4 text-gray-900"
+  >
     <!-- header -->
     <div class="flex justify-between font-bold text-3xl lg:text-5xl pb-4">
       <div v-if="isTagSearch">
