@@ -13,6 +13,7 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@nuxt/content": "^1.14.0",
+    "@nuxtjs/google-analytics": "^2.4.0",
     "@tailwindcss/typography": "^0.4.0",
     "core-js": "^3.9.1",
     "moment": "^2.29.1",
