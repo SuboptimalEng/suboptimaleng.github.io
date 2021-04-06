@@ -3,7 +3,7 @@ export default {
   target: 'static',
 
   router: {
-    base: '/suboptimaleng.github.io/'
+    base: '/'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
