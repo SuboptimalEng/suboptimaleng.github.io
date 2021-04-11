@@ -1,6 +1,6 @@
 module.exports = {
   POSTS_PER_PAGE: 8,
-  DEFAULT_DESCRIPTION: 'The atypical blog of a typical Indian guy who posts educational content on YouTube and dank memes on Twitter.',
+  DEFAULT_DESCRIPTION: 'The typical blog of an a typical Indian software engineer who quit his tech job to become a YouTuber.',
   getMetaTags: (data) => [
     {
       hid: 'og:title',
