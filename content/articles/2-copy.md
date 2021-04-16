@@ -1,7 +1,9 @@
 ---
-title: "2 copy"
+title: "test 2"
 ttr: 1
 description: "Description: 2 copy"
+createdAt: '2021-04-16T00:00:00'
+updatedAt: '2021-04-16T00:00:02'
 tags: ['second', 'blog']
 ---
 

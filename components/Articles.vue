@@ -1,17 +1,19 @@
 <template>
   <div>
-    <div v-for="article in articles" :key="article.id">
-      <NuxtLink
-        :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-        class="font-bold text-3xl lg:text-4xl hover:underline"
-      >
-        {{ article.title }}
-      </NuxtLink>
+    <div class="flex flex-col space-y-2">
+      <div v-for="article in articles" :key="article.id">
+        <NuxtLink
+          :to="{ name: 'blog-slug', params: { slug: article.slug } }"
+          class="font-bold text-3xl lg:text-4xl hover:underline"
+        >
+          {{ article.title }}
+        </NuxtLink>
 
-      <div class="flex space-x-1 text-base lg:text-xl font-light">
-        <div>{{ formatDate(article.createdAt) }}</div>
-        <div class="font-black">·</div>
-        <div class="italic">{{ article.ttr }} min read</div>
+        <div class="flex space-x-1 text-base lg:text-xl font-light">
+          <div>{{ formatDate(article.createdAt) }}</div>
+          <div class="font-black">·</div>
+          <div class="italic">{{ article.ttr }} min read</div>
+        </div>
       </div>
     </div>
 
