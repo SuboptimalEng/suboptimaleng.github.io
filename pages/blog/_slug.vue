@@ -35,7 +35,7 @@
 
 <script>
 import moment from 'moment';
-import { getMetaTags } from '@/utils/constants';
+import { getMetaTags, DEFAULT_DESCRIPTION } from '@/utils/constants';
 
 export default {
   async asyncData({ $content, params }) {
@@ -50,7 +50,7 @@ export default {
       meta: [
         ...getMetaTags({
           title: this.article.title + ' - Suboptimal Engineer',
-          description: this.article.description,
+          description: this.article.description || DEFAULT_DESCRIPTION,
           image: 'https://suboptimaleng.github.io/suboptimal.png',
           url: 'suboptimaleng.github.io',
         }),
