@@ -3,12 +3,12 @@
     <div v-for="article in articles" :key="article.id">
       <NuxtLink
         :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-        class="font-bold text-2xl lg:text-4xl hover:underline"
+        class="font-bold text-3xl lg:text-4xl hover:underline"
       >
         {{ article.title }}
       </NuxtLink>
 
-      <div class="flex space-x-1 text-sm lg:text-lg font-light">
+      <div class="flex space-x-1 text-base lg:text-xl font-light">
         <div>{{ formatDate(article.createdAt) }}</div>
         <div class="font-black">·</div>
         <div class="italic">{{ article.ttr }} min read</div>
