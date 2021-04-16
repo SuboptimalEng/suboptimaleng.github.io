@@ -1,5 +1,5 @@
 ---
-title: "a copy"
+title: "This is a copy"
 ttr: 1
 description: "Description: a copy"
 tags: ['meta', 'blog']

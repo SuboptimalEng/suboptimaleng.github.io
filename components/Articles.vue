@@ -3,7 +3,7 @@
     <div v-for="article in articles" :key="article.id">
       <NuxtLink
         :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-        class="font-semibold text-2xl lg:text-4xl hover:underline"
+        class="font-bold text-2xl lg:text-4xl hover:underline"
       >
         {{ article.title }}
       </NuxtLink>
@@ -18,7 +18,7 @@
     <div v-if="total > postsPerPage">
       <Pagination :total="total" :per-page="postsPerPage" />
     </div>
-    <div v-else class="pb-6"></div>
+    <div v-else class="pb-2"></div>
   </div>
 </template>
 

@@ -1,30 +1,35 @@
 <template>
-  <div class="pb-6">
-    <div class="font-semibold text-2xl lg:text-4xl">
-      {{ article.title }}
-    </div>
-
-    <div class="space-y-1 text-sm lg:text-lg font-light">
-      <div class="flex space-x-1">
-        <div>{{ formatDate(article.createdAt) }}</div>
-        <div class="font-black">·</div>
-        <div class="italic">{{ article.ttr }} min read</div>
+  <div class="mb-4">
+    <div class="mb-10">
+      <div class="font-bold text-2xl lg:text-4xl">
+        {{ article.title }}
       </div>
 
-      <div class="flex space-x-2 font-medium">
-        <div v-for="tag in article.tags" :key="tag">
-          <NuxtLink
-            :to="{ name: 'tag-slug', params: { isTagSearch: true, slug: tag } }"
-            class="border border-gray-900 rounded px-2 py-1 hover:bg-gray-900 hover:text-white transform duration-400 ease-in-out"
-          >
-            #{{ tag }}
-          </NuxtLink>
+      <div class="space-y-1 text-sm lg:text-lg font-light">
+        <div class="flex space-x-1">
+          <div>{{ formatDate(article.createdAt) }}</div>
+          <div class="font-black">·</div>
+          <div class="italic">{{ article.ttr }} min read</div>
+        </div>
+
+        <div class="flex space-x-2 font-medium">
+          <div v-for="tag in article.tags" :key="tag">
+            <NuxtLink
+              :to="{
+                name: 'tag-slug',
+                params: { isTagSearch: true, slug: tag },
+              }"
+              class="border border-gray-900 rounded px-2 py-1 hover:bg-gray-900 hover:text-white transform duration-400 ease-in-out"
+            >
+              #{{ tag }}
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- article -->
-    <nuxt-content :document="article" class="pt-4 prose prose-sm lg:prose-lg" />
+    <nuxt-content :document="article" class="prose prose-sm lg:prose-lg" />
   </div>
 </template>
 

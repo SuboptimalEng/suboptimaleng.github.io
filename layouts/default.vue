@@ -3,7 +3,7 @@
     class="max-w-screen-md mx-auto divide-y font-sans antialiased p-4 text-gray-900"
   >
     <!-- header -->
-    <div class="flex justify-between font-bold text-3xl lg:text-5xl pb-4">
+    <div class="flex justify-between font-black text-3xl lg:text-5xl pb-4">
       <div v-if="isTagSearch">
         <NuxtLink to="/" class="hover:underline">Sub</NuxtLink>
         / {{ slug }}
@@ -12,11 +12,13 @@
         <NuxtLink to="/" class="hover:underline">Suboptimal</NuxtLink>
       </div>
 
-      <NuxtLink to="/blog/about" class="hover:underline">About</NuxtLink>
+      <NuxtLink to="/blog/2021-01-about" class="hover:underline"
+        >About</NuxtLink
+      >
     </div>
 
     <!-- content -->
-    <div class="pt-2">
+    <div class="py-4">
       <Nuxt />
     </div>
 
