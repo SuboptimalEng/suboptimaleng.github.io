@@ -6,7 +6,7 @@
       </div>
 
       <div class="space-y-1 text-sm lg:text-lg font-light">
-        <div class="flex space-x-1 pb-2">
+        <div class="flex space-x-1">
           <div>{{ formatDate(article.createdAt) }}</div>
           <div class="font-black">·</div>
           <div class="italic">{{ article.ttr }} min read</div>
