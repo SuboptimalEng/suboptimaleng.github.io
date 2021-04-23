@@ -20,11 +20,17 @@ You can follow the short-form updates on my twitter [@SuboptimalEng](https://twi
 | __Feb.__ | 12k (-5k)  |  5390 (+190) | $40 (-20) |
 | __Jan.__ | 17k (+5k)  |  5200 (+360) | $60 (+10) |
 
-### March 2021
+### March Update
 
-### February 2021
+### February Update
+I unlisted half of my videos (all of which were high performing) because I didn't want people think I still made coding interview prep content.
+This is one of those "difficult decisions" which heavily impacted my YouTube performance.
 
-### January 2021
+
+
+### January Update
+I didn't post any YouTube videos from Nov 10th - Jan 13th so I earned ~50$ of passive income in Dec. 2020!
+Now, I'm back on track with my old uploading schedule of posting 1 vid/week.
 
 ### Footnotes
 - [1]: I fudge earnings by 5-10%.
