@@ -1,5 +1,5 @@
 ---
-title: "YouTube Stats in 2021 (ongoing)"
+title: "I Quit my Tech Job for YouTube (2021)"
 ttr: 3
 description: 'Inspired by @shl, I decided to add transparency to my journey of getting to 100K subs on YouTube.'
 createdAt: '2021-04-23T00:00:00'
