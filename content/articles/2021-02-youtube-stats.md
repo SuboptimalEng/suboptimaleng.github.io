@@ -36,9 +36,6 @@ I was leeching off of them during the transition period between my tech job and 
 but it was high time I live on my own dime. Moving out was the right choice --
 __I was way too distracted with my old video games__ (Halo MCC, Modern Warfare, and Mario Kart Wii).
 
-Regardless, __moving sucked__ -- especially the monetary costs associated with it --
-__but I doubled my productivity__. Now I started making 2 videos per week.
-
 ### February
 __I unlisted my LeetCode videos__ because I didn't want people think I still made interview prep content.
 My total views dropped from 160k to 40k after I made this change.
