@@ -1,6 +1,6 @@
 ---
 title: "YouTube Stats in 2021 (ongoing)"
-ttr: 5
+ttr: 3
 description: 'Inspired by @shl, I decided to add transparency to my journey of getting to 100K subs on YouTube.'
 createdAt: '2021-04-23T00:00:00'
 updatedAt: '2021-04-23T00:00:00'
@@ -37,8 +37,7 @@ but it was high time I live on my own dime. Moving out was the right choice --
 __I was way too distracted with my old video games__ (Halo MCC, Modern Warfare, and Mario Kart Wii).
 
 Regardless, __moving sucked__ -- especially the monetary costs associated with it --
-__but I doubled my productivity__. Though I now had to do more household chores and figure out what to eat every day,
-I still found enough free time to start making 2 videos per week.
+__but I doubled my productivity__. Now I started making 2 videos per week.
 
 ### February
 __I unlisted my LeetCode videos__ because I didn't want people think I still made interview prep content.
