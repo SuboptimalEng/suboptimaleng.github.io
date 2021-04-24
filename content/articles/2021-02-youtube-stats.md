@@ -8,7 +8,8 @@ tags: ['yt']
 ---
 
 ### Backstory
-Inspired by [@shl](https://www.twitter.com/shl), I decided to __add transparency to my journey of getting to 100K subs on YouTube__.
+Inspired by [@shl](https://www.twitter.com/shl)'s openness about [Gumroad](https://twitter.com/shl/status/1093532795438133253?s=20),
+I decided to __add transparency to my journey of getting to 100K subs on YouTube__.
 Every month, I'll post my stats¹ along with some key learnings I made on the way.
 You can follow the short-form updates on my twitter [@SuboptimalEng](https://twitter.com/suboptimaleng).
 
@@ -23,9 +24,13 @@ You can follow the short-form updates on my twitter [@SuboptimalEng](https://twi
 ### March Update
 
 ### February Update
-I unlisted half of my videos (all of which were high performing) because I didn't want people think I still made coding interview prep content.
-This is one of those "difficult decisions" which heavily impacted my YouTube performance.
+I unlisted my LeetCode videos (all of which were high performing)
+because I didn't want people think I still made coding interview prep content.
+This is one of those "difficult decisions" which I hope will pay off in the future.
 
+My total views dropped from 160k to 40k after I made change so
+I basically destroyed my channel in the hopes of "re-branding" it.
+Only time can tell how devestating this move will be.
 
 
 ### January Update
