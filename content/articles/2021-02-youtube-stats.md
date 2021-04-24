@@ -1,6 +1,6 @@
 ---
 title: "YouTube Stats in 2021 (ongoing)"
-ttr: 3
+ttr: 5
 description: 'Inspired by @shl, I decided to add transparency to my journey of getting to 100K subs on YouTube.'
 createdAt: '2021-04-23T00:00:00'
 updatedAt: '2021-04-23T00:00:00'
@@ -17,25 +17,37 @@ You can follow the short-form updates on my twitter [@SuboptimalEng](https://twi
 
 |          | Views      |  Total Subs  | Earnings  |
 | -------- | ---------- |  ----------- | --------- |
-| __Mar.__ | 9k (-3k)   |  5500 (+110) | $30 (-10) |
-| __Feb.__ | 12k (-5k)  |  5390 (+190) | $40 (-20) |
-| __Jan.__ | 17k (+5k)  |  5200 (+360) | $60 (+10) |
+| __Jan.__ | 17k        |  5200        | $60       |
+| __Feb.__ | 12k        |  5390        | $40       |
+| __Mar.__ | 9k         |  5500        | $30       |
+| __Apr.__ | -          |  -           | -         |
 
-### March Update
+### March
+I'm finally facing the aftermath of unlisting all of my LeetCode videos. I suspect that __YouTube stopped recommending my content__
+because it previously associated my channel with "LeetCode" and "Python" but all of those videos are now unlisted.
 
-### February Update
-I unlisted my LeetCode videos (all of which were high performing)
-because I didn't want people think I still made coding interview prep content.
-This is one of those "difficult decisions" which I hope will pay off in the future.
+__Views, earnings, and subscriber growth took a huge hit__.
+In January, ~400 people subscribed to my channel without me posting a single video for over 60 days --
+but now, even with a consistent upload schedule, I only got 100 subscribers.
+__I'm not complaining though__; I knew what I signed up for by removing so much content last month.
 
-My total views dropped from 160k to 40k after I made change so
-I basically destroyed my channel in the hopes of "re-branding" it.
-Only time can tell how devestating this move will be.
+On the bright side __I finally moved out of my parents house__.
+I was leeching off of them during the transition period between my tech job and YouTube,
+but it was high time I live on my own dime. Moving out was the right choice --
+__I was way too distracted with my old video games__ (Halo MCC, Modern Warfare, and Mario Kart Wii).
 
+__Moving sucked__ -- ESPECIALLY the monetary costs associated with it -- __but I doubled my productivity__.
+Even though I had to do household chores, and figure out what to eat every day, I still found enough
+free time to start making 2 videos per week. This is a HUGE win.
 
-### January Update
-I didn't post any YouTube videos from Nov 10th - Jan 13th so I earned ~50$ of passive income in Dec. 2020!
-Now, I'm back on track with my old uploading schedule of posting 1 vid/week.
+### February
+__I unlisted my LeetCode videos__ because I didn't want people think I still made interview prep content.
+My total views dropped from 160k to 40k after I made this change.
+I basically destroyed my channel __in the hopes of "re-branding" it__.
+
+### January
+I didn't post any YouTube videos from Nov 10th - Jan 13th and I still earned $50 of passive income in Dec. 2020!
+Now, I'm __back on track with my old uploading schedule of 1 video per week__.
 
 ### Footnotes
-- [1]: I fudge earnings by 5-10%.
+- [1]: I fudge the numbers by ~5%.
