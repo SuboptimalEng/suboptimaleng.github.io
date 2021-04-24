@@ -10,7 +10,7 @@ tags: ['yt']
 ### Backstory
 Inspired by [@shl](https://www.twitter.com/shl)'s openness about [Gumroad](https://twitter.com/shl/status/1093532795438133253?s=20),
 I decided to __add transparency to my journey of getting to 100K subs on YouTube__.
-Every month, I'll post my stats¹ along with some key learnings I made on the way.
+Every month, I'll post my stats¹ and some key learnings I made along on the way.
 You can follow the short-form updates on my twitter [@SuboptimalEng](https://twitter.com/suboptimaleng).
 
 ### The numbers, Mason! What do they mean?
@@ -36,14 +36,14 @@ I was leeching off of them during the transition period between my tech job and 
 but it was high time I live on my own dime. Moving out was the right choice --
 __I was way too distracted with my old video games__ (Halo MCC, Modern Warfare, and Mario Kart Wii).
 
-Regardless, __moving sucked__ -- ESPECIALLY the monetary costs associated with it --
+Regardless, __moving sucked__ -- especially the monetary costs associated with it --
 __but I doubled my productivity__. Though I now had to do more household chores and figure out what to eat every day,
-I still found enough free time to start making 2 videos per week. This is a HUGE win.
+I still found enough free time to start making 2 videos per week.
 
 ### February
 __I unlisted my LeetCode videos__ because I didn't want people think I still made interview prep content.
 My total views dropped from 160k to 40k after I made this change.
-I basically destroyed my channel __in the hopes of "re-branding" it__.
+I basically destroyed my channel __in the hopes of rebranding it__.
 
 ### January
 I didn't post any YouTube videos from Nov 10th - Jan 13th and I still earned $50 of passive income in Dec. 2020!
