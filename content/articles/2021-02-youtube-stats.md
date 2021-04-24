@@ -36,9 +36,9 @@ I was leeching off of them during the transition period between my tech job and 
 but it was high time I live on my own dime. Moving out was the right choice --
 __I was way too distracted with my old video games__ (Halo MCC, Modern Warfare, and Mario Kart Wii).
 
-__Moving sucked__ -- ESPECIALLY the monetary costs associated with it -- __but I doubled my productivity__.
-Even though I had to do household chores, and figure out what to eat every day, I still found enough
-free time to start making 2 videos per week. This is a HUGE win.
+Regardless, __moving sucked__ -- ESPECIALLY the monetary costs associated with it --
+__but I doubled my productivity__. Though I now had to do more household chores and figure out what to eat every day,
+I still found enough free time to start making 2 videos per week. This is a HUGE win.
 
 ### February
 __I unlisted my LeetCode videos__ because I didn't want people think I still made interview prep content.
