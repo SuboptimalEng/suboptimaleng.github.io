@@ -1,6 +1,7 @@
 <template>
   <div class="mb-4">
-    <div class="mb-10">
+    <!-- <div class="mb-10"> -->
+    <div class="mb-8">
       <div class="font-bold text-3xl lg:text-4xl">
         {{ article.title }}
       </div>
@@ -29,7 +30,14 @@
     </div>
 
     <!-- article -->
-    <nuxt-content :document="article" class="prose prose-lg lg:prose-xl" />
+    <!-- <div>
+      {{ article }}
+    </div> -->
+    <nuxt-content :document="article" class="prose md:prose-lg lg:prose-xl" />
+    <!-- <nuxt-content :document="article" class="prose md:prose-lg xl:prose-xl" /> -->
+    <!-- <nuxt-content :document="article" class="prose prose-xl" /> -->
+    <!-- <nuxt-content :document="article" class="prose prose-lg lg:prose-xl" /> -->
+    <!-- <nuxt-content :document="article" class="prose prose-lg lg:prose-xl" /> -->
   </div>
 </template>
 
