@@ -11,14 +11,10 @@ module.exports = {
     extend: {
       typography: (theme) => ({
         DEFAULT: {
-          // 'prose-lg': {
-          //   css: {
-          //     lineHeight: '1rem',
-          //   },
-          // },
           css: {
             h3: {
-              marginTop: '0rem',
+              marginTop: '1.25em',
+              fontWeight: '700',
             },
             a: {
               // textDecoration: 'none',
@@ -26,6 +22,14 @@ module.exports = {
               // '&:hover': {
               //   textDecoration: 'underline',
               // },
+            }
+          }
+        },
+        'xl': {
+          css: {
+            h3: {
+              marginTop: '1.25em',
+              fontWeight: '700',
             }
           }
         },
