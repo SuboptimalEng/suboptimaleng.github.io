@@ -18,6 +18,7 @@ module.exports = {
             },
             a: {
               // textDecoration: 'none',
+              // color: theme('colors.gray.500'),
               fontWeight: '600', // semi-bold
               // '&:hover': {
               //   textDecoration: 'underline',
