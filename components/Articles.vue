@@ -4,7 +4,7 @@
       <div v-for="article in articles" :key="article.id">
         <NuxtLink
           :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-          class="font-bold text-3xl lg:text-4xl hover:underline"
+          class="font-bold text-2xl lg:text-4xl hover:underline"
         >
           {{ article.title }}
         </NuxtLink>

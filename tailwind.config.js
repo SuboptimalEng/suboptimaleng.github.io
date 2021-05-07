@@ -12,6 +12,10 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            h3: {
+              marginTop: '1.25em',
+              fontWeight: '700',
+            },
             a: {
               // textDecoration: 'none',
               // color: theme('colors.gray.500'),
@@ -25,20 +29,10 @@ module.exports = {
         'xl': {
           css: {
             h3: {
-              marginTop: '1em',
-              lineHeight: '1.5em',
+              marginTop: '1.25em',
               fontWeight: '700',
-            },
-          },
-        },
-        'lg': {
-          css: {
-            h3: {
-              marginTop: '1em',
-              lineHeight: '1.5em',
-              fontWeight: '700',
-            },
-          },
+            }
+          }
         },
       }),
     },
