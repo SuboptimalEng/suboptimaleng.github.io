@@ -25,16 +25,16 @@ You can follow the short-form updates on my twitter [@SuboptimalEng](https://twi
 
 ### April
 __I focused heavily on my niche of making educational content about Vue.js and Tailwind CSS__.
-I uploaded ~2 videos/week -- either, about some core Tailwind concept, or about a UI clone built with Vue.js and Tailwind.
+I uploaded ~2 videos/week -- either about some core UI concept, or about a clone built with Vue.js and Tailwind.
 It didn't happen immediately, but __more and more people started discovering my Tailwind content through YouTube__!
 By the end of the month, one of the top 10 search words that recommended my videos was _tailwind css_.
 
 Although April was a slow month (in terms of numbers),
 it felt good to put out some content after finally getting settled into my new place.
-In the next few months, __I plan to release more videos about Vue.js, Tailwind CSS, Visual Studio Code, and Vim__.
+In the next few months, __I plan to release more videos about Vue, Tailwind, VS Code, and Vim__.
 I want the YouTube algorithm to recommend my channel _whenever_ these key words come up.
 
-Oh, and I started a [24/7 Classical Music Live Stream on YT with DigitalOcean](https://www.youtube.com/watch?v=0DxmbLL60KA).
+Oh, and I started a [24/7 Classical Music Live Stream on YouTube with DigitalOcean](https://www.youtube.com/watch?v=0DxmbLL60KA).
 
 ### March
 I'm finally facing the aftermath of unlisting all of my LeetCode videos. I suspect that __YouTube stopped recommending my content__
