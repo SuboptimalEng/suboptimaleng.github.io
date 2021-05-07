@@ -1,6 +1,6 @@
 ---
 title: "I Quit my Tech Job for YouTube (2021)"
-ttr: 3
+ttr: 5
 description: 'Inspired by @shl, I decided to add transparency to my journey of getting to 100K subs on YouTube.'
 createdAt: '2021-04-23T00:00:00'
 updatedAt: '2021-04-23T00:00:00'
@@ -17,10 +17,24 @@ You can follow the short-form updates on my twitter [@SuboptimalEng](https://twi
 
 |          | Views      |  Total Subs  | Earnings  |
 | -------- | ---------- |  ----------- | --------- |
-| __Jan.__ | 17k        |  5200        | $60       |
-| __Feb.__ | 12k        |  5390        | $40       |
-| __Mar.__ | 9k         |  5500        | $30       |
-| __Apr.__ | -          |  -           | -         |
+| __Jan.__ | 17k        |  5200 (+350) | $60       |
+| __Feb.__ | 12k        |  5390 (+190) | $40       |
+| __Mar.__ | 9k         |  5500 (+110) | $30       |
+| __Apr.__ | 10k        |  5650 (+150) | $30       |
+| __May__  | -          |  -           | -         |
+
+### April
+__I focused heavily on my niche of making educational content with Vue.js and Tailwind CSS__.
+I uploaded ~2 videos/week -- either, about some core Tailwind concept, or about a UI clone built with Vue.js and Tailwind.
+It didn't happen immediately, but __more and more people started discovering my Tailwind content through YouTube__!
+By the end of the month, one of the top 10 search words that recommended my videos was _tailwind css_.
+
+Although April was a slow month (in terms of numbers),
+it felt good to put out some content after finally getting settled into my new place.
+In the next few months, __I plan to release more videos about Vue.js, Tailwind CSS, Visual Studio Code, and Vim__.
+I want the YouTube algorithm to recommend my channel _whenever_ these key words come up.
+
+Oh, and I started a [24/7 Classical Music Live Stream on YouTube with DigitalOcean](https://www.youtube.com/watch?v=0DxmbLL60KA).
 
 ### March
 I'm finally facing the aftermath of unlisting all of my LeetCode videos. I suspect that __YouTube stopped recommending my content__
