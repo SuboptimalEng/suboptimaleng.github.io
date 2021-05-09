@@ -16,9 +16,7 @@
         <NuxtLink to="/blog/2021-01-about" class="hover:underline">
           About
         </NuxtLink>
-        <NuxtLink to="/blog/2021-01-about" class="hover:underline">
-          Projects
-        </NuxtLink>
+        <NuxtLink to="/blog/1" class="hover:underline"> Projects </NuxtLink>
         <a :href="twitter.href" target="_blank">
           <font-awesome-icon :icon="twitter.icon" />
         </a>
