@@ -12,14 +12,70 @@
         <NuxtLink to="/" class="hover:underline">Suboptimal</NuxtLink>
       </div>
 
-      <div class="flex items-end space-x-4 text-lg lg:text-2xl font-bold">
+      <div
+        class="hidden sm:flex items-center space-x-4 text-lg lg:text-2xl font-bold"
+      >
         <NuxtLink to="/blog/2021-01-about" class="hover:underline">
           About
+        </NuxtLink>
+        <NuxtLink
+          to="/"
+          class="hover:underline"
+          @click.native="showMenu = !showMenu"
+        >
+          Blog
         </NuxtLink>
         <NuxtLink to="/blog/1" class="hover:underline"> Projects </NuxtLink>
         <a :href="twitter.href" target="_blank">
           <font-awesome-icon :icon="twitter.icon" />
         </a>
+      </div>
+
+      <div class="sm:hidden flex text-lg items-center">
+        <div @click="showMenu = !showMenu">
+          <font-awesome-icon :icon="menu.icon" />
+        </div>
+        <div
+          v-if="showMenu"
+          class="absolute top-0 right-0 w-screen h-screen bg-white z-10"
+        >
+          <div class="p-4 flex flex-col text-2xl space-y-4">
+            <div class="flex justify-between">
+              <NuxtLink
+                to="/blog/2021-01-about"
+                class="hover:underline"
+                @click.native="showMenu = !showMenu"
+              >
+                About
+              </NuxtLink>
+              <div @click="showMenu = !showMenu">
+                <font-awesome-icon :icon="close.icon" />
+              </div>
+            </div>
+            <NuxtLink
+              to="/"
+              class="hover:underline"
+              @click.native="showMenu = !showMenu"
+            >
+              Blog
+            </NuxtLink>
+            <NuxtLink
+              to="/blog/1"
+              class="hover:underline"
+              @click.native="showMenu = !showMenu"
+            >
+              Projects
+            </NuxtLink>
+            <a
+              :href="twitter.href"
+              target="_blank"
+              class="hover:underline"
+              @click="showMenu = !showMenu"
+            >
+              Twitter
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -46,15 +102,23 @@ import {
   faHackerNews,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export default {
   data() {
     return {
       slug: '',
+      showMenu: false,
       isTagSearch: false,
       twitter: {
         icon: faTwitter,
         href: 'https://twitter.com/SuboptimalEng',
+      },
+      menu: {
+        icon: faBars,
+      },
+      close: {
+        icon: faTimes,
       },
       socials: [
         {
