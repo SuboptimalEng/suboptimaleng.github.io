@@ -2,8 +2,8 @@
 title: "I Quit my Tech Job for YouTube (2021)"
 ttr: 5
 description: 'Inspired by @shl, I decided to add transparency to my journey of getting to 100K subs on YouTube.'
-createdAt: '2021-04-23T00:00:00'
-updatedAt: '2021-04-23T00:00:00'
+createdAt: '2021-05-01T00:00:00'
+updatedAt: '2021-05-01T00:00:00'
 tags: ['yt']
 ---
 
@@ -34,7 +34,7 @@ it felt good to put out some content after finally getting settled into my new p
 In the next few months, __I plan to release more videos about Vue, Tailwind, VS Code, and Vim__.
 I want the YouTube algorithm to recommend my channel _whenever_ these key words come up.
 
-Oh, and I started a [24/7 Classical Music Live Stream on YouTube with DigitalOcean](https://www.youtube.com/watch?v=0DxmbLL60KA).
+Oh, and I started a [24/7 Classical Music Live Stream on YouTube with DigitalOcean](https://www.youtube.com/watch?v=AT5x3d-yDRY).
 
 ### March
 I'm finally facing the aftermath of unlisting all of my LeetCode videos. I suspect that __YouTube stopped recommending my content__

@@ -1,11 +1,11 @@
 <template>
   <div class="mb-4">
     <div class="mb-8">
-      <div class="font-bold text-2xl lg:text-4xl">
+      <div class="font-bold text-xl lg:text-3xl">
         {{ article.title }}
       </div>
 
-      <div class="space-y-1 text-base lg:text-xl font-light">
+      <div class="space-y-1 text-sm lg:text-lg font-light">
         <div class="flex space-x-1">
           <div>{{ formatDate(article.createdAt) }}</div>
           <div class="font-black">·</div>
