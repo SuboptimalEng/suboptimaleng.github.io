@@ -4,12 +4,14 @@
   >
     <!-- header -->
     <div class="flex justify-between font-black text-2xl lg:text-4xl pb-4">
-      <div v-if="isTagSearch">
-        <NuxtLink to="/" class="hover:underline">Sub</NuxtLink>
-        / {{ slug }}
-      </div>
-      <div v-else>
-        <NuxtLink to="/" class="hover:underline">Suboptimal</NuxtLink>
+      <div v-if="!showMenu">
+        <div v-if="isTagSearch">
+          <NuxtLink to="/" class="hover:underline">Sub</NuxtLink>
+          / {{ slug }}
+        </div>
+        <div v-else>
+          <NuxtLink to="/" class="hover:underline">Suboptimal</NuxtLink>
+        </div>
       </div>
 
       <div
@@ -80,12 +82,15 @@
     </div>
 
     <!-- content -->
-    <div class="py-4">
+    <div v-if="!showMenu" class="py-4">
       <Nuxt />
     </div>
 
     <!-- footer -->
-    <div class="flex space-x-1 justify-center text-3xl lg:text-4xl pt-4">
+    <div
+      v-if="!showMenu"
+      class="flex space-x-1 justify-center text-3xl lg:text-4xl pt-4"
+    >
       <div v-for="social in socials" :key="social.href">
         <a :href="social.href" target="_blank">
           <font-awesome-icon :icon="social.icon" />
