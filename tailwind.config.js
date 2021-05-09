@@ -14,7 +14,7 @@ module.exports = {
           css: {
             h3: {
               marginTop: '1.25em',
-              fontWeight: '700',
+              fontWeight: '600',
             },
             a: {
               // textDecoration: 'none',
@@ -30,7 +30,7 @@ module.exports = {
           css: {
             h3: {
               marginTop: '1.25em',
-              fontWeight: '700',
+              fontWeight: '600',
             }
           }
         },
