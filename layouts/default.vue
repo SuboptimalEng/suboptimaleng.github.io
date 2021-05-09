@@ -33,7 +33,7 @@
     <!-- footer -->
     <div class="flex space-x-1 justify-center text-3xl lg:text-4xl pt-4">
       <div v-for="social in socials" :key="social.href">
-        <a :href="social.href">
+        <a :href="social.href" target="_blank">
           <font-awesome-icon :icon="social.icon" />
         </a>
       </div>
