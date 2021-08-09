@@ -24,7 +24,7 @@ export default function Home() {
     {
       icon: faGithub,
       href: 'https://www.github.com/SuboptimalEng',
-      hoverClass: 'text-github',
+      hoverClass: 'text-white',
     },
     // {
     //   icon: faTwitterSquare,
@@ -66,9 +66,12 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="relative z-10"
               >
+                {social.hoverClass === 'text-youtube' && (
+                  <div className="absolute place-items-center bg-white inset-4 md:inset-8"></div>
+                )}
                 <FontAwesomeIcon
                   icon={social.icon}
-                  className={'z-10 h-16 md:h-24 hover:' + social.hoverClass}
+                  className={'relative z-10 h-16 md:h-24 ' + social.hoverClass}
                 ></FontAwesomeIcon>
               </a>
 
