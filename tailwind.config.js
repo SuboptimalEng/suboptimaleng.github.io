@@ -1,46 +1,19 @@
 module.exports = {
-  purge: [
-    './components/**/*.{vue,js}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}',
-  ],
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            h3: {
-              marginTop: '1.25em',
-              fontWeight: '600',
-            },
-            a: {
-              // textDecoration: 'none',
-              // color: theme('colors.gray.500'),
-              fontWeight: '600', // semi-bold
-              // '&:hover': {
-              //   textDecoration: 'underline',
-              // },
-            }
-          }
-        },
-        'xl': {
-          css: {
-            h3: {
-              marginTop: '1.25em',
-              fontWeight: '600',
-            }
-          }
-        },
-      }),
+      colors: {
+        'almost-black': '#14171A',
+        youtube: '#FF0000',
+        twitter: '#1DA1F2',
+        github: '#9CDAF1',
+        'hacker-news': '#FF6600',
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
-}
+  plugins: [],
+};

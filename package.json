@@ -1,39 +1,28 @@
 {
-  "name": "blog",
-  "version": "1.0.0",
+  "name": "my-next-app",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "deploy": " gh-pages -d dist -t true",
-    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint": "npm run lint:js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@nuxt/content": "^1.14.0",
-    "@tailwindcss/typography": "^0.4.0",
-    "core-js": "^3.9.1",
-    "moment": "^2.29.1",
-    "nuxt": "^2.15.3"
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@fortawesome/free-brands-svg-icons": "^5.15.3",
-    "@nuxtjs/eslint-config": "^6.0.0",
-    "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/fontawesome": "^1.1.2",
-    "@nuxtjs/google-analytics": "^2.4.0",
-    "@nuxtjs/tailwindcss": "^4.0.1",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.22.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.7.0",
-    "postcss": "^8.2.8",
-    "prettier": "^2.2.1",
-    "push-dir": "^0.4.1"
+    "@types/react": "17.0.16",
+    "autoprefixer": "^10.3.1",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.0.1",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.7",
+    "typescript": "4.3.5"
   }
 }
