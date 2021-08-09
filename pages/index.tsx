@@ -63,7 +63,7 @@ export default function Home() {
                 key={i}
                 href={social.href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="relative z-10"
               >
                 <FontAwesomeIcon
