@@ -55,7 +55,7 @@ export default function Home() {
       </Head>
 
       <div className="min-h-screen bg-black text-white flex flex-col justify-center">
-        <div className="flex space-x-6 md:space-x-9 justify-center">
+        <div className="flex space-x-4 md:space-x-8 justify-center">
           {socials.map((social, i) => {
             return (
               // Change text-color.
