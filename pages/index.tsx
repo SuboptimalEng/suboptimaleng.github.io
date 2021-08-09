@@ -14,17 +14,17 @@ export default function Home() {
     {
       icon: faTwitter,
       href: 'https://www.twitter.com/SuboptimalEng',
-      hoverClass: 'text-twitter',
+      hoverClass: 'hover:text-twitter',
     },
     {
       icon: faYoutube,
       href: 'https://www.youtube.com/SuboptimalEng',
-      hoverClass: 'text-youtube',
+      hoverClass: 'hover:text-youtube',
     },
     {
       icon: faGithub,
       href: 'https://www.github.com/SuboptimalEng',
-      hoverClass: 'text-white',
+      hoverClass: 'hover:text-github',
     },
     // {
     //   icon: faTwitterSquare,
@@ -66,9 +66,9 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="relative z-10"
               >
-                {social.hoverClass === 'text-youtube' && (
+                {/* {social.hoverClass === 'text-youtube' && (
                   <div className="absolute place-items-center bg-white inset-4 md:inset-8"></div>
-                )}
+                )} */}
                 <FontAwesomeIcon
                   icon={social.icon}
                   className={'relative z-10 h-16 md:h-24 ' + social.hoverClass}
