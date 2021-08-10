@@ -47,7 +47,10 @@ export default function Home() {
     <div>
       <Head>
         <title>Suboptimal Engineer</title>
-        <meta property="image" content="/channel_art.png" />
+        <meta
+          property="image"
+          content="https://suboptimaleng.vercel.app/channel_art.png"
+        />
         <meta property="title" content="Suboptimal Engineer" />
         <meta
           property="description"
