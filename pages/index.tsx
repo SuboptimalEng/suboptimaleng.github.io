@@ -47,7 +47,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Suboptimal Engineer</title>
-        <meta property="image" content="/image.png" />
+        <meta property="image" content="/channel_art.png" />
         <meta property="title" content="Suboptimal Engineer" />
         <meta
           property="description"
@@ -55,7 +55,7 @@ export default function Home() {
           // content="Just a typical Indian software engineer building products for creators and teaching web dev on YouTube."
           content="👨🏾‍💻 Indian software engineer + YouTuber building products to help creators."
         />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/profile_pic.png" />
       </Head>
 
       <div className="min-h-screen bg-black text-white flex flex-col justify-center">
