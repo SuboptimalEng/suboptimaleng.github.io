@@ -59,6 +59,22 @@ export default function Home() {
           content="👨🏾‍💻 Indian software engineer + YouTuber building products to help creators."
         />
         <link rel="icon" href="/profile_pic.png" />
+
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-191446508-2"
+        />
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'UA-191446508-2', { page_path: window.location.pathname });
+            `,
+          }}
+        />
       </Head>
 
       <div className="min-h-screen bg-black text-white flex flex-col justify-center">
