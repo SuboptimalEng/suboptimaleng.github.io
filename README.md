@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Blog
 
-Testing.
+Another test.
 
 ## Getting Started
 
