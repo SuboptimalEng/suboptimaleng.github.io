@@ -37,8 +37,6 @@ export default function Home() {
         <meta property="og:title" content="Suboptimal Engineer" />
         <meta
           property="description"
-          // content="The typical blog of an atypical Indian guy who quit his tech job to become a YouTuber."
-          // content="Just a typical Indian software engineer building products for creators and teaching web dev on YouTube."
           content="👨🏾‍💻 Indian Software Engineer + YouTuber"
         />
         <link rel="icon" href="/profile_pic.png" />
