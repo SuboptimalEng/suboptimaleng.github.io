@@ -39,7 +39,7 @@ export default function Home() {
           property="description"
           content="3D game dev experiments built for the web with Three.js and React. Maintained by (Indian Software Engineer + YouTuber) SuboptimalEng."
         />
-        <link rel="icon" href="/se_profile_pic.png" />
+        <link rel="icon" href="/gdx_profile_pic.png" />
 
         <script
           async
