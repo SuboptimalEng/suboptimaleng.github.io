@@ -34,10 +34,19 @@
 
 - enforce https (should happen automatically)
 
-- index.html - title tag
+- set up title and meta tags
 
 ```
-    <title>Frantic Architect | Gamedex</title>
+<title><GAMENAME> | Gamedex</title>
+<meta property="og:title" content="<GAMENAME> | Gamedex" />
+<meta
+  property="og:image"
+  content="https://suboptimaleng.github.io/gdx_channel_art.png"
+/>
+<meta
+  property="description"
+  content="3D game dev experiments built for the web with Three.js and React. Maintained by (Indian Software Engineer + YouTuber) SuboptimalEng."
+/>
 ```
 
 - index.html - gtag script
