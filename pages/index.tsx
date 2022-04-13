@@ -29,15 +29,15 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Suboptimal Engineer</title>
+        <title>Gamedex</title>
         <meta
           property="og:image"
           content="https://suboptimaleng.github.io/channel_art.png"
         />
-        <meta property="og:title" content="Suboptimal Engineer" />
+        <meta property="og:title" content="Gamedex" />
         <meta
           property="description"
-          content="👨🏾‍💻 Indian Software Engineer + YouTuber"
+          content="3D game dev experiments built for the web with Three.js and React. Maintained by (Indian Software Engineer + YouTuber) SuboptimalEng."
         />
         <link rel="icon" href="/profile_pic.png" />
 
