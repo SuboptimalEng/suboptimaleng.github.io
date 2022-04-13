@@ -9,6 +9,25 @@
 
 ## Individual Game
 
+### GitHub README Format
+
+- 🗿 Game Name
+- < screenshot >
+- Description - Demo (link)
+  - 3-4 statements
+- Updates
+  - v0.2 updates
+  - v0.1 updates
+- TODO
+  - list of future updates
+
+### GitHub Checklist
+
+- About - 🗿 Game Name
+- tags
+
+### Code
+
 - properly import tailwind css
 
 - link to gamedex.dev home page in each game
