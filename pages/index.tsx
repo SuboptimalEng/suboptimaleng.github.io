@@ -32,14 +32,14 @@ export default function Home() {
         <title>Gamedex</title>
         <meta
           property="og:image"
-          content="https://suboptimaleng.github.io/channel_art.png"
+          content="https://suboptimaleng.github.io/gdx_channel_art.png"
         />
         <meta property="og:title" content="Gamedex" />
         <meta
           property="description"
           content="3D game dev experiments built for the web with Three.js and React. Maintained by (Indian Software Engineer + YouTuber) SuboptimalEng."
         />
-        <link rel="icon" href="/profile_pic.png" />
+        <link rel="icon" href="/gdx_profile_pic.png" />
 
         <script
           async
