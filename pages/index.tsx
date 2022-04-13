@@ -60,6 +60,9 @@ export default function Home() {
       </Head>
 
       <div className="min-h-screen bg-black text-white flex flex-col justify-center">
+        {/* <div className="flex space-x-4 md:space-x-8 justify-center">
+          <div className="text-4xl">frantic architect</div>
+        </div> */}
         <div className="flex space-x-4 md:space-x-8 justify-center">
           {socials.map((social, i) => {
             return (
@@ -72,7 +75,7 @@ export default function Home() {
               >
                 <FontAwesomeIcon
                   icon={social.icon}
-                  className={'relative z-10 h-16 md:h-24 ' + social.hoverClass}
+                  className={'relative z-10 h-12 md:h-16 ' + social.hoverClass}
                 ></FontAwesomeIcon>
               </a>
             );
