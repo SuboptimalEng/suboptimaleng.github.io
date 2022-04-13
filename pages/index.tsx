@@ -11,16 +11,19 @@ export default function Home() {
   const socials = [
     {
       icon: faTwitter,
+      name: 'twitter',
       href: 'https://www.twitter.com/SuboptimalEng',
       hoverClass: 'hover:text-twitter',
     },
     {
       icon: faYoutube,
+      name: 'youtube',
       href: 'https://www.youtube.com/SuboptimalEng',
       hoverClass: 'hover:text-youtube',
     },
     {
       icon: faGithub,
+      name: 'github',
       href: 'https://www.github.com/SuboptimalEng',
       hoverClass: 'hover:text-github',
     },
@@ -63,23 +66,43 @@ export default function Home() {
         {/* <div className="flex space-x-4 md:space-x-8 justify-center">
           <div className="text-4xl">frantic architect</div>
         </div> */}
-        <div className="flex space-x-4 md:space-x-8 justify-center">
-          {socials.map((social, i) => {
-            return (
-              <a
-                key={i}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative z-10"
-              >
-                <FontAwesomeIcon
-                  icon={social.icon}
-                  className={'relative z-10 h-12 md:h-16 ' + social.hoverClass}
-                ></FontAwesomeIcon>
+
+        <div className="flex justify-center">
+          <div className="flex flex-col">
+            <div className="text-6xl pb-5">gamedex</div>
+            <a href="https://gamedex.dev/frantic-architect">
+              <div className="text-4xl hover:text-blue-600">
+                frantic-architect
+              </div>
+            </a>
+            <div className="flex space-x-1 text-base">
+              <a href="https://github.com/SuboptimalEng/frantic-architect">
+                <div className="hover:text-blue-600">[code]</div>
               </a>
-            );
-          })}
+              <a href="https://github.com/SuboptimalEng/frantic-architect">
+                <div className="hover:text-blue-600">[demo]</div>
+              </a>
+            </div>
+
+            <div className="flex pt-5 space-x-4">
+              {socials.map((social, i) => {
+                return (
+                  <a
+                    key={i}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10"
+                  >
+                    <FontAwesomeIcon
+                      icon={social.icon}
+                      className={'relative z-10 h-12 ' + social.hoverClass}
+                    ></FontAwesomeIcon>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>

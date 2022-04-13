@@ -10,7 +10,6 @@ module.exports = {
         youtube: '#FF0000',
         twitter: '#1DA1F2',
         github: '#9CDAF1',
-        'hacker-news': '#FF6600',
       },
     },
   },
