@@ -69,7 +69,7 @@ export default function Home() {
 
         <div className="flex justify-center">
           <div className="flex flex-col">
-            <div className="text-6xl pb-5">gamedex</div>
+            <div className="text-6xl pb-6">gamedex</div>
             <a href="https://gamedex.dev/frantic-architect/">
               <div className="text-4xl hover:text-blue-600">
                 frantic-architect
@@ -92,7 +92,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="flex pt-5 space-x-4">
+            <div className="flex pt-6 space-x-4">
               {socials.map((social, i) => {
                 return (
                   <a
