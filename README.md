@@ -1,26 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Notes
-
-- github workflows
-- add nojekyll file to enable tailwind css styling
-- add google analytics when publishing a new three.js project
-
-```
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=<GOOGLE_ANALYTICS_ID>"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '<GOOGLE_ANALYTICS_ID>', {
-      page_path: window.location.pathname,
-    });
-  </script>
-```
-
 ## Getting Started
 
 First, run the development server:
