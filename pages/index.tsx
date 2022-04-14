@@ -77,7 +77,7 @@ export default function Home() {
             </a>
             <div className="flex space-x-1 text-base">
               <a
-                href="https://twitter.com/SuboptimalEng/"
+                href="https://twitter.com/SuboptimalEng/status/1514638959439228932?s=20&t=C7dJhb9x6GMSFeWtBdNPaA"
                 target="_blank"
                 rel="noopener noreferrer"
               >
