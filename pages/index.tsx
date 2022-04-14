@@ -33,16 +33,13 @@ export default function Home() {
     <div>
       <Head>
         <title>Gamedex</title>
-        <meta
-          property="og:image"
-          content="https://suboptimaleng.github.io/gdx_channel_art.png"
-        />
+        <meta property="og:image" content="/thumbnail_dd.png" />
         <meta property="og:title" content="Gamedex" />
         <meta
           property="description"
           content="3D game dev experiments built for the web with Three.js and React. Maintained by (Indian Software Engineer + YouTuber) SuboptimalEng."
         />
-        <link rel="icon" href="/gdx_profile_pic.png" />
+        <link rel="icon" href="/profile_dd.png" />
 
         <script
           async
@@ -71,24 +68,24 @@ export default function Home() {
           <div className="flex flex-col">
             <div className="text-6xl pb-6">gamedex</div>
             <a href="https://gamedex.dev/frantic-architect/">
-              <div className="text-4xl hover:text-blue-600">
+              <div className="text-4xl hover:text-youtube">
                 frantic-architect
               </div>
             </a>
             <div className="flex space-x-1 text-base">
               <a
-                href="https://github.com/SuboptimalEng/frantic-architect/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="hover:text-blue-600">[code]</div>
-              </a>
-              <a
                 href="https://twitter.com/SuboptimalEng/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="hover:text-blue-600">[demo]</div>
+                <div className="hover:text-youtube">[demo]</div>
+              </a>
+              <a
+                href="https://github.com/SuboptimalEng/frantic-architect/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="hover:text-youtube">[code]</div>
               </a>
             </div>
 
