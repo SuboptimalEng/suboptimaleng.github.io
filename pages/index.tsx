@@ -33,7 +33,10 @@ export default function Home() {
     <div>
       <Head>
         <title>Gamedex</title>
-        <meta property="og:image" content="/thumbnail_dd.png" />
+        <meta
+          property="og:image"
+          content="https://suboptimaleng.github.io/thumbnail_dd.png"
+        />
         <meta property="og:title" content="Gamedex" />
         <meta
           property="description"
