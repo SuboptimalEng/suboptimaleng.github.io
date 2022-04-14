@@ -70,14 +70,10 @@ export default function Home() {
         <div className="flex justify-center">
           <div className="flex flex-col">
             <div className="text-6xl pb-6">gamedex</div>
-            <a href="https://gamedex.dev/frantic-architect/">
-              <div className="text-4xl hover:text-youtube">
-                frantic-architect
-              </div>
-            </a>
+            <div className="text-4xl">frantic-architect</div>
             <div className="flex space-x-1 text-base">
               <a
-                href="https://twitter.com/SuboptimalEng/status/1514638959439228932?s=20&t=C7dJhb9x6GMSFeWtBdNPaA"
+                href="https://gamedex.dev/frantic-architect/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
