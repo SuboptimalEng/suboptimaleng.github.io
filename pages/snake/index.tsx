@@ -7,7 +7,6 @@ import { SceneInit } from '../../lib/SceneInit';
 function Snake() {
   useEffect(() => {
     const test = new SceneInit('myThreeJsCanvas');
-    test.initialize();
     test.animate();
 
     const boxGeometry = new THREE.BoxGeometry(8, 8, 8);
