@@ -9,13 +9,12 @@ function Snake() {
     const test = new SceneInit('myThreeJsCanvas');
     test.animate();
 
-    const boxGeometry = new THREE.BoxGeometry(8, 8, 8);
+    const boxGeometry = new THREE.BoxGeometry(4, 4, 4);
     const boxMaterial = new THREE.MeshNormalMaterial();
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     test.scene.add(boxMesh);
 
     const animate = () => {
-      // console.log(boxMesh);
       boxMesh.rotateX(0.01);
       window.requestAnimationFrame(animate);
     };
