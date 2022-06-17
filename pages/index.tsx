@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTwitter,
@@ -70,6 +71,11 @@ export default function Home() {
         <div className="flex justify-center">
           <div className="flex flex-col">
             <div className="text-6xl pb-6">gamedex</div>
+            <Link href="/snake/">
+              <a>
+                <div className="text-4xl">snake</div>
+              </a>
+            </Link>
             <div className="text-4xl">frantic-architect</div>
             <div className="flex space-x-1 text-base">
               <a
