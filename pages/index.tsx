@@ -64,10 +64,6 @@ export default function Home() {
       </Head>
 
       <div className="min-h-screen bg-black text-white flex flex-col justify-center">
-        {/* <div className="flex space-x-4 md:space-x-8 justify-center">
-          <div className="text-4xl">frantic architect</div>
-        </div> */}
-
         <div className="flex justify-center">
           <div className="flex flex-col">
             <div className="text-7xl pb-8">gamedex</div>
