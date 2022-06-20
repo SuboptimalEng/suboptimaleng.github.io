@@ -80,7 +80,7 @@ export default function Home() {
             </Link>
 
             <a
-              href="https://gamedex.dev/frantic-architect/"
+              href="https://thegamedex.com/frantic-architect/"
               target="_blank"
               rel="noopener noreferrer"
             >
