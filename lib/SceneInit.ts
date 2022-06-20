@@ -9,6 +9,7 @@ class SceneInit {
   farPlane: number;
 
   canvas: HTMLCanvasElement | null;
+  onWindowResize: () => void;
 
   // three.js variables
   scene: THREE.Scene;
@@ -66,7 +67,49 @@ class SceneInit {
     this.directionalLight.position.set(0, 32, 64);
     this.scene.add(this.directionalLight);
 
-    window.addEventListener('resize', () => this.onWindowResize(), false);
+    // setting up the window resize function like this makes it easy
+    // to remove the event listener
+    this.onWindowResize = () => {
+      console.log('resize');
+      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+
+    window.addEventListener('resize', this.onWindowResize, false);
+  }
+
+  destroy() {
+    // TODO: maybe clear this data?
+    // this.fov = 5;
+    // this.nearPlane = 1;
+    // this.farPlane = 1000;
+    // this.canvasId = canvasId;
+
+    // remove all objects from the scene
+    while (this.scene.children.length > 0) {
+      this.scene.remove(this.scene.children[0]);
+    }
+
+    this.scene.removeFromParent();
+    this.camera.removeFromParent();
+
+    // remove the stats element
+    document.body.removeChild(this.stats.dom);
+
+    // TODO: Figure out what to do with this data
+    // this.canvas = document.getElementById(this.canvasId) as HTMLCanvasElement;
+    // this.renderer = new THREE.WebGLRenderer({
+    //   canvas: this.canvas,
+    //   // NOTE: Anti-aliasing smooths out the edges.
+    //   antialias: true,
+    // });
+    // this.renderer.setSize(window.innerWidth, window.innerHeight);
+    // document.body.appendChild(this.renderer.domElement);
+    // this.clock = new THREE.Clock();
+    // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+
+    window.removeEventListener('resize', this.onWindowResize);
   }
 
   animate() {
@@ -82,12 +125,6 @@ class SceneInit {
     // NOTE: Update uniform data on each render.
     // this.uniforms.u_time.value += this.clock.getDelta();
     this.renderer.render(this.scene, this.camera);
-  }
-
-  onWindowResize() {
-    this.camera.aspect = window.innerWidth / window.innerHeight;
-    this.camera.updateProjectionMatrix();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
   }
 }
 

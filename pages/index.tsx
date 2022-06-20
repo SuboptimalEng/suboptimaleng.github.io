@@ -70,14 +70,26 @@ export default function Home() {
 
         <div className="flex justify-center">
           <div className="flex flex-col">
-            <div className="text-6xl pb-6">gamedex</div>
+            <div className="text-7xl pb-8">gamedex</div>
             <Link href="/snake/">
               <a>
-                <div className="text-4xl">snake</div>
+                <div className="text-5xl hover:bg-white hover:text-black">
+                  snake
+                </div>
               </a>
             </Link>
-            <div className="text-4xl">frantic-architect</div>
+
+            <a
+              href="https://gamedex.dev/frantic-architect/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="text-5xl hover:bg-white hover:text-black">
+                frantic-architect
+              </div>
+            </a>
             <div className="flex space-x-1 text-base">
+              {/* <div>(original game by will kwan)</div> */}
               <a
                 href="https://gamedex.dev/frantic-architect/"
                 target="_blank"
@@ -94,7 +106,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="flex pt-6 space-x-4">
+            <div className="flex pt-8 space-x-4">
               {socials.map((social, i) => {
                 return (
                   <a
@@ -106,7 +118,7 @@ export default function Home() {
                   >
                     <FontAwesomeIcon
                       icon={social.icon}
-                      className={'relative z-10 h-12 ' + social.hoverClass}
+                      className={'relative z-10 h-16 ' + social.hoverClass}
                     ></FontAwesomeIcon>
                   </a>
                 );
