@@ -1,6 +1,6 @@
 # 🗿 Gamedex Setup Guide
 
-## Gamedex.dev Homepage
+## thegamedex.com Homepage
 
 - update gamedex website and link to game example
 
@@ -30,7 +30,7 @@
 
 - properly import tailwind css
 
-- link to gamedex.dev home page in each game
+- link to thegamedex.com home page in each game
 
 - enforce https (should happen automatically)
 

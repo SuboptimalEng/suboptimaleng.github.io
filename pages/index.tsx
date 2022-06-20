@@ -91,7 +91,7 @@ export default function Home() {
             <div className="flex space-x-1 text-base">
               {/* <div>(original game by will kwan)</div> */}
               <a
-                href="https://gamedex.dev/frantic-architect/"
+                href="https://thegamedex.com/frantic-architect/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
