@@ -112,10 +112,11 @@ class SceneInit {
     window.removeEventListener('resize', this.onWindowResize);
   }
 
-  animate() {
+  update() {
     // NOTE: Window is implied.
-    // requestAnimationFrame(this.animate.bind(this));
-    window.requestAnimationFrame(this.animate.bind(this));
+    // NOTE: Remove request animation frame?
+    // requestAnimationFrame(this.update.bind(this));
+    // window.requestAnimationFrame(this.update.bind(this));
     this.render();
     this.stats.update();
     this.controls.update();

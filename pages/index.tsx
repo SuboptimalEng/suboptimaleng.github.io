@@ -67,7 +67,7 @@ export default function Home() {
         <div className="flex justify-center">
           <div className="flex flex-col">
             <div className="text-7xl pb-8">gamedex</div>
-            <Link href="/snake/">
+            <Link href="/snake">
               <a>
                 <div className="text-5xl hover:bg-white hover:text-black">
                   snake

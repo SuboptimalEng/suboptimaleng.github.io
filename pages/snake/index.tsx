@@ -1,26 +1,24 @@
 import { useEffect, useRef } from 'react';
 
-import * as THREE from 'three';
-
+import { SnakeGame } from './SnakeGame';
 import { SceneInit } from '../../lib/SceneInit';
 
-function Snake() {
+export default function Snake() {
   const windowRef = useRef(0);
 
   useEffect(() => {
     const test = new SceneInit('myThreeJsCanvas');
-    test.animate();
+    const snakeGame = new SnakeGame();
+    test.scene.add(snakeGame.group);
 
-    const boxGeometry = new THREE.BoxGeometry(4, 4, 4);
-    const boxMaterial = new THREE.MeshNormalMaterial();
-    const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-    test.scene.add(boxMesh);
+    const update = () => {
+      test.update();
+      snakeGame.update();
 
-    const animate = () => {
-      boxMesh.rotateX(0.01);
-      windowRef.current = window.requestAnimationFrame(animate);
+      // keep track of animation frame in windowRef.current
+      windowRef.current = window.requestAnimationFrame(update);
     };
-    animate();
+    update();
 
     return () => {
       console.log('on component unmount');
@@ -28,7 +26,7 @@ function Snake() {
       // remove scene
       test.destroy();
 
-      // stop animation frame
+      // stop window request animation frame function
       window.cancelAnimationFrame(windowRef.current);
 
       // remove canvas element so it does not get displayed on home page
@@ -44,5 +42,3 @@ function Snake() {
     </div>
   );
 }
-
-export default Snake;
