@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import { Snake } from '../../lib/snake/Snake';
+import { Snake } from '../../lib/games/Snake';
 import { SceneInit } from '../../lib/SceneInit';
 
 function SnakeGame() {
