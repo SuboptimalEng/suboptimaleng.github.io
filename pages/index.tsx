@@ -6,7 +6,7 @@ import {
   faYoutube,
   faGithub,
 } from '@fortawesome/free-brands-svg-icons';
-import { GA_TRACKING_ID } from '../lib/gtag';
+import { GA_TRACKING_ID } from '../utils/gtag';
 
 export default function Home() {
   const socials = [

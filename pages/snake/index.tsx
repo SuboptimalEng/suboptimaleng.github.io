@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-import { Snake } from '../../lib/games/Snake';
-import { SceneInit } from '../../lib/SceneInit';
+import { Snake } from '../../games/snake/Snake';
+import { SceneInit } from '../../games/SceneInit';
 
 function SnakeGame() {
   const windowRef = useRef(0);
