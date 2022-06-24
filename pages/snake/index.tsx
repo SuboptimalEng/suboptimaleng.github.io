@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import { Snake } from '../../lib/snake';
-import { SceneInit } from '../../lib/helpers';
+import { Snake, SceneInit } from '../../lib/snake';
 
 // NOTE: Function naming convention `${name}Game`;
 function SnakeGame() {

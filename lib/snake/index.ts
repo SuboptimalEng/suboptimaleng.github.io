@@ -1,2 +1,4 @@
 import { Snake } from './Snake';
-export { Snake };
+import { SceneInit } from './SceneInit';
+
+export { Snake, SceneInit };
