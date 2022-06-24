@@ -1,19 +1,19 @@
 import { useEffect, useRef } from 'react';
 
-import { Snake } from './Snake';
+import { SnakeGame } from './SnakeGame';
 import { SceneInit } from '../../lib/SceneInit';
 
-function SnakeGame() {
+function Snake() {
   const windowRef = useRef(0);
 
   useEffect(() => {
     const test = new SceneInit('myThreeJsCanvas');
-    const snake = new Snake();
-    test.scene.add(snake.group);
+    const snakeGame = new SnakeGame();
+    test.scene.add(snakeGame.group);
 
     const update = () => {
       test.update();
-      snake.update();
+      snakeGame.update();
 
       // keep track of animation frame in windowRef.current
       windowRef.current = window.requestAnimationFrame(update);
@@ -43,4 +43,4 @@ function SnakeGame() {
   );
 }
 
-export default SnakeGame;
+export default Snake;

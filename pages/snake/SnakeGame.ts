@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-class Snake {
+class SnakeGame {
   group: THREE.Group;
   boxMesh: THREE.Mesh;
 
@@ -19,4 +19,4 @@ class Snake {
   }
 }
 
-export { Snake };
+export { SnakeGame };
