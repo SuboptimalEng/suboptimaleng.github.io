@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react';
 
-import { Snake } from '../../games/snake/Snake';
-import { SceneInit } from '../../games/SceneInit';
+import { Snake } from '../../lib/snake';
+import { SceneInit } from '../../lib/helpers';
 
+// NOTE: Function naming convention `${name}Game`;
 function SnakeGame() {
   const windowRef = useRef(0);
 
