@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { Snake } from './Snake';
 import { SceneInit } from '../../lib/SceneInit';
 
-export default function SnakeGame() {
+function SnakeGame() {
   const windowRef = useRef(0);
 
   useEffect(() => {
@@ -42,3 +42,5 @@ export default function SnakeGame() {
     </div>
   );
 }
+
+export { SnakeGame };
