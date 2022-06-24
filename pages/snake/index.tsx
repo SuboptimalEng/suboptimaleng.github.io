@@ -21,7 +21,7 @@ function Snake() {
     update();
 
     return () => {
-      // console.log('on component unmount');
+      console.log('on component unmount');
 
       // remove scene
       test.destroy();
