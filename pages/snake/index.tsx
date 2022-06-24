@@ -43,4 +43,4 @@ function SnakeGame() {
   );
 }
 
-export { SnakeGame };
+export default SnakeGame;
