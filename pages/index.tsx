@@ -74,6 +74,13 @@ export default function Home() {
                 </div>
               </a>
             </Link>
+            <Link href="/frantic-arch">
+              <a>
+                <div className="text-5xl hover:bg-white hover:text-black">
+                  frantic-arch
+                </div>
+              </a>
+            </Link>
 
             <a
               href="https://thegamedex.com/frantic-architect/"

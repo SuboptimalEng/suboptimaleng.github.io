@@ -19,7 +19,7 @@
     "**/*.ts",
     "**/*.tsx",
     // TODO: convert these files to typescript
-    "lib/frantic-architect/SceneInit.js",
+    "lib/frantic-architect/SceneInit.ts",
     "lib/frantic-architect/FranticArchitect.js"
   ],
   "exclude": ["node_modules"]

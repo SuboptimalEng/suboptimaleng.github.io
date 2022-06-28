@@ -1,23 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-// import { GUI } from 'dat.gui';
 import CannonDebugger from 'cannon-es-debugger';
 
 import { FranticArchitect, SceneInit } from '../../lib/frantic-architect';
 
 function FranticArchitectGame() {
-  // todo: figure out how to display dat.gui
+  const windowRef = useRef(0);
 
   useEffect(() => {
     const test = new SceneInit('myThreeJsCanvas');
-    test.initialize();
 
     const franticArchitect = new FranticArchitect();
     test.scene.add(franticArchitect.gg);
-    const cannonDebugger = new CannonDebugger(
-      test.scene,
-      franticArchitect.world
-    );
+
+    const cannonDebugger = CannonDebugger(test.scene, franticArchitect.world);
 
     const initGui = async () => {
       const dat = await import('dat.gui');
@@ -25,7 +21,7 @@ function FranticArchitectGame() {
       gui
         .add(test, 'cameraRotationDepth', 5, 100)
         .name('Camera Distance')
-        .onChange((value) => {
+        .onChange((value: any) => {
           // TODO: Change camera position every 10 units.
           // const newY = Math.round((value / 10) % 5) + 5;
           // if (test.camera.position.y !== newY) {
@@ -39,26 +35,25 @@ function FranticArchitectGame() {
     const animate = () => {
       const dt = test.clock.getDelta();
 
-      test.render();
-      // test.stats.update();
-      // cannonDebugger.update();
+      test.update();
+      test.udpateCameraPosition();
+
+      // run this when debugging
+      cannonDebugger.update();
+
       franticArchitect.update(dt);
       franticArchitect.animatePhantomGroup();
       franticArchitect.animateCompoundShapeGroup();
-
-      // NOTE: Don't allow user to control camera.
-      // test.controls.update();
-      test.udpateCameraPosition();
 
       requestAnimationFrame(animate);
     };
     animate();
 
-    const onClick = (event) => {
+    const onClick = (event: MouseEvent) => {
       franticArchitect.acceptPhantomBlock();
     };
 
-    const onKeyDown = (event) => {
+    const onKeyDown = (event: KeyboardEvent) => {
       if (event.code === 'Space') {
         franticArchitect.acceptPhantomBlock();
       }
@@ -68,16 +63,29 @@ function FranticArchitectGame() {
     window.addEventListener('keydown', onKeyDown);
 
     return () => {
+      console.log('on component unmount');
+
       window.removeEventListener('click', onClick);
       window.removeEventListener('keydown', onKeyDown);
+
+      // remove scene
+      test.destroy();
+
+      // stop window request animation frame function
+      window.cancelAnimationFrame(windowRef.current);
+
+      // remove canvas element so it does not get displayed on home page
+      const canvas = document.getElementById('myThreeJsCanvas') as Node;
+      const parent = canvas.parentNode as Node;
+      parent.removeChild(canvas);
     };
   }, []);
 
   return (
     <div>
-      <a href="https://thegamedex.com">
+      {/* <a href="https://thegamedex.com">
         <div className="absolute m-4 text-4xl">⬅️</div>
-      </a>
+      </a> */}
       <canvas id="myThreeJsCanvas" />
     </div>
   );
