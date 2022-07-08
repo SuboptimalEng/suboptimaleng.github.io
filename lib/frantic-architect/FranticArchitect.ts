@@ -25,8 +25,9 @@ class FranticArchitect {
   gameLoopLength: number;
   currentLoopLength: number;
 
-  phantomMesh: THREE.Mesh | undefined;
+  // TODO: Remove this carefully
   phantomShape: CANNON.Box | undefined;
+  phantomMesh: THREE.Mesh | undefined;
   phantomGroup: THREE.Group;
   world: CANNON.World;
 
