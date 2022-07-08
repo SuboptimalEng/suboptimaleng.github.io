@@ -32,7 +32,7 @@ class FranticArchitect {
 
   gg: THREE.Group;
   compoundBody: CANNON.Body | undefined;
-  compoundShapeGroup: THREE.Group | undefined;
+  compoundShapeGroup: THREE.Group;
 
   constructor() {
     // cube coordinates
@@ -66,11 +66,23 @@ class FranticArchitect {
     this._addCompoundBody();
 
     this.gg = new THREE.Group();
+
     this._initGame();
-    this._renderInitialBlock();
 
-    // this._renderPhantomBlock();
+    // set up compound shape group
+    this.compoundShapeGroup = new THREE.Group();
+    const initialBlockGeometry = new THREE.BoxGeometry(1, 1, 1);
+    const initialBlockMaterial = new THREE.MeshPhongMaterial({
+      color: 0xfafafa,
+    });
+    const initialBlockMesh = new THREE.Mesh(
+      initialBlockGeometry,
+      initialBlockMaterial
+    );
+    this.compoundShapeGroup.add(initialBlockMesh);
+    this.gg.add(this.compoundShapeGroup);
 
+    // set up phantom block
     this.phantomGroup = new THREE.Group();
     this.gg.add(this.phantomGroup);
   }
@@ -153,11 +165,6 @@ class FranticArchitect {
     mesh.position.x = x;
     mesh.position.y = y;
     mesh.position.z = z;
-
-    // TODO: REMOVE THIS.
-    if (this.compoundShapeGroup === undefined) {
-      return;
-    }
     this.compoundShapeGroup.add(mesh);
   }
 
@@ -256,25 +263,6 @@ class FranticArchitect {
     this.existingBlocks.push({ x: this.x, y: this.y, z: this.z });
   }
 
-  // _renderPhantomBlock() {
-  //   this.phantomGroup = new THREE.Group();
-  //   this.gg.add(this.phantomGroup);
-  // }
-
-  _renderInitialBlock() {
-    this.compoundShapeGroup = new THREE.Group();
-    const initialBlockGeometry = new THREE.BoxGeometry(1, 1, 1);
-    const initialBlockMaterial = new THREE.MeshPhongMaterial({
-      color: 0xfafafa,
-    });
-    const initialBlockMesh = new THREE.Mesh(
-      initialBlockGeometry,
-      initialBlockMaterial
-    );
-    this.compoundShapeGroup.add(initialBlockMesh);
-    this.gg.add(this.compoundShapeGroup);
-  }
-
   animatePhantomGroup() {
     // TODO: REMOVE THIS.
     if (this.compoundBody === undefined) {
@@ -296,10 +284,7 @@ class FranticArchitect {
 
   animateCompoundShapeGroup() {
     // TODO: REMOVE THIS CHECK
-    if (
-      this.compoundBody === undefined ||
-      this.compoundShapeGroup === undefined
-    ) {
+    if (this.compoundBody === undefined) {
       return;
     }
 
