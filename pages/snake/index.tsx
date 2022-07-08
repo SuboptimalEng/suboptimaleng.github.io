@@ -10,7 +10,6 @@ function SnakeGame() {
     const test = new SceneInit('myThreeJsCanvas');
     const snake = new Snake();
     test.scene.add(snake.group);
-    console.log('remembering how git works lol.');
 
     const update = () => {
       test.update();
