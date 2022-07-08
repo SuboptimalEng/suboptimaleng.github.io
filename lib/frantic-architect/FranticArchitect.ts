@@ -27,7 +27,7 @@ class FranticArchitect {
 
   phantomMesh: THREE.Mesh | undefined;
   phantomShape: CANNON.Box | undefined;
-  phantomGroup: THREE.Group | undefined;
+  phantomGroup: THREE.Group;
   world: CANNON.World;
 
   gg: THREE.Group;
@@ -68,7 +68,11 @@ class FranticArchitect {
     this.gg = new THREE.Group();
     this._initGame();
     this._renderInitialBlock();
-    this._renderPhantomBlock();
+
+    // this._renderPhantomBlock();
+
+    this.phantomGroup = new THREE.Group();
+    this.gg.add(this.phantomGroup);
   }
 
   update(dt: number) {
@@ -177,11 +181,6 @@ class FranticArchitect {
     this.phantomMesh.position.x = x + xOffset;
     this.phantomMesh.position.y = y + yOffset;
     this.phantomMesh.position.z = z + zOffset;
-
-    // TODO: REMOVE THIS.
-    if (this.phantomGroup === undefined) {
-      return;
-    }
     this.phantomGroup.add(this.phantomMesh);
   }
 
@@ -226,7 +225,7 @@ class FranticArchitect {
     );
 
     // TODO: REMOVE THIS.
-    if (this.phantomMesh === undefined || this.phantomGroup === undefined) {
+    if (this.phantomMesh === undefined) {
       return;
     }
     this.phantomGroup.remove(this.phantomMesh);
@@ -257,10 +256,10 @@ class FranticArchitect {
     this.existingBlocks.push({ x: this.x, y: this.y, z: this.z });
   }
 
-  _renderPhantomBlock() {
-    this.phantomGroup = new THREE.Group();
-    this.gg.add(this.phantomGroup);
-  }
+  // _renderPhantomBlock() {
+  //   this.phantomGroup = new THREE.Group();
+  //   this.gg.add(this.phantomGroup);
+  // }
 
   _renderInitialBlock() {
     this.compoundShapeGroup = new THREE.Group();
@@ -278,7 +277,7 @@ class FranticArchitect {
 
   animatePhantomGroup() {
     // TODO: REMOVE THIS.
-    if (this.phantomGroup === undefined || this.compoundBody === undefined) {
+    if (this.compoundBody === undefined) {
       return;
     }
 
@@ -301,11 +300,6 @@ class FranticArchitect {
       this.compoundBody === undefined ||
       this.compoundShapeGroup === undefined
     ) {
-      return;
-    }
-
-    // TODO: REMOVE THIS.
-    if (this.phantomGroup === undefined) {
       return;
     }
 
