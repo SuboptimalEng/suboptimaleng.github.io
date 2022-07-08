@@ -2,6 +2,38 @@ import * as THREE from 'three';
 import * as CANNON from 'cannon-es';
 
 class FranticArchitect {
+  x: number;
+  y: number;
+  z: number;
+  phantomX: number;
+  phantomY: number;
+  phantomZ: number;
+  groundX: number;
+  groundY: number;
+  groundZ: number;
+
+  size: number;
+  mass: number;
+
+  existingBlocks: Array<{
+    x: number;
+    y: number;
+    z: number;
+  }>;
+  phantomBlockAccepted: boolean;
+
+  gameLoopLength: number;
+  currentLoopLength: number;
+
+  phantomMesh: THREE.Mesh | undefined;
+  phantomShape: CANNON.Box | undefined;
+  phantomGroup: THREE.Group | undefined;
+  world: CANNON.World;
+
+  gg: THREE.Group;
+  compoundBody: CANNON.Body | undefined;
+  compoundShapeGroup: THREE.Group | undefined;
+
   constructor() {
     // cube coordinates
     this.x = 0;
@@ -39,7 +71,7 @@ class FranticArchitect {
     this._renderPhantomBlock();
   }
 
-  update(dt) {
+  update(dt: number) {
     this.world.fixedStep();
     this.currentLoopLength += dt;
     if (this.currentLoopLength > this.gameLoopLength) {
@@ -53,6 +85,12 @@ class FranticArchitect {
     const com = new CANNON.Vec3();
     // console.log(com);
     // debugger;
+
+    // TODO: REMOVE THIS.
+    if (this.compoundBody === undefined) {
+      return;
+    }
+
     this.compoundBody.shapeOffsets.forEach(function (offset) {
       com.vadd(offset, com);
     });
@@ -104,17 +142,22 @@ class FranticArchitect {
     }
   }
 
-  addBlockToScene(x, y, z) {
+  addBlockToScene(x: number, y: number, z: number) {
     const geometery = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshPhongMaterial({ color: 0xfafafa });
     const mesh = new THREE.Mesh(geometery, material);
     mesh.position.x = x;
     mesh.position.y = y;
     mesh.position.z = z;
+
+    // TODO: REMOVE THIS.
+    if (this.compoundShapeGroup === undefined) {
+      return;
+    }
     this.compoundShapeGroup.add(mesh);
   }
 
-  _addPhantomBlock(x, y, z) {
+  _addPhantomBlock(x: number, y: number, z: number) {
     const geometery = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshPhongMaterial({
       color: 0x61dbfb,
@@ -122,12 +165,23 @@ class FranticArchitect {
       opacity: 0.5,
     });
     this.phantomMesh = new THREE.Mesh(geometery, material);
+
+    // TODO: REMOVE THIS.
+    if (this.compoundBody === undefined) {
+      return;
+    }
+
     const xOffset = this.compoundBody.shapeOffsets[0].x;
     const yOffset = this.compoundBody.shapeOffsets[0].y;
     const zOffset = this.compoundBody.shapeOffsets[0].z;
     this.phantomMesh.position.x = x + xOffset;
     this.phantomMesh.position.y = y + yOffset;
     this.phantomMesh.position.z = z + zOffset;
+
+    // TODO: REMOVE THIS.
+    if (this.phantomGroup === undefined) {
+      return;
+    }
     this.phantomGroup.add(this.phantomMesh);
   }
 
@@ -137,15 +191,22 @@ class FranticArchitect {
     if (this.phantomBlockAccepted) {
       this.phantomBlockAccepted = false;
       this.addBlockToScene(this.x, this.y, this.z);
-      console.log(this.compoundBody.shapeOffsets);
+      console.log(this.compoundBody?.shapeOffsets);
     } else {
       // NOTE: This fails with a warning on the first run.
-      this.compoundBody.removeShape(this.phantomShape);
+      if (this.compoundBody !== undefined && this.phantomShape !== undefined) {
+        this.compoundBody.removeShape(this.phantomShape);
+      }
     }
 
     this.phantomShape = new CANNON.Box(
       new CANNON.Vec3(this.size * 0.5, this.size * 0.5, this.size * 0.5)
     );
+
+    // TODO: REMOVE THIS.
+    if (this.compoundBody === undefined) {
+      return;
+    }
 
     // NOTE: When we update the center of mass of the compound body,
     // the shape offset of each child object changes. All of them have the
@@ -163,6 +224,11 @@ class FranticArchitect {
         this.phantomZ * this.size + zOffset
       )
     );
+
+    // TODO: REMOVE THIS.
+    if (this.phantomMesh === undefined || this.phantomGroup === undefined) {
+      return;
+    }
     this.phantomGroup.remove(this.phantomMesh);
     this._addPhantomBlock(this.phantomX, this.phantomY, this.phantomZ);
   }
@@ -211,8 +277,15 @@ class FranticArchitect {
   }
 
   animatePhantomGroup() {
-    this.phantomGroup.position.copy(this.compoundBody.position);
-    this.phantomGroup.quaternion.copy(this.compoundBody.quaternion);
+    // TODO: REMOVE THIS.
+    if (this.phantomGroup === undefined || this.compoundBody === undefined) {
+      return;
+    }
+
+    // TODO: REMOVE THIS.
+    this.phantomGroup.position.copy(this.compoundBody.position as any);
+    this.phantomGroup.quaternion.copy(this.compoundBody.quaternion as any);
+
     // this.phantomGroup.children.forEach((mesh, i) => {
     //   const offset = this.compoundBody.shapeOffsets[i];
     //   const orientation = this.compoundBody.shapeOrientations[i];
@@ -223,15 +296,34 @@ class FranticArchitect {
   }
 
   animateCompoundShapeGroup() {
-    this.compoundShapeGroup.position.copy(this.compoundBody.position);
-    this.compoundShapeGroup.quaternion.copy(this.compoundBody.quaternion);
+    // TODO: REMOVE THIS CHECK
+    if (
+      this.compoundBody === undefined ||
+      this.compoundShapeGroup === undefined
+    ) {
+      return;
+    }
+
+    // TODO: REMOVE THIS.
+    if (this.phantomGroup === undefined) {
+      return;
+    }
+
+    // TODO: REMOVE THIS.
+    this.compoundShapeGroup.position.copy(this.compoundBody.position as any);
+    this.compoundShapeGroup.quaternion.copy(
+      this.compoundBody.quaternion as any
+    );
 
     // NOTE: https://github.dev/pmndrs/cannon-es/blob/master/examples/compound.html
     this.compoundShapeGroup.children.forEach((mesh, i) => {
-      const offset = this.compoundBody.shapeOffsets[i];
-      const orientation = this.compoundBody.shapeOrientations[i];
-      mesh.position.copy(offset);
-      mesh.quaternion.copy(orientation);
+      // TODO: Remove this.
+      if (this.compoundBody !== undefined) {
+        const offset = this.compoundBody.shapeOffsets[i];
+        const orientation = this.compoundBody.shapeOrientations[i];
+        mesh.position.copy(offset as any);
+        mesh.quaternion.copy(orientation as any);
+      }
     });
   }
 

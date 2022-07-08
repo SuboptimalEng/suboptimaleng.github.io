@@ -6,6 +6,7 @@ import { FranticArchitect, SceneInit } from '../../lib/frantic-architect';
 
 function FranticArchitectGame() {
   const windowRef = useRef(0);
+  let gui: any;
 
   useEffect(() => {
     const test = new SceneInit('myThreeJsCanvas');
@@ -17,7 +18,7 @@ function FranticArchitectGame() {
 
     const initGui = async () => {
       const dat = await import('dat.gui');
-      const gui = new dat.GUI();
+      gui = new dat.GUI();
       gui
         .add(test, 'cameraRotationDepth', 5, 100)
         .name('Camera Distance')
@@ -78,6 +79,9 @@ function FranticArchitectGame() {
       const canvas = document.getElementById('myThreeJsCanvas') as Node;
       const parent = canvas.parentNode as Node;
       parent.removeChild(canvas);
+
+      // remove dat.GUI
+      gui.destroy();
     };
   }, []);
 
