@@ -32,7 +32,7 @@ class FranticArchitect {
   world: CANNON.World;
 
   gg: THREE.Group;
-  compoundBody: CANNON.Body | undefined;
+  compoundBody: CANNON.Body;
   compoundShapeGroup: THREE.Group;
 
   constructor() {
@@ -64,7 +64,11 @@ class FranticArchitect {
       gravity: new CANNON.Vec3(0, -10, 0),
     });
     this._addGround();
-    this._addCompoundBody();
+
+    // refactor compound body
+    // this._addCompoundBody();
+    this.compoundBody = this._createCompoundBody();
+    this.world.addBody(this.compoundBody);
 
     this.gg = new THREE.Group();
 
@@ -104,11 +108,6 @@ class FranticArchitect {
     const com = new CANNON.Vec3();
     // console.log(com);
     // debugger;
-
-    // TODO: REMOVE THIS CHECK.
-    if (this.compoundBody === undefined) {
-      return;
-    }
 
     this.compoundBody.shapeOffsets.forEach(function (offset) {
       com.vadd(offset, com);
@@ -180,11 +179,6 @@ class FranticArchitect {
     });
     this.phantomMesh = new THREE.Mesh(geometery, material);
 
-    // TODO: REMOVE THIS CHECK.
-    if (this.compoundBody === undefined) {
-      return;
-    }
-
     const xOffset = this.compoundBody.shapeOffsets[0].x;
     const yOffset = this.compoundBody.shapeOffsets[0].y;
     const zOffset = this.compoundBody.shapeOffsets[0].z;
@@ -203,7 +197,7 @@ class FranticArchitect {
       console.log(this.compoundBody?.shapeOffsets);
     } else {
       // NOTE: This fails with a warning on the first run.
-      if (this.compoundBody !== undefined && this.phantomShape !== undefined) {
+      if (this.phantomShape !== undefined) {
         this.compoundBody.removeShape(this.phantomShape);
       }
     }
@@ -211,11 +205,6 @@ class FranticArchitect {
     this.phantomShape = new CANNON.Box(
       new CANNON.Vec3(this.size * 0.5, this.size * 0.5, this.size * 0.5)
     );
-
-    // TODO: REMOVE THIS CHECK.
-    if (this.compoundBody === undefined) {
-      return;
-    }
 
     // NOTE: When we update the center of mass of the compound body,
     // the shape offset of each child object changes. All of them have the
@@ -265,11 +254,6 @@ class FranticArchitect {
   }
 
   _animatePhantomGroup() {
-    // TODO: REMOVE THIS CHECK.
-    if (this.compoundBody === undefined) {
-      return;
-    }
-
     // TODO: REMOVE THIS CAST.
     this.phantomGroup.position.copy(this.compoundBody.position as any);
     this.phantomGroup.quaternion.copy(this.compoundBody.quaternion as any);
@@ -284,11 +268,6 @@ class FranticArchitect {
   }
 
   _animateCompoundShapeGroup() {
-    // TODO: REMOVE THIS CHECK
-    if (this.compoundBody === undefined) {
-      return;
-    }
-
     // TODO: REMOVE THIS CAST.
     this.compoundShapeGroup.position.copy(this.compoundBody.position as any);
     this.compoundShapeGroup.quaternion.copy(
@@ -297,39 +276,37 @@ class FranticArchitect {
 
     // NOTE: https://github.dev/pmndrs/cannon-es/blob/master/examples/compound.html
     this.compoundShapeGroup.children.forEach((mesh, i) => {
-      // TODO: Remove this.
-      if (this.compoundBody !== undefined) {
-        const offset = this.compoundBody.shapeOffsets[i];
-        const orientation = this.compoundBody.shapeOrientations[i];
-        mesh.position.copy(offset as any);
-        mesh.quaternion.copy(orientation as any);
-      }
+      const offset = this.compoundBody.shapeOffsets[i];
+      const orientation = this.compoundBody.shapeOrientations[i];
+      mesh.position.copy(offset as any);
+      mesh.quaternion.copy(orientation as any);
     });
   }
 
-  _addCompoundBody() {
+  _createCompoundBody() {
     const shape = new CANNON.Box(
       new CANNON.Vec3(this.size * 0.5, this.size * 0.5, this.size * 0.5)
     );
     const slipperyMaterial = new CANNON.Material('slippery');
     slipperyMaterial.friction = 0.01;
 
-    this.compoundBody = new CANNON.Body({
+    const compoundBody = new CANNON.Body({
       mass: this.mass,
       material: slipperyMaterial,
     });
-    this.compoundBody.position.set(0, 0, 0);
-    this.compoundBody.quaternion.setFromEuler(0, 0, 0);
+    compoundBody.position.set(0, 0, 0);
+    compoundBody.quaternion.setFromEuler(0, 0, 0);
+    compoundBody.addShape(shape, new CANNON.Vec3(this.x, this.y, this.z));
 
-    this.compoundBody.addShape(shape, new CANNON.Vec3(this.x, this.y, this.z));
     this._addExistingBlock();
-    // this.compoundBody.addShape(shape, new CANNON.Vec3(-size, 0, 0));
-    // this.compoundBody.addShape(shape, new CANNON.Vec3(0, 0, -size));
-    // this.compoundBody.addShape(shape, new CANNON.Vec3(0, 0, -2 * size));
-    // this.compoundBody.addShape(shape, new CANNON.Vec3(0, 0, -3 * size));
-    // this.compoundBody.addShape(shape, new CANNON.Vec3(0, 0, -4 * size));
 
-    this.world.addBody(this.compoundBody);
+    // compoundBody.addShape(shape, new CANNON.Vec3(-size, 0, 0));
+    // compoundBody.addShape(shape, new CANNON.Vec3(0, 0, -size));
+    // compoundBody.addShape(shape, new CANNON.Vec3(0, 0, -2 * size));
+    // compoundBody.addShape(shape, new CANNON.Vec3(0, 0, -3 * size));
+    // compoundBody.addShape(shape, new CANNON.Vec3(0, 0, -4 * size));
+
+    return compoundBody;
   }
 
   _addGround() {
