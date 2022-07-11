@@ -95,6 +95,8 @@ class FranticArchitect {
       this.currentLoopLength = 0;
       this._displayPhantomBlock();
     }
+    this._animatePhantomGroup();
+    this._animateCompoundShapeGroup();
   }
 
   _updateCenterOfMass() {
@@ -232,11 +234,9 @@ class FranticArchitect {
       )
     );
 
-    // TODO: REMOVE THIS.
-    if (this.phantomMesh === undefined) {
-      return;
+    if (this.phantomMesh !== undefined) {
+      this.phantomGroup.remove(this.phantomMesh);
     }
-    this.phantomGroup.remove(this.phantomMesh);
     this._addPhantomBlock(this.phantomX, this.phantomY, this.phantomZ);
   }
 
@@ -264,7 +264,7 @@ class FranticArchitect {
     this.existingBlocks.push({ x: this.x, y: this.y, z: this.z });
   }
 
-  animatePhantomGroup() {
+  _animatePhantomGroup() {
     // TODO: REMOVE THIS.
     if (this.compoundBody === undefined) {
       return;
@@ -283,7 +283,7 @@ class FranticArchitect {
     // });
   }
 
-  animateCompoundShapeGroup() {
+  _animateCompoundShapeGroup() {
     // TODO: REMOVE THIS CHECK
     if (this.compoundBody === undefined) {
       return;

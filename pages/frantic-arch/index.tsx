@@ -9,6 +9,20 @@ function FranticArchitectGame() {
   let gui: any;
 
   useEffect(() => {
+    // add canvas if no canvas element exists
+    // this can happen on hot-reload
+    // e.g. the canvas element gets removed when this component dismounts
+    // but then the SceneInit.ts function tries to find the HTML Canvas
+    // and errors out.
+    let canvas = document.getElementById(
+      'myThreeJsCanvas'
+    ) as HTMLCanvasElement;
+    if (!canvas) {
+      canvas = document.createElement('canvas');
+      canvas.id = 'myThreeJsCanvas';
+      document.body.appendChild(canvas);
+    }
+
     const test = new SceneInit('myThreeJsCanvas');
 
     const franticArchitect = new FranticArchitect();
@@ -35,16 +49,13 @@ function FranticArchitectGame() {
 
     const animate = () => {
       const dt = test.clock.getDelta();
-
       test.update();
       test.udpateCameraPosition();
 
       // run this when debugging
-      cannonDebugger.update();
+      // cannonDebugger.update();
 
       franticArchitect.update(dt);
-      franticArchitect.animatePhantomGroup();
-      franticArchitect.animateCompoundShapeGroup();
 
       requestAnimationFrame(animate);
     };
@@ -76,7 +87,9 @@ function FranticArchitectGame() {
       window.cancelAnimationFrame(windowRef.current);
 
       // remove canvas element so it does not get displayed on home page
-      const canvas = document.getElementById('myThreeJsCanvas') as Node;
+      const canvas = document.getElementById(
+        'myThreeJsCanvas'
+      ) as HTMLCanvasElement;
       const parent = canvas.parentNode as Node;
       parent.removeChild(canvas);
 
@@ -87,9 +100,6 @@ function FranticArchitectGame() {
 
   return (
     <div>
-      {/* <a href="https://thegamedex.com">
-        <div className="absolute m-4 text-4xl">⬅️</div>
-      </a> */}
       <canvas id="myThreeJsCanvas" />
     </div>
   );
