@@ -105,7 +105,7 @@ class FranticArchitect {
     // console.log(com);
     // debugger;
 
-    // TODO: REMOVE THIS.
+    // TODO: REMOVE THIS CHECK.
     if (this.compoundBody === undefined) {
       return;
     }
@@ -180,7 +180,7 @@ class FranticArchitect {
     });
     this.phantomMesh = new THREE.Mesh(geometery, material);
 
-    // TODO: REMOVE THIS.
+    // TODO: REMOVE THIS CHECK.
     if (this.compoundBody === undefined) {
       return;
     }
@@ -212,7 +212,7 @@ class FranticArchitect {
       new CANNON.Vec3(this.size * 0.5, this.size * 0.5, this.size * 0.5)
     );
 
-    // TODO: REMOVE THIS.
+    // TODO: REMOVE THIS CHECK.
     if (this.compoundBody === undefined) {
       return;
     }
@@ -265,12 +265,12 @@ class FranticArchitect {
   }
 
   _animatePhantomGroup() {
-    // TODO: REMOVE THIS.
+    // TODO: REMOVE THIS CHECK.
     if (this.compoundBody === undefined) {
       return;
     }
 
-    // TODO: REMOVE THIS.
+    // TODO: REMOVE THIS CAST.
     this.phantomGroup.position.copy(this.compoundBody.position as any);
     this.phantomGroup.quaternion.copy(this.compoundBody.quaternion as any);
 
@@ -289,7 +289,7 @@ class FranticArchitect {
       return;
     }
 
-    // TODO: REMOVE THIS.
+    // TODO: REMOVE THIS CAST.
     this.compoundShapeGroup.position.copy(this.compoundBody.position as any);
     this.compoundShapeGroup.quaternion.copy(
       this.compoundBody.quaternion as any
