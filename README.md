@@ -35,9 +35,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Credits
 
-- Frantic Architect was a mobile game originally made by Will Kwan.
+- Frantic Architect
+
+  - is a mobile game originally made by Will Kwan
+  - the main objective is to build the highest tower
 
 - Frameworks
+
   - React.js
   - Next.js
   - Dat.GUI

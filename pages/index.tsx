@@ -77,12 +77,12 @@ export default function Home() {
             <Link href="/frantic-arch">
               <a>
                 <div className="text-5xl hover:bg-white hover:text-black">
-                  frantic-arch
+                  frantic-architect
                 </div>
               </a>
             </Link>
 
-            <a
+            {/* <a
               href="https://thegamedex.com/frantic-architect/"
               target="_blank"
               rel="noopener noreferrer"
@@ -90,10 +90,10 @@ export default function Home() {
               <div className="text-5xl hover:bg-white hover:text-black">
                 frantic-architect
               </div>
-            </a>
-            <div className="flex space-x-1 text-base">
-              {/* <div>(original game by will kwan)</div> */}
-              <a
+            </a> */}
+            {/* <div className="flex space-x-1 text-base"> */}
+            {/* <div>(original game by will kwan)</div> */}
+            {/* <a
                 href="https://thegamedex.com/frantic-architect/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -106,8 +106,8 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 <div className="hover:text-youtube">[code]</div>
-              </a>
-            </div>
+              </a> */}
+            {/* </div> */}
 
             <div className="flex pt-8 space-x-4">
               {socials.map((social, i) => {
