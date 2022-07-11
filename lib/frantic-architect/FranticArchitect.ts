@@ -126,25 +126,26 @@ class FranticArchitect {
     this.compoundBody.position.vadd(worldCOM, this.compoundBody.position);
   }
 
+  _randomizePhantomXYZHelper() {
+    const axis = Math.floor(Math.random() * 3);
+    const direction = Math.floor(Math.random() * 2);
+    const delta = direction === 0 ? 1 : -1;
+    if (axis === 0) {
+      this.phantomX += delta;
+    } else if (axis === 1) {
+      if (this.y <= 0.1) {
+        this.phantomY = 1;
+      } else {
+        this.phantomY += delta;
+      }
+    } else {
+      this.phantomZ += delta;
+    }
+  }
+
   _randomizePhantomXYZ() {
     this._updatePhantomXYZ();
-    const r = () => {
-      const axis = Math.floor(Math.random() * 3);
-      const direction = Math.floor(Math.random() * 2);
-      const delta = direction === 0 ? 1 : -1;
-      if (axis === 0) {
-        this.phantomX += delta;
-      } else if (axis === 1) {
-        if (this.y <= 0.1) {
-          this.phantomY = 1;
-        } else {
-          this.phantomY += delta;
-        }
-      } else {
-        this.phantomZ += delta;
-      }
-    };
-    r();
+    this._randomizePhantomXYZHelper();
     const blockAlreadyExists = () => {
       return this.existingBlocks.some((block) => {
         return (
@@ -156,7 +157,7 @@ class FranticArchitect {
     };
     while (blockAlreadyExists()) {
       this._updatePhantomXYZ();
-      r();
+      this._randomizePhantomXYZHelper();
     }
   }
 
@@ -196,7 +197,7 @@ class FranticArchitect {
       this.addBlockToScene(this.x, this.y, this.z);
       console.log(this.compoundBody?.shapeOffsets);
     } else {
-      // NOTE: This fails with a warning on the first run.
+      // NOTE: This always fails on the first run.
       if (this.phantomShape !== undefined) {
         this.compoundBody.removeShape(this.phantomShape);
       }
