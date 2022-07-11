@@ -74,7 +74,7 @@ export default function Home() {
                 </div>
               </a>
             </Link>
-            <Link href="/frantic-arch">
+            <Link href="/frantic-architect">
               <a>
                 <div className="text-5xl hover:bg-white hover:text-black">
                   frantic-architect
