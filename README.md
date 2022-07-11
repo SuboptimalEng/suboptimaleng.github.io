@@ -33,6 +33,24 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## Credits
+
+- Frantic Architect
+
+  - is a mobile game originally made by Will Kwan
+  - the main objective is to build the highest tower
+
+- Frameworks
+
+  - React.js
+  - Next.js
+  - Dat.GUI
+  - Three.js
+  - Tween.js
+  - Cannon-es
+  - Tailwind CSS
+  - Font Awesome Icons
+
 ## License
 
 Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
