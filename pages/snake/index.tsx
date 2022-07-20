@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 
+import { Helper } from '../../lib/utils';
 import { Snake, SceneInit } from '../../lib/snake';
 
 // NOTE: Function naming convention `${name}Game`;
@@ -7,6 +8,8 @@ function SnakeGame() {
   const windowRef = useRef(0);
 
   useEffect(() => {
+    Helper.maybeCreateCanvas();
+
     const test = new SceneInit('myThreeJsCanvas');
     const snake = new Snake();
     test.scene.add(snake.group);
@@ -20,6 +23,11 @@ function SnakeGame() {
     };
     update();
 
+    // add event listener to handle snake movement
+    window.addEventListener('keydown', (e: KeyboardEvent) =>
+      snake.handleMovement(e)
+    );
+
     return () => {
       console.log('on component unmount');
 
@@ -29,10 +37,7 @@ function SnakeGame() {
       // stop window request animation frame function
       window.cancelAnimationFrame(windowRef.current);
 
-      // remove canvas element so it does not get displayed on home page
-      const canvas = document.getElementById('myThreeJsCanvas') as Node;
-      const parent = canvas.parentNode as Node;
-      parent.removeChild(canvas);
+      Helper.removeCanvas();
     };
   });
 

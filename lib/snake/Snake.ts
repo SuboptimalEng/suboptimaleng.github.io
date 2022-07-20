@@ -1,9 +1,15 @@
 import * as THREE from 'three';
-import { KeyboardEvent } from 'react';
 
 interface IPosition {
   x: number;
   y: number;
+}
+
+enum Direction {
+  Up,
+  Down,
+  Left,
+  Right,
 }
 
 class Snake {
@@ -12,6 +18,12 @@ class Snake {
 
   head: IPosition;
   body: Array<IPosition>;
+
+  // default initalization
+  speed: number = 0.05;
+  xSpeed: number = 0;
+  ySpeed: number = 0;
+  direction: Direction = Direction.Up;
 
   constructor() {
     this.group = new THREE.Group();
@@ -30,12 +42,32 @@ class Snake {
   }
 
   handleMovement(event: KeyboardEvent) {
-    // wasd
-    // if (event.key)
+    if (event.key === 'w') {
+      this.direction = Direction.Up;
+      this.xSpeed = 0;
+      this.ySpeed = this.speed;
+    } else if (event.key === 'a') {
+      this.direction = Direction.Left;
+      this.xSpeed = -this.speed;
+      this.ySpeed = 0;
+    } else if (event.key === 's') {
+      this.direction = Direction.Down;
+      this.xSpeed = 0;
+      this.ySpeed = -this.speed;
+    } else if (event.key === 'd') {
+      this.direction = Direction.Right;
+      this.xSpeed = this.speed;
+      this.ySpeed = 0;
+    }
   }
 
   update() {
-    this.boxMesh.rotation.x += 0.01;
+    this._updatePosition();
+  }
+
+  _updatePosition() {
+    this.boxMesh.position.x += this.xSpeed;
+    this.boxMesh.position.y += this.ySpeed;
   }
 }
 

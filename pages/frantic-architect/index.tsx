@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 
 import CannonDebugger from 'cannon-es-debugger';
 
+import { Helper } from '../../lib/utils';
 import { FranticArchitect, SceneInit } from '../../lib/frantic-architect';
 
 function FranticArchitectGame() {
@@ -9,19 +10,7 @@ function FranticArchitectGame() {
   let gui: any;
 
   useEffect(() => {
-    // add canvas if no canvas element exists
-    // this can happen on hot-reload
-    // e.g. the canvas element gets removed when this component dismounts
-    // but then the SceneInit.ts function tries to find the HTML Canvas
-    // and errors out.
-    let canvas = document.getElementById(
-      'myThreeJsCanvas'
-    ) as HTMLCanvasElement;
-    if (!canvas) {
-      canvas = document.createElement('canvas');
-      canvas.id = 'myThreeJsCanvas';
-      document.body.appendChild(canvas);
-    }
+    Helper.maybeCreateCanvas();
 
     const test = new SceneInit('myThreeJsCanvas');
 
@@ -86,12 +75,7 @@ function FranticArchitectGame() {
       // stop window request animation frame function
       window.cancelAnimationFrame(windowRef.current);
 
-      // remove canvas element so it does not get displayed on home page
-      const canvas = document.getElementById(
-        'myThreeJsCanvas'
-      ) as HTMLCanvasElement;
-      const parent = canvas.parentNode as Node;
-      parent.removeChild(canvas);
+      Helper.removeCanvas();
 
       // remove dat.GUI
       gui.destroy();
