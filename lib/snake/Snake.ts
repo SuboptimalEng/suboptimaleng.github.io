@@ -63,43 +63,90 @@ class Snake {
     this.gg.add(boxMesh);
   }
 
-  update() {
+  render() {
+    this.gg.children[0].position.x = this.headPosition.x;
+    this.gg.children[0].position.y = this.headPosition.y;
+  }
+
+  update(t: number) {
+    TWEEN.update(t);
+
     if (!this.isMoving) {
       return;
     }
+
+    this.render();
+
     if (this.clock.getElapsedTime() < 0.5) {
       return;
-    } else {
-      this.clock.start();
     }
-    // console.log(this.clock.getElapsedTime());
 
-    let newX = this.headPosition.x;
-    let newY = this.headPosition.y;
+    // reset the clock
+    this.clock.start();
+
+    let oldCoords = {
+      x: this.headPosition.x,
+      y: this.headPosition.y,
+    };
+    let newCoords = {
+      x: this.headPosition.x + this.xSpeed,
+      y: this.headPosition.y + this.ySpeed,
+    };
+
+    let tween = new TWEEN.Tween(oldCoords)
+      .to(newCoords, 500)
+      .easing(TWEEN.Easing.Cubic.InOut)
+      .onUpdate(({ x, y }) => {
+        // console.log(oldCoords);
+        this.headPosition.x = oldCoords.x;
+        this.headPosition.y = oldCoords.y;
+        // this.gg.children[0].position.x = oldCoords.x;
+        // this.gg.children[0].position.y = oldCoords.y;
+      })
+      .start();
+
+    // for (let i = 0; i < this.bodyPositions.length; i++) {
+    //   let bodyOldCoords = {
+    //     x: this.bodyPositions[i].x,
+    //     y: this.bodyPositions[i].y,
+    //   };
+    //   let bodyNewCoords = {
+    //     x: oldCoords.x,
+    //     y: oldCoords.y,
+    //   };
+
+    //   let tween2 = new TWEEN.Tween(bodyOldCoords)
+    //     .to(bodyNewCoords, 500)
+    //     .easing(TWEEN.Easing.Cubic.InOut)
+    //     .onUpdate(() => {
+    //       this.bodyPositions[i].x = bodyOldCoords.x;
+    //       this.bodyPositions[i].y = bodyOldCoords.y;
+    //       this.gg.children[i + 1].position.x = bodyOldCoords.x;
+    //       this.gg.children[i + 1].position.y = bodyOldCoords.y;
+    //     })
+    //     .start();
+    // }
 
     // update internal state
-    this.headPosition.x += this.xSpeed;
-    this.headPosition.y += this.ySpeed;
+    // this.headPosition.x = newCoords.x;
+    // this.headPosition.y = newCoords.y;
 
-    for (let i = 0; i < this.bodyPositions.length; i++) {
-      let tmpX = this.bodyPositions[i].x;
-      let tmpY = this.bodyPositions[i].y;
-
-      this.bodyPositions[i].x = newX;
-      this.bodyPositions[i].y = newY;
-
-      newX = tmpX;
-      newY = tmpY;
-    }
+    // for (let i = 0; i < this.bodyPositions.length; i++) {
+    //   let tmpX = this.bodyPositions[i].x;
+    //   let tmpY = this.bodyPositions[i].y;
+    //   this.bodyPositions[i].x = oldCoords.x;
+    //   this.bodyPositions[i].y = oldCoords.y;
+    //   oldCoords = { x: tmpX, y: tmpY };
+    // }
 
     // update snake render
     // console.log(this.gg);
     // debugger;
-    let headBodyArr = [this.headPosition, ...this.bodyPositions];
-    for (let i = 0; i < headBodyArr.length; i++) {
-      this.gg.children[i].position.x = headBodyArr[i].x;
-      this.gg.children[i].position.y = headBodyArr[i].y;
-    }
+    // let headBodyArr = [this.headPosition, ...this.bodyPositions];
+    // for (let i = 0; i < headBodyArr.length; i++) {
+    //   this.gg.children[i].position.x = headBodyArr[i].x;
+    //   this.gg.children[i].position.y = headBodyArr[i].y;
+    // }
   }
 
   handleMovement(event: KeyboardEvent) {

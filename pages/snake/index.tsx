@@ -14,14 +14,15 @@ function SnakeGame() {
     const snake = new Snake();
     test.scene.add(snake.gg);
 
-    const update = () => {
+    const update = (t: number) => {
       test.update();
-      snake.update();
+      snake.update(t);
 
       // keep track of animation frame in windowRef.current
       windowRef.current = window.requestAnimationFrame(update);
     };
-    update();
+    requestAnimationFrame(update);
+    // update();
 
     // add event listener to handle snake movement
     window.addEventListener('keydown', (e: KeyboardEvent) =>
