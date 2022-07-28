@@ -12,7 +12,6 @@ class Snake {
 
   timestep: number;
   isMoving: boolean;
-  headPosition: IPosition;
   bodyPositions: Array<IPosition>;
 
   // default initalization
@@ -26,8 +25,8 @@ class Snake {
     this.clock.start();
 
     // snake body
-    this.headPosition = { x: 0, y: 0 };
     this.bodyPositions = [
+      { x: 0, y: 0 },
       { x: 1, y: 0 },
       { x: 1, y: 1 },
       { x: 1, y: 2 },
@@ -45,10 +44,7 @@ class Snake {
   }
 
   _initializeSnake() {
-    // create head of the snake
-    this._createIndividualSnakePart(this.headPosition);
-
-    // create body of the snake
+    // create the entire snake
     this.bodyPositions.forEach((bodyPosition) => {
       this._createIndividualSnakePart(bodyPosition);
     });
@@ -64,8 +60,11 @@ class Snake {
   }
 
   render() {
-    this.gg.children[0].position.x = this.headPosition.x;
-    this.gg.children[0].position.y = this.headPosition.y;
+    // iterate through body position array and update snake
+    for (let i = 0; i < this.bodyPositions.length; i++) {
+      let { x, y } = this.bodyPositions[i];
+      this.gg.children[i].position.set(x, y, 0);
+    }
   }
 
   update(t: number) {
@@ -84,69 +83,39 @@ class Snake {
     // reset the clock
     this.clock.start();
 
-    let oldCoords = {
-      x: this.headPosition.x,
-      y: this.headPosition.y,
-    };
-    let newCoords = {
-      x: this.headPosition.x + this.xSpeed,
-      y: this.headPosition.y + this.ySpeed,
-    };
+    // update the rest of the snake
+    for (let i = 0; i < this.bodyPositions.length; i++) {
+      let oldBodyCoords = {
+        x: this.bodyPositions[i].x,
+        y: this.bodyPositions[i].y,
+      };
 
-    let tween = new TWEEN.Tween(oldCoords)
-      .to(newCoords, 500)
-      .easing(TWEEN.Easing.Cubic.InOut)
-      .onUpdate(({ x, y }) => {
-        // console.log(oldCoords);
-        this.headPosition.x = oldCoords.x;
-        this.headPosition.y = oldCoords.y;
-        // this.gg.children[0].position.x = oldCoords.x;
-        // this.gg.children[0].position.y = oldCoords.y;
-      })
-      .start();
+      let newBodyCoords;
+      if (i === 0) {
+        // in the initial iteration, we may want to change the
+        // direction of the head of the snake
+        newBodyCoords = {
+          x: this.bodyPositions[0].x + this.xSpeed,
+          y: this.bodyPositions[0].y + this.ySpeed,
+        };
+      } else {
+        // the rest of the coordinates can get updated as normal
+        newBodyCoords = {
+          x: this.bodyPositions[i - 1].x,
+          y: this.bodyPositions[i - 1].y,
+        };
+      }
 
-    // for (let i = 0; i < this.bodyPositions.length; i++) {
-    //   let bodyOldCoords = {
-    //     x: this.bodyPositions[i].x,
-    //     y: this.bodyPositions[i].y,
-    //   };
-    //   let bodyNewCoords = {
-    //     x: oldCoords.x,
-    //     y: oldCoords.y,
-    //   };
-
-    //   let tween2 = new TWEEN.Tween(bodyOldCoords)
-    //     .to(bodyNewCoords, 500)
-    //     .easing(TWEEN.Easing.Cubic.InOut)
-    //     .onUpdate(() => {
-    //       this.bodyPositions[i].x = bodyOldCoords.x;
-    //       this.bodyPositions[i].y = bodyOldCoords.y;
-    //       this.gg.children[i + 1].position.x = bodyOldCoords.x;
-    //       this.gg.children[i + 1].position.y = bodyOldCoords.y;
-    //     })
-    //     .start();
-    // }
-
-    // update internal state
-    // this.headPosition.x = newCoords.x;
-    // this.headPosition.y = newCoords.y;
-
-    // for (let i = 0; i < this.bodyPositions.length; i++) {
-    //   let tmpX = this.bodyPositions[i].x;
-    //   let tmpY = this.bodyPositions[i].y;
-    //   this.bodyPositions[i].x = oldCoords.x;
-    //   this.bodyPositions[i].y = oldCoords.y;
-    //   oldCoords = { x: tmpX, y: tmpY };
-    // }
-
-    // update snake render
-    // console.log(this.gg);
-    // debugger;
-    // let headBodyArr = [this.headPosition, ...this.bodyPositions];
-    // for (let i = 0; i < headBodyArr.length; i++) {
-    //   this.gg.children[i].position.x = headBodyArr[i].x;
-    //   this.gg.children[i].position.y = headBodyArr[i].y;
-    // }
+      // create a tween to animate the movement of the snake
+      let tweenBody = new TWEEN.Tween(oldBodyCoords)
+        .to(newBodyCoords, 500)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .onUpdate(() => {
+          this.bodyPositions[i].x = oldBodyCoords.x;
+          this.bodyPositions[i].y = oldBodyCoords.y;
+        });
+      tweenBody.start();
+    }
   }
 
   handleMovement(event: KeyboardEvent) {
