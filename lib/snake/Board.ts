@@ -142,7 +142,10 @@ class Board {
 
   _createIndividualBoardPart(coord: IPosition) {
     const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
-    const boxMaterial = new THREE.MeshNormalMaterial({ wireframe: true });
+    const boxMaterial = new THREE.MeshPhongMaterial({
+      color: 0x004400,
+      // wireframe: true,
+    });
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     boxMesh.position.x = coord.x;
     boxMesh.position.y = coord.y;
