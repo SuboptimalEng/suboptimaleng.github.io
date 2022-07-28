@@ -76,8 +76,10 @@ class Board {
     //   vertexShader: `
     //     uniform float u_time;
     //     varying vec2 vUv;
+    //     varying vec3 pos;
     //     void main() {
     //       vUv = uv;
+    //       pos = position;
     //       gl_Position = projectionMatrix
     //         * modelViewMatrix
     //         * vec4(position.x, position.y, position.z, 1.0);
@@ -86,6 +88,7 @@ class Board {
     //   fragmentShader: `
     //     uniform float u_time;
     //     varying vec2 vUv;
+    //     varying vec3 pos;
     //     float circle(float radius, vec2 uv) {
     //         float value = distance(vec2(
     //                 uv.x,
@@ -112,8 +115,11 @@ class Board {
     //         float radius = 0.45;
     //         color = mix(color, red, 1. - circle(radius, vUv));
     //         color = mix(color, black, 1. - circle2(radius - 0.05, vUv));
-    //         gl_FragColor = vec4(color, alpha);
-    //         // gl_FragColor = vec4(1.0, 0.0, 0.0, alpha);
+    //         if (pos.z > .49 || pos.z < -0.49) {
+    //           gl_FragColor = vec4(red, alpha);
+    //         } else {
+    //           gl_FragColor = vec4(color, alpha);
+    //         }
     //     }
     //   `,
     // });
