@@ -115,17 +115,12 @@ class Snake {
         let portal1 = this.portalPairPositions[0][0];
         let portal2 = this.portalPairPositions[0][1];
         console.log(portal1, portal1, newBodyCoords);
-        // debugger;
-        // calculate distance
+        // calculate distance between two points
+        // sqrt((x1 - x2)^2 + (y1 - y2)^2)
         let distance = (bodyCoords: IPosition, portal: IPosition) => {
-          // (x1 - x2)^2
           let dx2 = Math.pow(bodyCoords.x - portal.x, 2);
-          // (y1 - y2)^2
           let dy2 = Math.pow(bodyCoords.y - portal.y, 2);
-          // (x1 - x2)^2 + (y1 - y2)^2
-          let sum = dx2 + dy2;
-          // sqrt((x1 - x2)^2 + (y1 - y2)^2)
-          let distance = Math.sqrt(sum);
+          let distance = Math.sqrt(dx2 + dy2);
           return distance;
         };
 
