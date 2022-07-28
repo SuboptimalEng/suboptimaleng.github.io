@@ -15,7 +15,8 @@ function SnakeGame() {
     const board = new Board();
 
     test.scene.add(snake.gg);
-    test.scene.add(board.gg);
+    // record snake without board wireframe first
+    // test.scene.add(board.gg);
 
     const update = (t: number) => {
       test.update();
