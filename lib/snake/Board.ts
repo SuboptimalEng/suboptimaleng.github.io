@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import vertexShader from './shaders/portal.vert';
+import fragmentShader from './shaders/portal.frag';
 
 interface IPosition {
   x: number;
@@ -69,8 +71,13 @@ class Board {
   _createIndividualPortal(coord: IPosition) {
     const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
     // without shader
-    const boxMaterial = new THREE.MeshPhongMaterial({ color: 'red' });
+    // const boxMaterial = new THREE.MeshPhongMaterial({ color: 'red' });
     // with shader
+    const boxMaterial = new THREE.ShaderMaterial({
+      uniforms: this.uniforms,
+      vertexShader: vertexShader,
+      fragmentShader: fragmentShader,
+    });
     // const boxMaterial = new THREE.ShaderMaterial({
     //   uniforms: this.uniforms,
     //   vertexShader: `
