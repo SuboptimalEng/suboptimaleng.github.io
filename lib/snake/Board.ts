@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import vertexShader from './shaders/portal.vert';
-import fragmentShader from './shaders/portal.frag';
+import vertexShader from './shaders/portal_vs.glsl';
+import fragmentShader from './shaders/portal_fs.glsl';
 
 interface IPosition {
   x: number;
