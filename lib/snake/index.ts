@@ -1,4 +1,5 @@
+import { Board } from './Board';
 import { Snake } from './Snake';
 import { SceneInit } from './SceneInit';
 
-export { Snake, SceneInit };
+export { Board, Snake, SceneInit };

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 import { Helper } from '../../lib/utils';
-import { Snake, SceneInit } from '../../lib/snake';
+import { Board, Snake, SceneInit } from '../../lib/snake';
 
 // NOTE: Function naming convention `${name}Game`;
 function SnakeGame() {
@@ -12,7 +12,10 @@ function SnakeGame() {
 
     const test = new SceneInit('myThreeJsCanvas');
     const snake = new Snake();
+    const board = new Board();
+
     test.scene.add(snake.gg);
+    test.scene.add(board.gg);
 
     const update = (t: number) => {
       test.update();
