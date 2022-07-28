@@ -11,12 +11,12 @@ function SnakeGame() {
     Helper.maybeCreateCanvas();
 
     const test = new SceneInit('myThreeJsCanvas');
-    const snake = new Snake();
-    const board = new Board();
 
+    const board = new Board();
+    test.scene.add(board.gg);
+
+    const snake = new Snake(board.portalPairs, board.portalPairPositions);
     test.scene.add(snake.gg);
-    // record snake without board wireframe first
-    // test.scene.add(board.gg);
 
     const update = (t: number) => {
       test.update();

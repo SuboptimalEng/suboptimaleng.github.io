@@ -4,6 +4,7 @@ import * as TWEEN from '@tweenjs/tween.js';
 interface IPosition {
   x: number;
   y: number;
+  z: number;
 }
 
 class Snake {
@@ -19,21 +20,30 @@ class Snake {
   xSpeed: number = 0;
   ySpeed: number = 0;
 
-  constructor() {
+  portalPairs: number;
+  portalPairPositions: Array<[IPosition, IPosition]>;
+
+  constructor(
+    portalPairs: number,
+    portalPairPositions: Array<[IPosition, IPosition]>
+  ) {
+    this.portalPairs = portalPairs;
+    this.portalPairPositions = portalPairPositions;
+
     this.gg = new THREE.Group();
     this.clock = new THREE.Clock();
     this.clock.start();
 
     // snake body
     this.bodyPositions = [
-      { x: 0, y: 0 },
-      { x: 1, y: 0 },
-      { x: 1, y: 1 },
-      { x: 1, y: 2 },
-      { x: 1, y: 3 },
-      { x: 1, y: 4 },
-      { x: 1, y: 5 },
-      { x: 1, y: 6 },
+      { x: 0, y: 0, z: 0 },
+      { x: 1, y: 0, z: 0 },
+      { x: 1, y: 1, z: 0 },
+      { x: 1, y: 2, z: 0 },
+      { x: 1, y: 3, z: 0 },
+      { x: 1, y: 4, z: 0 },
+      { x: 1, y: 5, z: 0 },
+      { x: 1, y: 6, z: 0 },
     ];
 
     // snake game settings
@@ -88,6 +98,7 @@ class Snake {
       let oldBodyCoords = {
         x: this.bodyPositions[i].x,
         y: this.bodyPositions[i].y,
+        z: this.bodyPositions[i].z,
       };
 
       let newBodyCoords;
@@ -97,12 +108,34 @@ class Snake {
         newBodyCoords = {
           x: this.bodyPositions[0].x + this.xSpeed,
           y: this.bodyPositions[0].y + this.ySpeed,
+          z: this.bodyPositions[0].z,
         };
+
+        // if new head coordinates land on the portal
+        let portal1 = this.portalPairPositions[0][0];
+        let portal2 = this.portalPairPositions[0][1];
+        console.log(portal1, portal1, newBodyCoords);
+        // debugger;
+        if (
+          Math.abs(newBodyCoords.x - portal1.x) < 0.01 &&
+          Math.abs(newBodyCoords.y - portal1.y) < 0.01
+        ) {
+          newBodyCoords.x = portal2.x;
+          newBodyCoords.y = portal2.y;
+        }
+        if (
+          Math.abs(newBodyCoords.x - portal2.x) < 0.01 &&
+          Math.abs(newBodyCoords.y - portal2.y) < 0.01
+        ) {
+          newBodyCoords.x = portal1.x;
+          newBodyCoords.y = portal1.y;
+        }
       } else {
         // the rest of the coordinates can get updated as normal
         newBodyCoords = {
           x: this.bodyPositions[i - 1].x,
           y: this.bodyPositions[i - 1].y,
+          z: this.bodyPositions[i - 1].z,
         };
       }
 
@@ -113,6 +146,7 @@ class Snake {
         .onUpdate(() => {
           this.bodyPositions[i].x = oldBodyCoords.x;
           this.bodyPositions[i].y = oldBodyCoords.y;
+          this.bodyPositions[i].z = oldBodyCoords.z;
         });
       tweenBody.start();
     }
@@ -123,6 +157,8 @@ class Snake {
 
     if (validKeyPress.includes(event.key)) {
       this.isMoving = true;
+    } else {
+      this.isMoving = false;
     }
 
     if (event.key === 'w') {
