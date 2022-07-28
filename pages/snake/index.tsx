@@ -20,6 +20,7 @@ function SnakeGame() {
 
     const update = (t: number) => {
       test.update();
+      board.update(t);
       snake.update(t);
 
       // keep track of animation frame in windowRef.current

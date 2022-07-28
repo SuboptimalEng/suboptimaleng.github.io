@@ -72,8 +72,8 @@ class Snake {
   render() {
     // iterate through body position array and update snake
     for (let i = 0; i < this.bodyPositions.length; i++) {
-      let { x, y } = this.bodyPositions[i];
-      this.gg.children[i].position.set(x, y, 0);
+      let { x, y, z } = this.bodyPositions[i];
+      this.gg.children[i].position.set(x, y, z);
     }
   }
 
@@ -92,6 +92,16 @@ class Snake {
 
     // reset the clock
     this.clock.start();
+
+    // todo: refactor distance function
+    // calculate distance between two points
+    // sqrt((x1 - x2)^2 + (y1 - y2)^2)
+    let distance = (bodyCoords: IPosition, portal: IPosition) => {
+      let dx2 = Math.pow(bodyCoords.x - portal.x, 2);
+      let dy2 = Math.pow(bodyCoords.y - portal.y, 2);
+      let distance = Math.sqrt(dx2 + dy2);
+      return distance;
+    };
 
     // update the rest of the snake
     for (let i = 0; i < this.bodyPositions.length; i++) {
@@ -115,21 +125,13 @@ class Snake {
         let portal1 = this.portalPairPositions[0][0];
         let portal2 = this.portalPairPositions[0][1];
         console.log(portal1, portal1, newBodyCoords);
-        // calculate distance between two points
-        // sqrt((x1 - x2)^2 + (y1 - y2)^2)
-        let distance = (bodyCoords: IPosition, portal: IPosition) => {
-          let dx2 = Math.pow(bodyCoords.x - portal.x, 2);
-          let dy2 = Math.pow(bodyCoords.y - portal.y, 2);
-          let distance = Math.sqrt(dx2 + dy2);
-          return distance;
-        };
 
         if (distance(newBodyCoords, portal1) < 0.1) {
-          newBodyCoords.x = portal2.x;
-          newBodyCoords.y = portal2.y;
+          newBodyCoords.x = portal2.x + this.xSpeed;
+          newBodyCoords.y = portal2.y + this.ySpeed;
         } else if (distance(newBodyCoords, portal2) < 0.1) {
-          newBodyCoords.x = portal1.x;
-          newBodyCoords.y = portal1.y;
+          newBodyCoords.x = portal1.x + this.xSpeed;
+          newBodyCoords.y = portal1.y + this.ySpeed;
         }
       } else {
         // the rest of the coordinates can get updated as normal
