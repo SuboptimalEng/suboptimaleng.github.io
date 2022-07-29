@@ -83,7 +83,6 @@ class Board {
 
   _createIndividualPortal(portal: IPortal) {
     const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
-    // without shader
     const boxMaterial = new THREE.MeshPhongMaterial({ color: portal.color });
     // with shader
     // const boxMaterial = new THREE.ShaderMaterial({
