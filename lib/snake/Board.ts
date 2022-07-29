@@ -8,6 +8,13 @@ interface IPosition {
   z: number;
 }
 
+interface IPortal {
+  x: number;
+  y: number;
+  z: number;
+  color: string;
+}
+
 class Board {
   gg: THREE.Group;
   clock: THREE.Clock;
@@ -16,8 +23,7 @@ class Board {
   boardSize: number;
   boardPositions: Array<IPosition>;
 
-  portalPairs: number;
-  portalPairPositions: Array<[IPosition, IPosition]>;
+  portalPairPositions: Array<[IPortal, IPortal]>;
 
   constructor() {
     // set up uniforms
@@ -49,11 +55,18 @@ class Board {
     // add the threejs geometries
     this._initializeBoard();
 
-    this.portalPairs = 1;
     this.portalPairPositions = [
       [
-        { x: -4, y: -4, z: 0 },
-        { x: 4, y: 4, z: 0 },
+        { x: 4, y: 4, z: 0, color: 'red' },
+        { x: -4, y: -4, z: 0, color: 'red' },
+      ],
+      [
+        { x: -4, y: 0, z: 0, color: 'green' },
+        { x: 4, y: -4, z: 0, color: 'green' },
+      ],
+      [
+        { x: -4, y: 4, z: 0, color: 'blue' },
+        { x: 4, y: 0, z: 0, color: 'blue' },
       ],
     ];
     this._initializePortalPairs();
@@ -68,20 +81,20 @@ class Board {
     });
   }
 
-  _createIndividualPortal(coord: IPosition) {
+  _createIndividualPortal(portal: IPortal) {
     const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
     // without shader
-    // const boxMaterial = new THREE.MeshPhongMaterial({ color: 'red' });
+    const boxMaterial = new THREE.MeshPhongMaterial({ color: portal.color });
     // with shader
-    const boxMaterial = new THREE.ShaderMaterial({
-      uniforms: this.uniforms,
-      vertexShader: vertexShader,
-      fragmentShader: fragmentShader,
-    });
+    // const boxMaterial = new THREE.ShaderMaterial({
+    //   uniforms: this.uniforms,
+    //   vertexShader: vertexShader,
+    //   fragmentShader: fragmentShader,
+    // });
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-    boxMesh.position.x = coord.x;
-    boxMesh.position.y = coord.y;
-    boxMesh.position.z = coord.z;
+    boxMesh.position.x = portal.x;
+    boxMesh.position.y = portal.y;
+    boxMesh.position.z = portal.z;
     this.gg.add(boxMesh);
   }
 
@@ -98,7 +111,7 @@ class Board {
   _createIndividualBoardPart(coord: IPosition) {
     const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
     const boxMaterial = new THREE.MeshPhongMaterial({
-      color: 0x004400,
+      color: 0x010101,
       // wireframe: true,
     });
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);

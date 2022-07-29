@@ -7,6 +7,13 @@ interface IPosition {
   z: number;
 }
 
+interface IPortal {
+  x: number;
+  y: number;
+  z: number;
+  color: string;
+}
+
 class Snake {
   gg: THREE.Group;
   clock: THREE.Clock;
@@ -20,14 +27,9 @@ class Snake {
   xSpeed: number = 0;
   ySpeed: number = 0;
 
-  portalPairs: number;
-  portalPairPositions: Array<[IPosition, IPosition]>;
+  portalPairPositions: Array<[IPortal, IPortal]>;
 
-  constructor(
-    portalPairs: number,
-    portalPairPositions: Array<[IPosition, IPosition]>
-  ) {
-    this.portalPairs = portalPairs;
+  constructor(portalPairPositions: Array<[IPortal, IPortal]>) {
     this.portalPairPositions = portalPairPositions;
 
     this.gg = new THREE.Group();
@@ -55,14 +57,23 @@ class Snake {
 
   _initializeSnake() {
     // create the entire snake
-    this.bodyPositions.forEach((bodyPosition) => {
-      this._createIndividualSnakePart(bodyPosition);
+    this.bodyPositions.forEach((bodyPosition, index) => {
+      let isHead = index === 0;
+      this._createIndividualSnakePart(bodyPosition, isHead);
     });
   }
 
-  _createIndividualSnakePart(coord: IPosition) {
+  _createIndividualSnakePart(coord: IPosition, isHead: boolean) {
     const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
-    const boxMaterial = new THREE.MeshNormalMaterial();
+    let boxMaterial;
+    if (isHead) {
+      boxMaterial = new THREE.MeshStandardMaterial({
+        // transparent: true,
+        // opacity: 0.5,
+      });
+    } else {
+      boxMaterial = new THREE.MeshNormalMaterial();
+    }
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     boxMesh.position.x = coord.x;
     boxMesh.position.y = coord.y;
@@ -75,6 +86,14 @@ class Snake {
       let { x, y, z } = this.bodyPositions[i];
       this.gg.children[i].position.set(x, y, z);
     }
+  }
+
+  // calculate distance between the head of the snake and a points
+  // distance between two points - sqrt((x1 - x2)^2 + (y1 - y2)^2)
+  _distanceFromPortal(bodyCoords: IPosition, portal: IPortal) {
+    let dx2 = Math.pow(bodyCoords.x - portal.x, 2);
+    let dy2 = Math.pow(bodyCoords.y - portal.y, 2);
+    return Math.sqrt(dx2 + dy2);
   }
 
   update(t: number) {
@@ -92,16 +111,6 @@ class Snake {
 
     // reset the clock
     this.clock.start();
-
-    // todo: refactor distance function
-    // calculate distance between two points
-    // sqrt((x1 - x2)^2 + (y1 - y2)^2)
-    let distance = (bodyCoords: IPosition, portal: IPosition) => {
-      let dx2 = Math.pow(bodyCoords.x - portal.x, 2);
-      let dy2 = Math.pow(bodyCoords.y - portal.y, 2);
-      let distance = Math.sqrt(dx2 + dy2);
-      return distance;
-    };
 
     // update the rest of the snake
     for (let i = 0; i < this.bodyPositions.length; i++) {
@@ -121,17 +130,21 @@ class Snake {
           z: this.bodyPositions[0].z,
         };
 
-        // if new head coordinates land on the portal
-        let portal1 = this.portalPairPositions[0][0];
-        let portal2 = this.portalPairPositions[0][1];
-        console.log(portal1, portal1, newBodyCoords);
+        // check if the head of the snake is entering any portal
+        for (let i = 0; i < this.portalPairPositions.length; i++) {
+          let portal1 = this.portalPairPositions[i][0];
+          let portal2 = this.portalPairPositions[i][1];
 
-        if (distance(newBodyCoords, portal1) < 0.1) {
-          newBodyCoords.x = portal2.x + this.xSpeed;
-          newBodyCoords.y = portal2.y + this.ySpeed;
-        } else if (distance(newBodyCoords, portal2) < 0.1) {
-          newBodyCoords.x = portal1.x + this.xSpeed;
-          newBodyCoords.y = portal1.y + this.ySpeed;
+          // if the distance from the head of the snake to the entrance
+          // of the portal is small, then transport the head of the snake
+          // to coordinates of the corresponding portal pair
+          if (this._distanceFromPortal(newBodyCoords, portal1) < 0.1) {
+            newBodyCoords.x = portal2.x + this.xSpeed;
+            newBodyCoords.y = portal2.y + this.ySpeed;
+          } else if (this._distanceFromPortal(newBodyCoords, portal2) < 0.1) {
+            newBodyCoords.x = portal1.x + this.xSpeed;
+            newBodyCoords.y = portal1.y + this.ySpeed;
+          }
         }
       } else {
         // the rest of the coordinates can get updated as normal
