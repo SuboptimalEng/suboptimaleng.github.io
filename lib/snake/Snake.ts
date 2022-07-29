@@ -131,7 +131,7 @@ class Snake {
       sphereMesh.position.y = this.snack.y;
       sphereMesh.position.z = this.snack.z;
       this.snackGroup.add(sphereMesh);
-    }, 250);
+    }, 150);
   }
 
   _initializeSnake() {
@@ -184,7 +184,7 @@ class Snake {
 
     this.render();
 
-    if (this.clock.getElapsedTime() < 0.5) {
+    if (this.clock.getElapsedTime() < 0.3) {
       return;
     }
 
@@ -229,6 +229,21 @@ class Snake {
         // check if head is intersecting with the snack
         if (this._distance(newBodyCoords, this.snack) < 0.1) {
           this._initializeSnack();
+          // make snake bigger
+          let lastChild = this.gg.children[this.gg.children.length - 1];
+          console.log(lastChild);
+
+          let coords = {
+            x: Math.round(lastChild.position.x),
+            y: Math.round(lastChild.position.y),
+            z: 0,
+          };
+          this.bodyPositions.push({
+            x: Math.round(lastChild.position.x),
+            y: Math.round(lastChild.position.y),
+            z: 0,
+          });
+          this._createIndividualSnakePart(coords, false);
         }
       } else {
         // the rest of the coordinates can get updated as normal
@@ -241,7 +256,7 @@ class Snake {
 
       // create a tween to animate the movement of the snake
       let tweenBody = new TWEEN.Tween(oldBodyCoords)
-        .to(newBodyCoords, 500)
+        .to(newBodyCoords, 300)
         .easing(TWEEN.Easing.Cubic.InOut)
         .onUpdate(() => {
           this.bodyPositions[i].x = oldBodyCoords.x;
