@@ -38,7 +38,7 @@ class Board {
     this.gg = new THREE.Group();
 
     // set up board positions
-    this.boardSize = 15;
+    this.boardSize = 17;
     this.boardPositions = [];
     let startIndex = -1 * Math.floor(this.boardSize / 2);
     let endIndex = Math.floor(this.boardSize / 2);
@@ -110,7 +110,8 @@ class Board {
   _createIndividualBoardPart(coord: IPosition) {
     const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
     const boxMaterial = new THREE.MeshPhongMaterial({
-      color: 0x010101,
+      // color: 0xfafafa,
+      color: 0x101010,
       // wireframe: true,
     });
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);

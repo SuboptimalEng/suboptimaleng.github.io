@@ -27,9 +27,18 @@ class Snake {
   xSpeed: number = 0;
   ySpeed: number = 0;
 
+  // a little hacky, but add the snack in this class
+  snack: IPosition;
+
+  boardSize: number;
   portalPairPositions: Array<[IPortal, IPortal]>;
 
-  constructor(portalPairPositions: Array<[IPortal, IPortal]>) {
+  constructor(
+    boardSize: number,
+    portalPairPositions: Array<[IPortal, IPortal]>
+  ) {
+    this.boardSize = boardSize;
+    this.snack = { x: 0, y: 0, z: 0 };
     this.portalPairPositions = portalPairPositions;
 
     this.gg = new THREE.Group();
@@ -53,6 +62,69 @@ class Snake {
     this.isMoving = false;
 
     this._initializeSnake();
+
+    this._initializeSnack();
+  }
+
+  _randomizeSnackCoordinates() {
+    let x =
+      Math.floor(Math.random() * this.boardSize) -
+      Math.floor(this.boardSize / 2);
+    let y =
+      Math.floor(Math.random() * this.boardSize) -
+      Math.floor(this.boardSize / 2);
+    let z = 0;
+    return { x, y, z };
+  }
+
+  // iterate through all snake points and portal points
+  // and add a snack where the snake does not exist
+  _initializeSnack() {
+    // min + max x,y,z coordinates
+    let xyzPair = this._randomizeSnackCoordinates();
+
+    let insideSnake = (xyzPair: IPosition) => {
+      return this.bodyPositions.some((bodyPosition) => {
+        return this._distance(bodyPosition, xyzPair) < 0.1;
+      });
+    };
+
+    let insidePortal = (xyzPair: IPosition) => {
+      let allPortals: Array<IPortal> = [];
+      this.portalPairPositions.forEach((portalPair) => {
+        allPortals.push(portalPair[0]);
+        allPortals.push(portalPair[1]);
+      });
+      return allPortals.some((portalPosition) => {
+        return this._distance(xyzPair, portalPosition) < 0.1;
+      });
+    };
+
+    while (true) {
+      if (insideSnake(xyzPair)) {
+        xyzPair = this._randomizeSnackCoordinates();
+      } else if (insidePortal(xyzPair)) {
+        xyzPair = this._randomizeSnackCoordinates();
+      } else {
+        break;
+      }
+
+      console.log('hi');
+    }
+
+    this.snack = xyzPair;
+    this._renderSnack();
+  }
+
+  _renderSnack() {
+    const sphereGeometry = new THREE.SphereGeometry(0.5);
+    const sphereMaterial = new THREE.MeshNormalMaterial();
+    const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphereMesh.position.x = this.snack.x;
+    sphereMesh.position.y = this.snack.y;
+    sphereMesh.position.z = this.snack.z;
+    console.log(sphereMesh);
+    this.gg.add(sphereMesh);
   }
 
   _initializeSnake() {
@@ -67,9 +139,9 @@ class Snake {
     const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
     let boxMaterial;
     if (isHead) {
-      boxMaterial = new THREE.MeshStandardMaterial({
-        // transparent: true,
-        // opacity: 0.5,
+      boxMaterial = new THREE.MeshNormalMaterial({
+        transparent: true,
+        opacity: 0.5,
       });
     } else {
       boxMaterial = new THREE.MeshNormalMaterial();
@@ -90,7 +162,7 @@ class Snake {
 
   // calculate distance between the head of the snake and a points
   // distance between two points - sqrt((x1 - x2)^2 + (y1 - y2)^2)
-  _distanceFromPortal(bodyCoords: IPosition, portal: IPortal) {
+  _distance(bodyCoords: IPosition, portal: IPortal | IPosition) {
     let dx2 = Math.pow(bodyCoords.x - portal.x, 2);
     let dy2 = Math.pow(bodyCoords.y - portal.y, 2);
     return Math.sqrt(dx2 + dy2);
@@ -138,10 +210,10 @@ class Snake {
           // if the distance from the head of the snake to the entrance
           // of the portal is small, then transport the head of the snake
           // to coordinates of the corresponding portal pair
-          if (this._distanceFromPortal(newBodyCoords, portal1) < 0.1) {
+          if (this._distance(newBodyCoords, portal1) < 0.1) {
             newBodyCoords.x = portal2.x + this.xSpeed;
             newBodyCoords.y = portal2.y + this.ySpeed;
-          } else if (this._distanceFromPortal(newBodyCoords, portal2) < 0.1) {
+          } else if (this._distance(newBodyCoords, portal2) < 0.1) {
             newBodyCoords.x = portal1.x + this.xSpeed;
             newBodyCoords.y = portal1.y + this.ySpeed;
           }

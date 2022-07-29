@@ -38,8 +38,8 @@ class SceneInit {
       this.farPlane
     );
 
-    this.camera.position.z = 24;
-    this.camera.position.y = -8;
+    this.camera.position.z = 32;
+    this.camera.position.y = 0;
 
     this.canvas = document.getElementById(this.canvasId) as HTMLCanvasElement;
     this.renderer = new THREE.WebGLRenderer({
@@ -64,7 +64,7 @@ class SceneInit {
     // directional light - parallel sun rays
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     // this.directionalLight.castShadow = true;
-    this.directionalLight.position.set(0, 32, 64);
+    this.directionalLight.position.set(0, 4, 10);
     this.scene.add(this.directionalLight);
 
     // setting up the window resize function like this makes it easy
