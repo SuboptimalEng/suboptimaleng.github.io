@@ -19,16 +19,16 @@ class Snake {
   clock: THREE.Clock;
   snackGroup: THREE.Group;
 
-  isMoving: boolean;
   bodyPositions: Array<IPosition>;
 
-  // default initalization
+  // snake game settings
   speed: number = 1;
   xSpeed: number = 0;
   ySpeed: number = 0;
-  timeStep: number = 250;
-  snackStep: number = 125;
-  elaplsedTime: number = 0.25;
+  timeStep: number = 300;
+  snackStep: number = 150;
+  elaplsedTime: number = 0.3;
+  isMoving: boolean = false;
 
   // a little hacky, but add the snack in this class
   snack: IPosition;
@@ -60,10 +60,6 @@ class Snake {
       { x: 1, y: 5, z: 0 },
       { x: 1, y: 6, z: 0 },
     ];
-
-    // snake game settings
-    this.timestep = 100;
-    this.isMoving = false;
 
     this._initializeSnake();
 
@@ -231,7 +227,6 @@ class Snake {
           this._initializeSnack();
           // make snake bigger
           let lastChild = this.gg.children[this.gg.children.length - 1];
-          console.log(lastChild);
 
           let coords = {
             x: Math.round(lastChild.position.x),

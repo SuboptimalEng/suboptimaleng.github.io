@@ -38,6 +38,7 @@ class Board {
     this.gg = new THREE.Group();
 
     // set up board positions
+    // this.boardSize = 15;
     this.boardSize = 21;
     this.boardPositions = [];
     let startIndex = -1 * Math.floor(this.boardSize / 2);
@@ -71,7 +72,6 @@ class Board {
       // ],
 
       // level 2
-      // first two rows
       [
         { x: -8, y: 6, z: 0, color: 'red' },
         { x: -4, y: 2, z: 0, color: 'red' },
@@ -92,8 +92,6 @@ class Board {
         { x: 8, y: 6, z: 0, color: 'grey' },
         { x: -8, y: 2, z: 0, color: 'grey' },
       ],
-
-      // second two rows
       [
         { x: -8, y: -6, z: 0, color: 'purple' },
         { x: -4, y: -2, z: 0, color: 'purple' },
@@ -111,8 +109,8 @@ class Board {
         { x: 8, y: -2, z: 0, color: 'violet' },
       ],
       [
-        { x: 8, y: -6, z: 0, color: 'white' },
-        { x: -8, y: -2, z: 0, color: 'white' },
+        { x: 8, y: -6, z: 0, color: 'pink' },
+        { x: -8, y: -2, z: 0, color: 'pink' },
       ],
     ];
     this._initializePortalPairs();
