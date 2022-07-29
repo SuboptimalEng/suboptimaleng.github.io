@@ -38,7 +38,7 @@ class Board {
     this.gg = new THREE.Group();
 
     // set up board positions
-    this.boardSize = 17;
+    this.boardSize = 21;
     this.boardPositions = [];
     let startIndex = -1 * Math.floor(this.boardSize / 2);
     let endIndex = Math.floor(this.boardSize / 2);
@@ -56,17 +56,63 @@ class Board {
     this._initializeBoard();
 
     this.portalPairPositions = [
+      // level 1
+      // [
+      //   { x: 4, y: 4, z: 0, color: 'red' },
+      //   { x: -4, y: -4, z: 0, color: 'red' },
+      // ],
+      // [
+      //   { x: -4, y: 0, z: 0, color: 'green' },
+      //   { x: 4, y: -4, z: 0, color: 'green' },
+      // ],
+      // [
+      //   { x: -4, y: 4, z: 0, color: 'blue' },
+      //   { x: 4, y: 0, z: 0, color: 'blue' },
+      // ],
+
+      // level 2
+      // first two rows
       [
-        { x: 4, y: 4, z: 0, color: 'red' },
-        { x: -4, y: -4, z: 0, color: 'red' },
+        { x: -8, y: 6, z: 0, color: 'red' },
+        { x: -4, y: 2, z: 0, color: 'red' },
       ],
       [
-        { x: -4, y: 0, z: 0, color: 'green' },
-        { x: 4, y: -4, z: 0, color: 'green' },
+        { x: -4, y: 6, z: 0, color: 'green' },
+        { x: 0, y: 2, z: 0, color: 'green' },
       ],
       [
-        { x: -4, y: 4, z: 0, color: 'blue' },
-        { x: 4, y: 0, z: 0, color: 'blue' },
+        { x: 0, y: 6, z: 0, color: 'blue' },
+        { x: 4, y: 2, z: 0, color: 'blue' },
+      ],
+      [
+        { x: 4, y: 6, z: 0, color: 'yellow' },
+        { x: 8, y: 2, z: 0, color: 'yellow' },
+      ],
+      [
+        { x: 8, y: 6, z: 0, color: 'grey' },
+        { x: -8, y: 2, z: 0, color: 'grey' },
+      ],
+
+      // second two rows
+      [
+        { x: -8, y: -6, z: 0, color: 'purple' },
+        { x: -4, y: -2, z: 0, color: 'purple' },
+      ],
+      [
+        { x: -4, y: -6, z: 0, color: 'brown' },
+        { x: 0, y: -2, z: 0, color: 'brown' },
+      ],
+      [
+        { x: 0, y: -6, z: 0, color: 'teal' },
+        { x: 4, y: -2, z: 0, color: 'teal' },
+      ],
+      [
+        { x: 4, y: -6, z: 0, color: 'violet' },
+        { x: 8, y: -2, z: 0, color: 'violet' },
+      ],
+      [
+        { x: 8, y: -6, z: 0, color: 'white' },
+        { x: -8, y: -2, z: 0, color: 'white' },
       ],
     ];
     this._initializePortalPairs();

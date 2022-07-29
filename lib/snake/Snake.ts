@@ -19,7 +19,6 @@ class Snake {
   clock: THREE.Clock;
   snackGroup: THREE.Group;
 
-  timestep: number;
   isMoving: boolean;
   bodyPositions: Array<IPosition>;
 
@@ -27,6 +26,9 @@ class Snake {
   speed: number = 1;
   xSpeed: number = 0;
   ySpeed: number = 0;
+  timeStep: number = 250;
+  snackStep: number = 125;
+  elaplsedTime: number = 0.25;
 
   // a little hacky, but add the snack in this class
   snack: IPosition;
@@ -110,8 +112,6 @@ class Snake {
       } else {
         break;
       }
-
-      console.log('hi');
     }
 
     this.snack = xyzPair;
@@ -131,7 +131,7 @@ class Snake {
       sphereMesh.position.y = this.snack.y;
       sphereMesh.position.z = this.snack.z;
       this.snackGroup.add(sphereMesh);
-    }, 150);
+    }, 100);
   }
 
   _initializeSnake() {
@@ -184,7 +184,7 @@ class Snake {
 
     this.render();
 
-    if (this.clock.getElapsedTime() < 0.3) {
+    if (this.clock.getElapsedTime() < this.elaplsedTime) {
       return;
     }
 
@@ -256,7 +256,7 @@ class Snake {
 
       // create a tween to animate the movement of the snake
       let tweenBody = new TWEEN.Tween(oldBodyCoords)
-        .to(newBodyCoords, 300)
+        .to(newBodyCoords, this.timeStep)
         .easing(TWEEN.Easing.Cubic.InOut)
         .onUpdate(() => {
           this.bodyPositions[i].x = oldBodyCoords.x;
