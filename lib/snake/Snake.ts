@@ -17,6 +17,7 @@ interface IPortal {
 class Snake {
   gg: THREE.Group;
   clock: THREE.Clock;
+  snackGroup: THREE.Group;
 
   timestep: number;
   isMoving: boolean;
@@ -43,6 +44,7 @@ class Snake {
 
     this.gg = new THREE.Group();
     this.clock = new THREE.Clock();
+    this.snackGroup = new THREE.Group();
     this.clock.start();
 
     // snake body
@@ -117,14 +119,19 @@ class Snake {
   }
 
   _renderSnack() {
-    const sphereGeometry = new THREE.SphereGeometry(0.5);
-    const sphereMaterial = new THREE.MeshNormalMaterial();
-    const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphereMesh.position.x = this.snack.x;
-    sphereMesh.position.y = this.snack.y;
-    sphereMesh.position.z = this.snack.z;
-    console.log(sphereMesh);
-    this.gg.add(sphereMesh);
+    // render the snack mid-way after snake eats old one
+    setTimeout(() => {
+      this.snackGroup.children.forEach((child) => {
+        this.snackGroup.remove(child);
+      });
+      const sphereGeometry = new THREE.SphereGeometry(0.5);
+      const sphereMaterial = new THREE.MeshNormalMaterial();
+      const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+      sphereMesh.position.x = this.snack.x;
+      sphereMesh.position.y = this.snack.y;
+      sphereMesh.position.z = this.snack.z;
+      this.snackGroup.add(sphereMesh);
+    }, 250);
   }
 
   _initializeSnake() {
@@ -217,6 +224,11 @@ class Snake {
             newBodyCoords.x = portal1.x + this.xSpeed;
             newBodyCoords.y = portal1.y + this.ySpeed;
           }
+        }
+
+        // check if head is intersecting with the snack
+        if (this._distance(newBodyCoords, this.snack) < 0.1) {
+          this._initializeSnack();
         }
       } else {
         // the rest of the coordinates can get updated as normal

@@ -17,6 +17,7 @@ function SnakeGame() {
 
     const snake = new Snake(board.boardSize, board.portalPairPositions);
     test.scene.add(snake.gg);
+    test.scene.add(snake.snackGroup);
 
     const update = (t: number) => {
       test.update();
