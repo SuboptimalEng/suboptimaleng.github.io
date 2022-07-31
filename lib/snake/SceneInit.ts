@@ -40,7 +40,7 @@ class SceneInit {
 
     this.camera.position.x = 0;
     this.camera.position.y = 0;
-    this.camera.position.z = 28;
+    this.camera.position.z = 32;
 
     this.canvas = document.getElementById(this.canvasId) as HTMLCanvasElement;
     this.renderer = new THREE.WebGLRenderer({
