@@ -86,7 +86,8 @@ class Board {
       ],
       [
         { x: 4, y: 6, z: 0, color: 'yellow' },
-        { x: 8, y: 2, z: 0, color: 'yellow' },
+        { x: 8, y: -6, z: 0, color: 'yellow' },
+        // { x: 8, y: -6, z: 0, color: 'pink' },
       ],
       [
         { x: 8, y: 6, z: 0, color: 'grey' },
@@ -109,7 +110,8 @@ class Board {
         { x: 8, y: -2, z: 0, color: 'violet' },
       ],
       [
-        { x: 8, y: -6, z: 0, color: 'pink' },
+        // { x: 8, y: 2, z: 0, color: 'yellow' },
+        { x: 8, y: 2, z: 0, color: 'pink' },
         { x: -8, y: -2, z: 0, color: 'pink' },
       ],
     ];
