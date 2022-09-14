@@ -65,8 +65,17 @@ export default function Home() {
 
       <div className="min-h-screen bg-black text-white flex flex-col justify-center">
         <div className="flex justify-center">
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-4">
             <div className="text-7xl pb-8">gamedex</div>
+
+            <Link href="/pixel-art-editor">
+              <a>
+                <div className="text-5xl hover:bg-white hover:text-black">
+                  pixel art editor
+                </div>
+              </a>
+            </Link>
+
             <Link href="/snakes-and-portals">
               <a>
                 <div className="text-5xl hover:bg-white hover:text-black">
@@ -74,6 +83,7 @@ export default function Home() {
                 </div>
               </a>
             </Link>
+
             <Link href="/frantic-architect">
               <a>
                 <div className="text-5xl hover:bg-white hover:text-black">
