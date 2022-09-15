@@ -4,6 +4,8 @@ import { PixelArtEditor } from '../../lib/pixel-art-editor';
 function PixelArtEditorDemo() {
   useEffect(() => {
     const pixelEditor = new PixelArtEditor('myPixelEditorCanvas');
+
+    window.addEventListener('mousemove', (e) => pixelEditor.onMouseMove(e));
   });
 
   return (
