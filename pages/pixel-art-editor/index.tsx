@@ -9,12 +9,12 @@ function PixelArtEditorDemo() {
   });
 
   return (
-    <div className="bg-gray-100 flex justify-center h-screen place-items-center">
+    <div className="bg-black flex justify-center h-screen place-items-center">
       <canvas
         id="myPixelEditorCanvas"
         width={600}
         height={600}
-        className="border-4"
+        className="border-4 bg-gray-200"
       />
     </div>
   );

@@ -15,7 +15,7 @@ class PixelArtEditor {
   ];
 
   private horizontalPaths = [
-    [0, 0, 0, 600],
+    [0, 0, 600, 0],
     [0, 100, 600, 100],
     [0, 200, 600, 200],
     [0, 300, 600, 300],
@@ -48,6 +48,18 @@ class PixelArtEditor {
     this.cc.stroke();
   }
 
+  findNearestSquare(x: number, y: number): { x: number; y: number } {
+    console.log(x, y);
+
+    let newX = Math.floor(x / 100) * 100;
+    let newY = Math.floor(y / 100) * 100;
+
+    return {
+      x: newX,
+      y: newY,
+    };
+  }
+
   onMouseMove(e: MouseEvent) {
     let rect = this.canvas.getBoundingClientRect();
     let pos = {
@@ -57,7 +69,8 @@ class PixelArtEditor {
 
     // this.cc.beginPath();
     // this.cc.strokeRect(0, 0, 100, 100);
-    this.cc.fillRect(pos.x, pos.y, 100, 100);
+    let nearestSquare = this.findNearestSquare(pos.x, pos.y);
+    this.cc.fillRect(nearestSquare.x, nearestSquare.y, 100, 100);
     // this.cc.moveTo(0, 0);
     // this.cc.lineTo(0, 100);
     // this.cc.lineTo(100, 100);
