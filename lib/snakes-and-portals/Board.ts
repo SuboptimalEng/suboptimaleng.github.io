@@ -15,7 +15,7 @@ interface IPortal {
   color: string;
 }
 
-class Board {
+export class Board {
   gg: THREE.Group;
   clock: THREE.Clock;
 
@@ -167,5 +167,3 @@ class Board {
     this.gg.add(boxMesh);
   }
 }
-
-export { Board };

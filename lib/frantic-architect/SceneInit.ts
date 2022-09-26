@@ -4,7 +4,7 @@ import * as THREE from 'three';
 // import Stats from 'three/examples/jsm/libs/stats.module';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-class SceneInit {
+export class SceneInit {
   canvasId: string;
   fov: number;
   nearPlane: number;
@@ -128,5 +128,3 @@ class SceneInit {
     this.camera.lookAt(new THREE.Vector3(0, 2, 0));
   }
 }
-
-export { SceneInit };

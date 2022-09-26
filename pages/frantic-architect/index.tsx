@@ -5,7 +5,7 @@ import CannonDebugger from 'cannon-es-debugger';
 import { Helper } from '../../lib/utils';
 import { FranticArchitect, SceneInit } from '../../lib/frantic-architect';
 
-function FranticArchitectGame() {
+export default function FranticArchitectGame() {
   const windowRef = useRef(0);
   let gui: any;
 
@@ -88,5 +88,3 @@ function FranticArchitectGame() {
     </div>
   );
 }
-
-export default FranticArchitectGame;

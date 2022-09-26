@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import * as CANNON from 'cannon-es';
 
-class FranticArchitect {
+export class FranticArchitect {
   x: number;
   y: number;
   z: number;
@@ -329,5 +329,3 @@ class FranticArchitect {
     this.gg.add(boxMesh);
   }
 }
-
-export { FranticArchitect };

@@ -14,7 +14,7 @@ interface IPortal {
   color: string;
 }
 
-class Snake {
+export class Snake {
   gg: THREE.Group;
   clock: THREE.Clock;
   snackGroup: THREE.Group;
@@ -286,5 +286,3 @@ class Snake {
     }
   }
 }
-
-export { Snake };

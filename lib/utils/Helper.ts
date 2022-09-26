@@ -1,4 +1,4 @@
-class Helper {
+export class Helper {
   static removeCanvas() {
     // remove canvas element so it does not get displayed on home page
     const canvas = document.getElementById('myThreeJsCanvas') as Node;
@@ -21,5 +21,3 @@ class Helper {
     }
   }
 }
-
-export { Helper };

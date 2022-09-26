@@ -4,7 +4,7 @@ import { Helper } from '../../lib/utils';
 import { Board, Snake, SceneInit } from '../../lib/snakes-and-portals';
 
 // NOTE: Function naming convention `${name}Game`;
-function SnakeGame() {
+export default function SnakeGame() {
   const windowRef = useRef(0);
 
   useEffect(() => {
@@ -54,5 +54,3 @@ function SnakeGame() {
     </div>
   );
 }
-
-export default SnakeGame;
