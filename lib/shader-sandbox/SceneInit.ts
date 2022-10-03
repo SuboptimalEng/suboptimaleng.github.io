@@ -10,9 +10,9 @@ export class SceneInit {
   farPlane: number;
 
   uniforms: any;
-
   onWindowResize: () => void;
   onMouseMove: (e: MouseEvent) => void;
+
   canvas: HTMLCanvasElement | null;
 
   // three.js variables
@@ -88,9 +88,9 @@ export class SceneInit {
     };
 
     this.onMouseMove = (e: any) => {
-      console.log('on mouse move');
       this.uniforms.u_mouse.value.x = e.pageX / window.innerWidth;
       this.uniforms.u_mouse.value.y = e.pageY / window.innerHeight;
+      console.log(this.uniforms.u_mouse.value);
     };
 
     window.addEventListener('resize', this.onWindowResize);

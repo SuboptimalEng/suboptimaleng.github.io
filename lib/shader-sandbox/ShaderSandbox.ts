@@ -8,7 +8,7 @@ export class ShaderSandbox {
     this.uniforms = uniforms;
     this.gg = new THREE.Group();
 
-    const geometry = new THREE.PlaneBufferGeometry(1.9, 1.9);
+    const geometry = new THREE.PlaneBufferGeometry(1, 1);
 
     const material = new THREE.ShaderMaterial({
       // wireframe: true,
@@ -35,7 +35,7 @@ export class ShaderSandbox {
 
           if (u_mouse.x < uv.x + 0.01 && u_mouse.x > uv.x - 0.01) {
             gl_FragColor = vec4(1, 0, 0, 0.9);
-          } else if (u_mouse.y < uv.y + 0.01 && u_mouse.y > uv.y - 0.01) {
+          } else if (1. - u_mouse.y < uv.y + 0.01 && 1. - u_mouse.y > uv.y - 0.01) {
             gl_FragColor = vec4(1, 0, 0, 0.9);
           } else {
             gl_FragColor = vec4(1. * uv.x, abs(sin(u_time)), 0, 0.9);
