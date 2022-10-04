@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import CodeMirror from '@uiw/react-codemirror';
+import { githubDark } from '@uiw/codemirror-theme-github';
 
 import { Helper } from '../../lib/utils';
 import { SceneInit, ShaderSandbox } from '../../lib/shader-sandbox';
@@ -6,24 +8,42 @@ import { SceneInit, ShaderSandbox } from '../../lib/shader-sandbox';
 // NOTE: Function naming convention `${name}Game`;
 export default function ShaderSandboxGame() {
   const windowRef = useRef(0);
-
+  const [showEditor, setShowEditor] = useState(false);
   const [fragmentShader, setFragmentShader] = useState(`
-    uniform float u_time;
-    uniform vec2 u_mouse;
-    uniform vec2 u_resolution;
+uniform float u_time;
+uniform vec2 u_mouse;
+uniform vec2 u_resolution;
 
-    void main() {
-      vec2 uv = gl_FragCoord.xy / u_resolution;
+float rand(vec2 co) {
+  return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
+}
 
-      if (u_mouse.x < uv.x + 0.01 && u_mouse.x > uv.x - 0.01) {
-        gl_FragColor = vec4(1, 0, 0, 0.9);
-      } else if (1. - u_mouse.y < uv.y + 0.01 && 1. - u_mouse.y > uv.y - 0.01) {
-        gl_FragColor = vec4(1, 0, 0, 0.9);
-      } else {
-        gl_FragColor = vec4(1. * uv.x, abs(sin(u_time)), 0, 0.9);
-      }
+void main() {
+  vec2 uv = gl_FragCoord.xy / u_resolution;
+
+  float x = (uv.x + 1.0) / 2.0;
+  float y = (uv.y + 1.0) / 2.0;
+
+  vec3 green = vec3(x - y, 0.4, 0.0);
+
+  // opacity of the square based on time
+  // float opacity = (sin(u_time) + 1.) / 2. * 0.5 + 0.1;
+  // float opacity = 0.5;
+  float xOpacity = floor(uv.x * 20.0) / 20.0;
+  float yOpacity = floor(uv.y * 20.0) / 20.0;
+  // float opacity = (xOpacity + yOpacity) / 2.0;
+  float randomOpacity = rand(vec2(xOpacity, yOpacity));
+  float minOpacity = 0.2 + randomOpacity * 0.8;
+
+  if (u_mouse.x < uv.x + 0.005 && u_mouse.x > uv.x - 0.005) {
+    gl_FragColor = vec4(1, 0, 0, 0.75);
+  } else if (1. - u_mouse.y < uv.y + 0.01 && 1. - u_mouse.y > uv.y - 0.01) {
+    gl_FragColor = vec4(1, 0, 0, 0.75);
+  } else {
+    gl_FragColor = vec4(green, minOpacity);
   }
-  `);
+}
+`);
 
   useEffect(() => {
     Helper.maybeCreateCanvas();
@@ -34,28 +54,15 @@ export default function ShaderSandboxGame() {
 
     test.scene.add(shaderSandbox.gg);
 
-    // const board = new Board();
-    // test.scene.add(board.gg);
-    // const snake = new Snake(board.boardSize, board.portalPairPositions);
-    // test.scene.add(snake.gg);
-    // test.scene.add(snake.snackGroup);
-
     const update = (t: number) => {
       test.update();
       // shaderSandbox.update(t);
-      // board.update(t);
-      // snake.update(t);
 
       // keep track of animation frame in windowRef.current
       windowRef.current = window.requestAnimationFrame(update);
     };
     requestAnimationFrame(update);
     // update();
-
-    // add event listener to handle snake movement
-    // window.addEventListener('keydown', (e: KeyboardEvent) =>
-    //   snake.handleMovement(e)
-    // );
 
     return () => {
       console.log('on component unmount');
@@ -70,17 +77,38 @@ export default function ShaderSandboxGame() {
     };
   }, [fragmentShader]);
 
-  const handleOnChange = (e: any) => {
-    let { name, value } = e.target;
+  const handleOnChange = (value: string) => {
     setFragmentShader(value);
+  };
+
+  const toggleEditor = () => {
+    setShowEditor(!showEditor);
   };
 
   return (
     <div>
       <canvas id="myThreeJsCanvas" />
-      <div className="flex-col space-y-4">
-        <input type="text" value={fragmentShader} onChange={handleOnChange} />
-        <p>{fragmentShader}</p>
+      <div className="absolute inset-24">
+        <div className="flex flex-col h-full w-full place-items-center justify-center">
+          <div className="absolute -top-10 left-0">
+            <div
+              onClick={toggleEditor}
+              className="border-2 p-1 bg-black text-white text-xs opacity-75"
+            >
+              {showEditor ? <div>Hide Editor</div> : <div>Show Editor</div>}
+            </div>
+          </div>
+          {showEditor && (
+            <CodeMirror
+              theme={githubDark}
+              value={fragmentShader}
+              onChange={handleOnChange}
+              width="100%"
+              height="100%"
+              className="w-full h-full border-2 opacity-90"
+            />
+          )}
+        </div>
       </div>
     </div>
   );
