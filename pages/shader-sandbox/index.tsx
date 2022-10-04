@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Helper } from '../../lib/utils';
 import { SceneInit, ShaderSandbox } from '../../lib/shader-sandbox';
@@ -7,12 +7,30 @@ import { SceneInit, ShaderSandbox } from '../../lib/shader-sandbox';
 export default function ShaderSandboxGame() {
   const windowRef = useRef(0);
 
+  const [fragmentShader, setFragmentShader] = useState(`
+    uniform float u_time;
+    uniform vec2 u_mouse;
+    uniform vec2 u_resolution;
+
+    void main() {
+      vec2 uv = gl_FragCoord.xy / u_resolution;
+
+      if (u_mouse.x < uv.x + 0.01 && u_mouse.x > uv.x - 0.01) {
+        gl_FragColor = vec4(1, 0, 0, 0.9);
+      } else if (1. - u_mouse.y < uv.y + 0.01 && 1. - u_mouse.y > uv.y - 0.01) {
+        gl_FragColor = vec4(1, 0, 0, 0.9);
+      } else {
+        gl_FragColor = vec4(1. * uv.x, abs(sin(u_time)), 0, 0.9);
+      }
+  }
+  `);
+
   useEffect(() => {
     Helper.maybeCreateCanvas();
 
     const test = new SceneInit('myThreeJsCanvas');
 
-    const shaderSandbox = new ShaderSandbox(test.uniforms);
+    const shaderSandbox = new ShaderSandbox(test.uniforms, fragmentShader);
 
     test.scene.add(shaderSandbox.gg);
 
@@ -50,11 +68,20 @@ export default function ShaderSandboxGame() {
 
       Helper.removeCanvas();
     };
-  });
+  }, [fragmentShader]);
+
+  const handleOnChange = (e: any) => {
+    let { name, value } = e.target;
+    setFragmentShader(value);
+  };
 
   return (
     <div>
       <canvas id="myThreeJsCanvas" />
+      <div className="flex-col space-y-4">
+        <input type="text" value={fragmentShader} onChange={handleOnChange} />
+        <p>{fragmentShader}</p>
+      </div>
     </div>
   );
 }

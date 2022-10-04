@@ -90,7 +90,7 @@ export class SceneInit {
     this.onMouseMove = (e: any) => {
       this.uniforms.u_mouse.value.x = e.pageX / window.innerWidth;
       this.uniforms.u_mouse.value.y = e.pageY / window.innerHeight;
-      console.log(this.uniforms.u_mouse.value);
+      // console.log(this.uniforms.u_mouse.value);
     };
 
     window.addEventListener('resize', this.onWindowResize);
