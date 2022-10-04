@@ -29,7 +29,7 @@ void main() {
   float xOpacity = floor(uv.x * 20.0) / 20.0;
   float yOpacity = floor(uv.y * 20.0) / 20.0;
   float randomOpacity = rand(vec2(xOpacity, yOpacity));
-  float minOpacity = 0.2 + randomOpacity * 0.8;
+  float minOpacity = 0.5 + randomOpacity * 0.5;
 
   if (u_mouse.x < uv.x + 0.005 && u_mouse.x > uv.x - 0.005) {
     gl_FragColor = vec4(1, 0, 0, 0.75);
