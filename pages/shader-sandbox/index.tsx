@@ -84,9 +84,9 @@ void main() {
   return (
     <div>
       <canvas id="myThreeJsCanvas" />
-      <div className="absolute inset-x-8 inset-y-16">
+      <div className="absolute inset-x-8 inset-y-24">
         <div className="flex flex-col h-full w-full place-items-center justify-center">
-          <div className="absolute -top-8 left-0">
+          <div className="absolute -top-9 left-0">
             <div
               onClick={toggleEditor}
               className="border-2 p-1 bg-black text-white text-xs opacity-75"
