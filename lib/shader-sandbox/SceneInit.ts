@@ -1,6 +1,5 @@
 import * as THREE from 'three';
-import { Uniform, Vector2 } from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Stats from 'three/examples/jsm/libs/stats.module';
 
 export class SceneInit {
@@ -22,7 +21,7 @@ export class SceneInit {
   clock: THREE.Clock;
 
   stats: Stats;
-  controls: OrbitControls;
+  // controls: OrbitControls;
 
   // lighting
   ambientLight: THREE.AmbientLight;
@@ -39,9 +38,9 @@ export class SceneInit {
         value: 0.0,
       },
       u_resolution: new THREE.Uniform(
-        new Vector2(window.innerWidth, window.innerHeight)
+        new THREE.Vector2(window.innerWidth, window.innerHeight)
       ),
-      u_mouse: new THREE.Uniform(new Vector2(0, 0)),
+      u_mouse: new THREE.Uniform(new THREE.Vector2(0, 0)),
     };
 
     this.scene = new THREE.Scene();
@@ -62,7 +61,7 @@ export class SceneInit {
 
     // NOTE: Additional components.
     this.clock = new THREE.Clock();
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.stats = Stats();
     document.body.appendChild(this.stats.dom);
 
