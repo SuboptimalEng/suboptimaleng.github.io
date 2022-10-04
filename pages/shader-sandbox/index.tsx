@@ -26,12 +26,8 @@ void main() {
 
   vec3 green = vec3(x - y, 0.4, 0.0);
 
-  // opacity of the square based on time
-  // float opacity = (sin(u_time) + 1.) / 2. * 0.5 + 0.1;
-  // float opacity = 0.5;
   float xOpacity = floor(uv.x * 20.0) / 20.0;
   float yOpacity = floor(uv.y * 20.0) / 20.0;
-  // float opacity = (xOpacity + yOpacity) / 2.0;
   float randomOpacity = rand(vec2(xOpacity, yOpacity));
   float minOpacity = 0.2 + randomOpacity * 0.8;
 
