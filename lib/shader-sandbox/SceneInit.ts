@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { Uniform, Vector2 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import Stats from 'three/examples/jsm/libs/stats.module';
+// import Stats from 'three/examples/jsm/libs/stats.module';
 
 export class SceneInit {
   canvasId: string;
@@ -21,7 +21,7 @@ export class SceneInit {
   renderer: THREE.Renderer;
   clock: THREE.Clock;
 
-  stats: Stats;
+  // stats: Stats;
   controls: OrbitControls;
 
   // lighting
@@ -63,8 +63,8 @@ export class SceneInit {
     // NOTE: Additional components.
     this.clock = new THREE.Clock();
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.stats = Stats();
-    document.body.appendChild(this.stats.dom);
+    // this.stats = Stats();
+    // document.body.appendChild(this.stats.dom);
 
     // ambient light which is for the whole scene
     this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
@@ -113,7 +113,7 @@ export class SceneInit {
     this.camera.removeFromParent();
 
     // remove the stats element
-    document.body.removeChild(this.stats.dom);
+    // document.body.removeChild(this.stats.dom);
 
     // TODO: Figure out what to do with this data
     // this.canvas = document.getElementById(this.canvasId) as HTMLCanvasElement;
@@ -137,7 +137,7 @@ export class SceneInit {
     // requestAnimationFrame(this.update.bind(this));
     // window.requestAnimationFrame(this.update.bind(this));
     this.render();
-    this.stats.update();
+    // this.stats.update();
     // don't allow for orbit control
     // this.controls.update();
   }

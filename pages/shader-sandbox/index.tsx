@@ -32,9 +32,9 @@ void main() {
   float minOpacity = 0.5 + randomOpacity * 0.5;
 
   if (u_mouse.x < uv.x + 0.005 && u_mouse.x > uv.x - 0.005) {
-    gl_FragColor = vec4(1, 0, 0, 0.75);
+    gl_FragColor = vec4(0.75, 0, 0, 1);
   } else if (1. - u_mouse.y < uv.y + 0.01 && 1. - u_mouse.y > uv.y - 0.01) {
-    gl_FragColor = vec4(1, 0, 0, 0.75);
+    gl_FragColor = vec4(0.75, 0, 0, 1);
   } else {
     gl_FragColor = vec4(green, minOpacity);
   }
@@ -84,9 +84,9 @@ void main() {
   return (
     <div>
       <canvas id="myThreeJsCanvas" />
-      <div className="absolute inset-24">
+      <div className="absolute inset-x-8 inset-y-16">
         <div className="flex flex-col h-full w-full place-items-center justify-center">
-          <div className="absolute -top-10 left-0">
+          <div className="absolute -top-8 left-0">
             <div
               onClick={toggleEditor}
               className="border-2 p-1 bg-black text-white text-xs opacity-75"
