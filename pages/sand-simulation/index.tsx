@@ -7,11 +7,12 @@ export default function SandSimulationGame() {
 
   useEffect(() => {
     const ss = new SandSimulation('myCanvas');
+    ss.addEventListeners();
 
     let prevTime = 0;
     const update = (t: number) => {
       const currTime = Math.floor(t / 100);
-      console.log(prevTime, currTime);
+      // console.log(prevTime, currTime);
       if (prevTime !== currTime) {
         ss.step();
         ss.render();
@@ -23,13 +24,14 @@ export default function SandSimulationGame() {
     requestAnimationFrame(update);
 
     return () => {
+      ss.removeEventListeners();
       cancelAnimationFrame(windowRef.current);
     };
   }, []);
 
   return (
     <div className="flex h-screen justify-center place-items-center bg-black">
-      <canvas id="myCanvas" className="border-4 h-96 w-96" />
+      <canvas id="myCanvas" className="h-96 w-96" />
     </div>
   );
 }

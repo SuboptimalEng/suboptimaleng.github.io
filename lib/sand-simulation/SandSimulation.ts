@@ -6,8 +6,8 @@ export class SandSimulation {
   pixelWidth: number;
   pixelHeight: number;
 
-  rows: number = 50;
-  cols: number = 50;
+  rows: number = 20;
+  cols: number = 20;
 
   // 0 -> empty
   // 1 -> sand
@@ -61,6 +61,29 @@ export class SandSimulation {
     );
   }
 
+  setAsSand(row: number, col: number) {
+    this.sandbox[row][col] = 1;
+  }
+
+  onMouseDown = (event: MouseEvent) => {
+    const rect = this.canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    let row = Math.floor(y / this.cols);
+    let col = Math.floor(x / this.rows) + 1;
+
+    this.setAsSand(row, col);
+  };
+
+  addEventListeners() {
+    this.canvas.addEventListener('mousedown', this.onMouseDown);
+  }
+
+  removeEventListeners() {
+    this.canvas.removeEventListener('mousedown', this.onMouseDown);
+  }
+
   render() {
     for (let i = 0; i < this.sandbox.length; i++) {
       for (let j = 0; j < this.sandbox[i].length; j++) {
@@ -70,8 +93,6 @@ export class SandSimulation {
   }
 
   step() {
-    let stepped = false;
-
     // iterate from the bottom row to the top row
     // this ensures that the current sand block can always below
     for (let i = this.sandbox.length - 1; i >= 0; i--) {
@@ -95,22 +116,15 @@ export class SandSimulation {
           if (this.sandbox[i + 1][j] === 0) {
             this.sandbox[i][j] = 0;
             this.sandbox[i + 1][j] = 1;
-            stepped = true;
           } else if (this.sandbox[i + 1][j + 1] === 0) {
             this.sandbox[i][j] = 0;
             this.sandbox[i + 1][j + 1] = 1;
-            stepped = true;
           } else if (this.sandbox[i + 1][j - 1] === 0) {
             this.sandbox[i][j] = 0;
             this.sandbox[i + 1][j - 1] = 1;
-            stepped = true;
           }
         }
       }
-    }
-
-    if (stepped) {
-      console.log(this.sandbox);
     }
   }
 }
