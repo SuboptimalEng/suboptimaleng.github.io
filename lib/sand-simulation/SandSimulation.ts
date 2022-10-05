@@ -6,6 +6,10 @@ export class SandSimulation {
   pixelWidth: number;
   pixelHeight: number;
 
+  mouseX: number = 0;
+  mouseY: number = 0;
+  mouseDown: boolean = false;
+
   rows: number = 20;
   cols: number = 20;
 
@@ -27,24 +31,6 @@ export class SandSimulation {
       const arr = new Array(this.cols).fill(0);
       this.sandbox.push([...arr]);
     }
-
-    this.sandbox[0][1] = 1;
-    this.sandbox[1][1] = 1;
-    this.sandbox[2][1] = 1;
-    this.sandbox[3][1] = 1;
-    this.sandbox[4][1] = 1;
-    this.sandbox[5][1] = 1;
-    this.sandbox[6][1] = 1;
-    this.sandbox[7][1] = 1;
-    this.sandbox[8][1] = 1;
-    this.sandbox[9][1] = 1;
-    this.sandbox[10][1] = 1;
-    this.sandbox[11][1] = 1;
-    this.sandbox[12][1] = 1;
-    this.sandbox[13][1] = 1;
-    this.sandbox[14][1] = 1;
-    this.sandbox[15][1] = 1;
-    this.sandbox[16][1] = 1;
   }
 
   private drawPixel(blockType: number, row: number, col: number) {
@@ -52,6 +38,8 @@ export class SandSimulation {
       this.cc.fillStyle = 'white';
     } else if (blockType === 1) {
       this.cc.fillStyle = 'brown';
+    } else if (blockType === 2) {
+      this.cc.fillStyle = 'blue';
     }
     this.cc.fillRect(
       row * this.pixelWidth,
@@ -61,27 +49,33 @@ export class SandSimulation {
     );
   }
 
-  setAsSand(row: number, col: number) {
-    this.sandbox[row][col] = 1;
-  }
+  onMouseMove = (event: MouseEvent) => {
+    if (this.mouseDown) {
+      this.mouseX = event.clientX;
+      this.mouseY = event.clientY;
+    }
+  };
+
+  onMouseUp = (event: MouseEvent) => {
+    this.mouseDown = false;
+  };
 
   onMouseDown = (event: MouseEvent) => {
-    const rect = this.canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    let row = Math.floor(y / this.cols);
-    let col = Math.floor(x / this.rows) + 1;
-
-    this.setAsSand(row, col);
+    this.mouseDown = true;
+    this.mouseX = event.clientX;
+    this.mouseY = event.clientY;
   };
 
   addEventListeners() {
+    this.canvas.addEventListener('mouseup', this.onMouseUp);
     this.canvas.addEventListener('mousedown', this.onMouseDown);
+    this.canvas.addEventListener('mousemove', this.onMouseMove);
   }
 
   removeEventListeners() {
+    this.canvas.removeEventListener('mouseup', this.onMouseUp);
     this.canvas.removeEventListener('mousedown', this.onMouseDown);
+    this.canvas.removeEventListener('mousemove', this.onMouseMove);
   }
 
   render() {
@@ -90,6 +84,16 @@ export class SandSimulation {
         this.drawPixel(this.sandbox[i][j], j, i);
       }
     }
+  }
+
+  sandBlockOutOfBounds(i: number, j: number) {
+    if (i >= this.sandbox.length - 1) {
+      return true;
+    }
+    if (j === 0 || j === this.sandbox[i].length - 1) {
+      return true;
+    }
+    return false;
   }
 
   step() {
@@ -102,29 +106,66 @@ export class SandSimulation {
           continue;
         }
 
-        if (i === this.sandbox.length - 1) {
-          // if final row and final col, do nothing
-          if (j === 0 || j === this.sandbox[i].length - 1) {
+        // sand block
+        if (this.sandbox[i][j] === 1) {
+          if (this.sandBlockOutOfBounds(i, j)) {
             continue;
-          } else {
-            // todo: do something if water
-            continue;
+          }
+          if (this.sandbox[i + 1][j] === 0) {
+            this.resetBlock(i, j);
+            this.sandbox[i + 1][j] = 1;
+          } else if (this.sandbox[i + 1][j + 1] === 0) {
+            this.resetBlock(i, j);
+            this.sandbox[i + 1][j + 1] = 1;
+          } else if (this.sandbox[i + 1][j - 1] === 0) {
+            this.resetBlock(i, j);
+            this.sandbox[i + 1][j - 1] = 1;
           }
         }
 
-        if (this.sandbox[i][j] === 1) {
-          if (this.sandbox[i + 1][j] === 0) {
-            this.sandbox[i][j] = 0;
-            this.sandbox[i + 1][j] = 1;
-          } else if (this.sandbox[i + 1][j + 1] === 0) {
-            this.sandbox[i][j] = 0;
-            this.sandbox[i + 1][j + 1] = 1;
-          } else if (this.sandbox[i + 1][j - 1] === 0) {
-            this.sandbox[i][j] = 0;
-            this.sandbox[i + 1][j - 1] = 1;
+        // water block
+        if (this.sandbox[i][j] === 2) {
+          if (i + 1 < this.sandbox.length && this.sandbox[i + 1][j] === 0) {
+            this.resetBlock(i, j);
+            this.sandbox[i + 1][j] = 2;
+          } else if (
+            i + 1 < this.sandbox.length &&
+            this.sandbox[i + 1][j + 1] === 0
+          ) {
+            this.resetBlock(i, j);
+            this.sandbox[i + 1][j + 1] = 2;
+          } else if (
+            i + 1 < this.sandbox.length &&
+            this.sandbox[i + 1][j - 1] === 0
+          ) {
+            this.resetBlock(i, j);
+            this.sandbox[i + 1][j - 1] = 2;
+          } else if (j - 1 > 0 && this.sandbox[i][j - 1] === 0) {
+            this.resetBlock(i, j);
+            this.sandbox[i][j - 1] = 2;
+          } else if (
+            j + 1 < this.sandbox[i].length &&
+            this.sandbox[i][j + 1] === 0
+          ) {
+            this.resetBlock(i, j);
+            this.sandbox[i][j + 1] = 2;
           }
         }
       }
     }
+
+    // add sand after the render step
+    if (this.mouseDown) {
+      const rect = this.canvas.getBoundingClientRect();
+      const x = this.mouseX - rect.left;
+      const y = this.mouseY - rect.top;
+      const row = Math.round(y / this.cols);
+      const col = Math.round(x / this.rows);
+      this.sandbox[row][col] = 2;
+    }
+  }
+
+  resetBlock(i: number, j: number) {
+    this.sandbox[i][j] = 0;
   }
 }

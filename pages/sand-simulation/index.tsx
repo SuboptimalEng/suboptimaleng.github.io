@@ -11,7 +11,7 @@ export default function SandSimulationGame() {
 
     let prevTime = 0;
     const update = (t: number) => {
-      const currTime = Math.floor(t / 100);
+      const currTime = Math.floor(t / 50);
       // console.log(prevTime, currTime);
       if (prevTime !== currTime) {
         ss.step();
