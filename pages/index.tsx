@@ -33,17 +33,17 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Gamedex</title>
+        <title>Suboptimal Engineer</title>
         <meta
           property="og:image"
-          content="https://suboptimaleng.github.io/thumbnail_dd.png"
+          content="https://suboptimaleng.github.io/thumbnail_se.png"
         />
-        <meta property="og:title" content="Gamedex" />
+        <meta property="og:title" content="Suboptimal Engineer" />
         <meta
           property="description"
-          content="3D game dev experiments built for the web with Three.js and React. Maintained by (Indian Software Engineer + YouTuber) SuboptimalEng."
+          content="Indian software engineer and YouTuber interested in web development and graphics programming."
         />
-        <link rel="icon" href="/profile_dd.png" />
+        <link rel="icon" href="/profile_se.png" />
 
         <script
           async
@@ -66,11 +66,11 @@ export default function Home() {
       <div className="min-h-screen bg-black text-white flex flex-col justify-center">
         <div className="flex justify-center">
           <div className="flex flex-col space-y-4">
-            <div className="text-7xl pb-8">gamedex</div>
+            <div className="text-5xl pb-8">suboptimal</div>
 
             <Link href="/shader-sandbox">
               <a>
-                <div className="text-5xl hover:bg-white hover:text-black">
+                <div className="text-4xl hover:bg-white hover:text-black">
                   shader sandbox
                 </div>
               </a>
@@ -78,7 +78,7 @@ export default function Home() {
 
             <Link href="/snakes-and-portals">
               <a>
-                <div className="text-5xl hover:bg-white hover:text-black">
+                <div className="text-4xl hover:bg-white hover:text-black">
                   snakes + portals
                 </div>
               </a>
@@ -86,7 +86,7 @@ export default function Home() {
 
             <Link href="/frantic-architect">
               <a>
-                <div className="text-5xl hover:bg-white hover:text-black">
+                <div className="text-4xl hover:bg-white hover:text-black">
                   frantic architect
                 </div>
               </a>
@@ -103,7 +103,7 @@ export default function Home() {
                   >
                     <FontAwesomeIcon
                       icon={social.icon}
-                      className={'relative z-10 h-16 ' + social.hoverClass}
+                      className={'relative z-10 h-12 ' + social.hoverClass}
                     ></FontAwesomeIcon>
                   </a>
                 );
