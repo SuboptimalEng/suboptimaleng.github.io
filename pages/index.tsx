@@ -66,7 +66,7 @@ export default function Home() {
       <div className="min-h-screen bg-black text-white flex flex-col justify-center">
         <div className="flex justify-center">
           <div className="flex flex-col space-y-4">
-            <div className="text-5xl pb-8">suboptimal</div>
+            <div className="text-6xl pb-8">sub eng</div>
 
             <Link href="/shader-sandbox">
               <a>
@@ -103,7 +103,7 @@ export default function Home() {
                   >
                     <FontAwesomeIcon
                       icon={social.icon}
-                      className={'relative z-10 h-12 ' + social.hoverClass}
+                      className={'relative z-10 h-14 ' + social.hoverClass}
                     ></FontAwesomeIcon>
                   </a>
                 );
