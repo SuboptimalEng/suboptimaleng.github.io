@@ -87,12 +87,12 @@ void main() {
       <div className="absolute inset-x-8 inset-y-24">
         <div className="flex flex-col h-full w-full place-items-center justify-center">
           <div className="absolute -top-9 left-0">
-            <div
+            <button
               onClick={toggleEditor}
               className="border-2 p-1 bg-black text-white text-xs opacity-75"
             >
               {showEditor ? <div>Hide Editor</div> : <div>Show Editor</div>}
-            </div>
+            </button>
           </div>
           {showEditor && (
             <CodeMirror
