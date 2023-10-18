@@ -8,9 +8,8 @@ export default function SnakeGame() {
   const windowRef = useRef(0);
 
   useEffect(() => {
-    Helper.maybeCreateCanvas();
-
-    const test = new SceneInit('myThreeJsCanvas');
+    const canvasId = Helper.maybeCreateCanvas();
+    const test = new SceneInit(canvasId);
 
     const board = new Board();
     test.scene.add(board.gg);
@@ -50,7 +49,7 @@ export default function SnakeGame() {
 
   return (
     <div>
-      <canvas id="myThreeJsCanvas" />
+      <canvas id={Helper.getCanvasId()} />
     </div>
   );
 }

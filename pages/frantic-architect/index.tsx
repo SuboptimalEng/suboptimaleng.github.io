@@ -10,9 +10,8 @@ export default function FranticArchitectGame() {
   let gui: any;
 
   useEffect(() => {
-    Helper.maybeCreateCanvas();
-
-    const test = new SceneInit('myThreeJsCanvas');
+    const canvasId = Helper.maybeCreateCanvas();
+    const test = new SceneInit(canvasId);
 
     const franticArchitect = new FranticArchitect();
     test.scene.add(franticArchitect.gg);
@@ -84,7 +83,7 @@ export default function FranticArchitectGame() {
 
   return (
     <div>
-      <canvas id="myThreeJsCanvas" />
+      <canvas id={Helper.getCanvasId()} />
     </div>
   );
 }

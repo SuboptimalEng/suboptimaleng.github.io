@@ -215,9 +215,8 @@ void main() {
 `);
 
   useEffect(() => {
-    Helper.maybeCreateCanvas();
-
-    const test = new SceneInit('myThreeJsCanvas');
+    const canvasId = Helper.maybeCreateCanvas();
+    const test = new SceneInit(canvasId);
 
     const shaderSandbox = new ShaderSandbox(test.uniforms, fragmentShader);
 
@@ -256,7 +255,7 @@ void main() {
 
   return (
     <div>
-      <canvas id="myThreeJsCanvas" />
+      <canvas id={Helper.getCanvasId()} />
       <div className="absolute inset-x-8 inset-y-24">
         <div className="flex flex-col h-full w-full place-items-center justify-center">
           <div className="absolute -top-9 left-0">
