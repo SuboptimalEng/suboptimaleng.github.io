@@ -30,6 +30,9 @@ export default function Home() {
     },
   ];
 
+  // const fontSize = 'text-3xl hover:bg-white hover:text-black';
+  const fontSize = 'text-4xl hover:bg-white hover:text-black';
+
   return (
     <div>
       <Head>
@@ -70,25 +73,31 @@ export default function Home() {
 
             <Link href="/shader-sandbox">
               <a>
-                <div className="text-4xl hover:bg-white hover:text-black">
-                  shader sandbox
-                </div>
+                <div className={fontSize}>shader sandbox</div>
               </a>
             </Link>
 
+            {/* <Link href="/three-js-experiments">
+              <a>
+                <div className={fontSize}>three.js experiments</div>
+              </a>
+            </Link>
+
+            <Link href="/webgpu-experiments">
+              <a>
+                <div className={fontSize}>webgpu experiments</div>
+              </a>
+            </Link> */}
+
             <Link href="/snakes-and-portals">
               <a>
-                <div className="text-4xl hover:bg-white hover:text-black">
-                  snakes + portals
-                </div>
+                <div className={fontSize}>snakes + portals</div>
               </a>
             </Link>
 
             <Link href="/frantic-architect">
               <a>
-                <div className="text-4xl hover:bg-white hover:text-black">
-                  frantic architect
-                </div>
+                <div className={fontSize}>frantic architect</div>
               </a>
             </Link>
             <div className="flex pt-8 space-x-4">
