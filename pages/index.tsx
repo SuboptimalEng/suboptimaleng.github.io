@@ -5,6 +5,7 @@ import {
   faTwitter,
   faYoutube,
   faGithub,
+  faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 import { GA_TRACKING_ID } from '../utils/gtag';
 
@@ -27,6 +28,12 @@ export default function Home() {
       name: 'github',
       href: 'https://www.github.com/SuboptimalEng',
       hoverClass: 'hover:text-github',
+    },
+    {
+      icon: faInstagram,
+      name: 'instagram',
+      href: 'https://www.instagram.com/SuboptimalEng',
+      hoverClass: 'hover:text-instagram',
     },
   ];
 
@@ -70,6 +77,13 @@ export default function Home() {
         <div className="flex justify-center">
           <div className="flex flex-col space-y-4">
             <div className="text-6xl pb-8">sub eng</div>
+
+            {/* <Link href="https://suboptimaleng.github.io/random"> */}
+            <Link href="/slime-sim-webgpu">
+              <a>
+                <div className={fontSize}>slime-sim-webgpu</div>
+              </a>
+            </Link>
 
             <Link href="/shader-sandbox">
               <a>
